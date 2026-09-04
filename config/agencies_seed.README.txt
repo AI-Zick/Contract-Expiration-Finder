@@ -1,0 +1,7 @@
+APPROXIMATE reference data for scoring only. sworn_officers figures are
+rounded order-of-magnitude values used to weight agency size in the priority
+score -- they are NOT authoritative headcounts. Refresh from the FBI UCR
+"Police Employee Data" release or the BJS LEMAS survey before using them for
+anything but ranking. fiscal_year_start_month is left blank where it was not
+confirmed; blank falls back to the state default (July, or Sep/Oct/Apr for
+TX/AL/MI/NY). Verify a city's budget calendar before acting on its dates.

@@ -1,0 +1,74 @@
+# Data sources.
+#
+# HOW TO BOOTSTRAP THE SOCRATA ENTRIES
+# ------------------------------------
+# Socrata dataset IDs change and cities retire datasets, so none are hardcoded
+# here. Fill them in at runtime:
+#
+#   pdcontracts discover --all          # search every domain below
+#   pdcontracts discover data.cityofchicago.org
+#
+# Paste the dataset id into the matching entry, set enabled: true, then:
+#
+#   pdcontracts doctor                  # confirm it is reachable and mappable
+#
+# Column names are inferred automatically. If a portal is mapped wrong, pin it:
+#   columns: {end_date: contract_expiration, vendor: supplier_name}
+
+sources:
+
+  # --- Federal awards. Works with no setup and no API key. ----------------
+  # Direct federal law enforcement purchases, plus JAG/COPS grants to cities.
+  # A grant naming "records management" is an early buying signal: the money
+  # is appropriated but the vendor has not been chosen yet.
+  - name: usaspending
+    type: usaspending
+    enabled: true
+    include_grants: true
+    years_back: 6
+    keywords:
+      - records management system
+      - computer aided dispatch
+      - mobile data terminal
+      - police records management
+      - law enforcement software
+      - public safety software
+
+  # --- Cooperative purchasing vehicles ------------------------------------
+  # Not agency contracts -- these are the master agreements an agency can buy
+  # off to skip an RFP entirely. See config/cooperative_contracts.csv.
+  - name: cooperative-vehicles
+    type: cooperative
+    enabled: true
+    path: config/cooperative_contracts.csv
+
+  # --- City portals. Run `discover --all` to fill in `dataset`. ------------
+  - {name: chicago,       type: socrata, enabled: false, domain: data.cityofchicago.org,  dataset: "", state: IL, jurisdiction: Chicago}
+  - {name: nyc,           type: socrata, enabled: false, domain: data.cityofnewyork.us,   dataset: "", state: NY, jurisdiction: New York City}
+  - {name: los-angeles,   type: socrata, enabled: false, domain: controllerdata.lacity.org, dataset: "", state: CA, jurisdiction: Los Angeles}
+  - {name: san-francisco, type: socrata, enabled: false, domain: data.sfgov.org,          dataset: "", state: CA, jurisdiction: San Francisco}
+  - {name: austin,        type: socrata, enabled: false, domain: data.austintexas.gov,    dataset: "", state: TX, jurisdiction: Austin}
+  - {name: baltimore,     type: socrata, enabled: false, domain: data.baltimorecity.gov,  dataset: "", state: MD, jurisdiction: Baltimore}
+  - {name: seattle,       type: socrata, enabled: false, domain: data.seattle.gov,        dataset: "", state: WA, jurisdiction: Seattle}
+  - {name: nashville,     type: socrata, enabled: false, domain: data.nashville.gov,      dataset: "", state: TN, jurisdiction: Nashville}
+  - {name: kansas-city,   type: socrata, enabled: false, domain: data.kcmo.org,           dataset: "", state: MO, jurisdiction: Kansas City}
+  - {name: cincinnati,    type: socrata, enabled: false, domain: data.cincinnati-oh.gov,  dataset: "", state: OH, jurisdiction: Cincinnati}
+  - {name: baton-rouge,   type: socrata, enabled: false, domain: data.brla.gov,           dataset: "", state: LA, jurisdiction: Baton Rouge}
+  - {name: honolulu,      type: socrata, enabled: false, domain: data.honolulu.gov,       dataset: "", state: HI, jurisdiction: Honolulu}
+  - {name: oakland,       type: socrata, enabled: false, domain: data.oaklandca.gov,      dataset: "", state: CA, jurisdiction: Oakland}
+  - {name: buffalo,       type: socrata, enabled: false, domain: data.buffalony.gov,      dataset: "", state: NY, jurisdiction: Buffalo}
+  - {name: montgomery-md, type: socrata, enabled: false, domain: data.montgomerycountymd.gov, dataset: "", state: MD, jurisdiction: Montgomery County}
+
+  # --- Statewide portals. These cover every agency in the state that buys
+  # --- through the state contract system -- much higher yield per source.
+  - {name: state-ny,      type: socrata, enabled: false, domain: data.ny.gov,        dataset: "", state: NY}
+  - {name: state-wa,      type: socrata, enabled: false, domain: data.wa.gov,        dataset: "", state: WA}
+  - {name: state-ct,      type: socrata, enabled: false, domain: data.ct.gov,        dataset: "", state: CT}
+  - {name: state-md,      type: socrata, enabled: false, domain: data.maryland.gov,  dataset: "", state: MD}
+  - {name: state-co,      type: socrata, enabled: false, domain: data.colorado.gov,  dataset: "", state: CO}
+  - {name: state-tx,      type: socrata, enabled: false, domain: data.texas.gov,     dataset: "", state: TX}
+  - {name: state-il,      type: socrata, enabled: false, domain: data.illinois.gov,  dataset: "", state: IL}
+  - {name: state-ia,      type: socrata, enabled: false, domain: data.iowa.gov,      dataset: "", state: IA}
+  - {name: state-or,      type: socrata, enabled: false, domain: data.oregon.gov,    dataset: "", state: OR}
+  - {name: state-ut,      type: socrata, enabled: false, domain: data.utah.gov,      dataset: "", state: UT}
+  - {name: state-hi,      type: socrata, enabled: false, domain: data.hawaii.gov,    dataset: "", state: HI}

@@ -1,0 +1,27 @@
+# pdcontracts settings
+
+database: pdcontracts.sqlite
+
+# The product segments your team sells into. Contracts outside this list are
+# still collected (they show you the incumbent's total footprint in an agency)
+# but targeting and reports focus here.
+#   rms             Records Management System
+#   cad             Computer-Aided Dispatch
+#   dispatch_mobile Mobile Data Terminal / mobile field reporting
+# Run `pdcontracts categories` for the full list.
+focus_categories:
+  - rms
+  - cad
+  - dispatch_mobile
+
+# RMS, CAD and MDT are usually bought from one vendor as a single suite
+# procurement. Group them into one opportunity per agency+incumbent so a rep
+# sees one decision, not three rows.
+group_suite_opportunities: true
+
+# Drop records the classifier is not at least this sure about.
+min_classification_confidence: 0.3
+
+# Optional. Raises Socrata rate limits from ~1000/hr to much higher.
+# Free at https://evergreen.data.socrata.com/signup -- or set SOCRATA_APP_TOKEN.
+socrata_app_token: ""

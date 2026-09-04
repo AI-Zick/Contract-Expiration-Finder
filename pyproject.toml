@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdcontracts"
+version = "0.1.0"
+description = "Find expiring police-department software contracts and rank who/when to pitch."
+requires-python = ">=3.9"
+dependencies = [
+    "requests>=2.28",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+pdcontracts = "pdcontracts.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["pdcontracts*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
