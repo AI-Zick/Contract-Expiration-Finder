@@ -98,7 +98,9 @@ def cmd_doctor(args) -> int:
     if not specs:
         print(f"no sources configured in {args.sources}")
         return 1
-    fetcher = HttpFetcher()
+    # A reachability probe must fail fast. Retrying with backoff across every
+    # configured source turns "am I online?" into a multi-minute wait.
+    fetcher = HttpFetcher(timeout=args.timeout, retries=1, delay=0)
     failures = 0
     for spec in specs:
         name = spec.get("name") or spec.get("type", "?")
@@ -194,6 +196,97 @@ def _discover_all(args) -> int:
                 print(f"      columns: {', '.join(cols[:8])}")
     print(f"\n{found} candidate datasets found. Paste ids into {args.sources}, "
           f"set enabled: true, then run: pdcontracts doctor")
+    return 0
+
+
+def cmd_try(args) -> int:
+    """Hit a live public API right now, with no setup at all.
+
+    No database, no config, no API key. This exists to answer one question on a
+    fresh machine -- does this actually reach real government data? -- and to
+    make a network or proxy problem obvious immediately rather than after a
+    long collection run that quietly returns nothing.
+    """
+    from .sources.base import HttpFetcher
+    from .sources.usaspending import USASpendingSource
+
+    keywords = args.keyword or [
+        "police records management system",
+        "computer aided dispatch",
+    ]
+    print("Querying USAspending.gov (live, public, no API key)...")
+    print(f"  keywords: {', '.join(keywords)}\n")
+
+    source = USASpendingSource(
+        {"keywords": keywords, "include_grants": not args.no_grants,
+         "years_back": args.years, "max_pages": 1, "page_size": args.limit},
+        HttpFetcher(timeout=args.timeout, retries=1, delay=0),
+    )
+    result = source.collect()
+
+    if result.status == "error" or (not result.contracts and not result.fetched):
+        print("Could not reach the API.\n")
+        print(f"  {result.message[:400]}\n")
+        print("This is a network problem, not a data problem. Check:")
+        print("  * you are online, and https://api.usaspending.gov is not blocked")
+        print("  * corporate proxy: set HTTPS_PROXY, or run from an unfiltered network")
+        print("  * verify by hand:  curl -s https://api.usaspending.gov/api/v2/"
+              "references/toptier_agencies/ | head -c 200")
+        return 1
+
+    contracts = sorted(
+        result.contracts,
+        key=lambda c: (c.end_date or _dt.date.min),
+        reverse=True,
+    )[:args.limit]
+
+    print(f"Live: {result.fetched} awards returned, {len(result.contracts)} "
+          f"classified as public safety software.\n")
+    print(f"{'EXPIRES':11} {'VENDOR / RECIPIENT':32} {'BUYER':30} {'VALUE':>11}")
+    print("-" * 90)
+    for c in contracts:
+        value = f"${c.total_value:,.0f}" if c.total_value else "-"
+        print(f"{c.end_date.isoformat() if c.end_date else 'unknown':11} "
+              f"{c.vendor_raw[:32]:32} {c.agency_name[:30]:30} {value:>11}")
+    if contracts and contracts[0].source_url:
+        print(f"\nVerify any row at its source, e.g.\n  {contracts[0].source_url}")
+    print("\nThat was one source with no configuration. For the full pipeline:")
+    print("  pdcontracts init && pdcontracts bootstrap --write && pdcontracts collect")
+    return 0
+
+
+def cmd_bootstrap(args) -> int:
+    """Discover, probe and pin real datasets in one command."""
+    from .bootstrap import bootstrap
+
+    settings = load_settings(args.settings)
+    print(f"probing socrata domains in {args.sources} "
+          f"({'writing' if args.write else 'dry run'})\n")
+    results, _ = bootstrap(
+        args.sources,
+        limit=args.limit,
+        app_token=settings.get("socrata_app_token", ""),
+        write=args.write,
+        only=args.only,
+    )
+    if not results:
+        print("every socrata source already has a dataset pinned")
+        return 0
+
+    usable = 0
+    for name, probe in results:
+        if probe.usable:
+            usable += 1
+            print(f"[OK  ] {name:16} {probe.dataset:12} {probe.summary()}")
+            print(f"{'':23} {probe.name[:70]}")
+        else:
+            print(f"[skip] {name:16} {'':12} {probe.summary()}")
+
+    print(f"\n{usable}/{len(results)} domains yielded a usable contract dataset")
+    if usable and not args.write:
+        print("re-run with --write to pin them into the config, then: pdcontracts collect")
+    elif usable:
+        print(f"pinned into {args.sources}. Next: pdcontracts collect")
     return 0
 
 
@@ -511,6 +604,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_init)
 
     p = sub.add_parser("doctor", help="check that configured sources are reachable")
+    p.add_argument("--timeout", type=int, default=10,
+                   help="seconds to wait per source")
     p.set_defaults(func=cmd_doctor)
 
     p = sub.add_parser("discover", help="find contract datasets on a Socrata domain")
@@ -519,6 +614,24 @@ def build_parser() -> argparse.ArgumentParser:
                    help="search every unpinned socrata domain in sources.yml")
     p.add_argument("--limit", type=int, default=15)
     p.set_defaults(func=cmd_discover)
+
+    p = sub.add_parser("try",
+                       help="hit a live public API right now, no setup required")
+    p.add_argument("--keyword", nargs="*", help="search terms")
+    p.add_argument("--limit", type=int, default=15)
+    p.add_argument("--years", type=int, default=6)
+    p.add_argument("--timeout", type=int, default=30)
+    p.add_argument("--no-grants", action="store_true")
+    p.set_defaults(func=cmd_try)
+
+    p = sub.add_parser("bootstrap",
+                       help="find, test and pin real contract datasets automatically")
+    p.add_argument("--write", action="store_true",
+                   help="pin discovered datasets into sources.yml")
+    p.add_argument("--limit", type=int, default=6,
+                   help="candidate datasets to probe per domain")
+    p.add_argument("--only", nargs="*", help="only these source names")
+    p.set_defaults(func=cmd_bootstrap)
 
     p = sub.add_parser("collect", help="run configured sources")
     p.add_argument("--only", nargs="*", help="source names or types to run")

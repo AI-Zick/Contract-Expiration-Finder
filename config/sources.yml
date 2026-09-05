@@ -59,6 +59,24 @@ sources:
   - {name: buffalo,       type: socrata, enabled: false, domain: data.buffalony.gov,      dataset: "", state: NY, jurisdiction: Buffalo}
   - {name: montgomery-md, type: socrata, enabled: false, domain: data.montgomerycountymd.gov, dataset: "", state: MD, jurisdiction: Montgomery County}
 
+  # --- City council agendas (Legistar). Highest-yield source for RMS/CAD/MDT:
+  # --- these buys clear the threshold for a public council vote, so they show
+  # --- up here as a dated resolution naming vendor, term and dollar ceiling,
+  # --- often months before any contract register. No API key. The `client`
+  # --- value is the city's Legistar slug -- check <client>.legistar.com.
+  - {name: leg-chicago,   type: legistar, enabled: true, client: chicago,      state: IL, jurisdiction: Chicago}
+  - {name: leg-nyc,       type: legistar, enabled: true, client: nyc,          state: NY, jurisdiction: New York City}
+  - {name: leg-seattle,   type: legistar, enabled: true, client: seattle,      state: WA, jurisdiction: Seattle}
+  - {name: leg-philly,    type: legistar, enabled: true, client: phila,        state: PA, jurisdiction: Philadelphia}
+  - {name: leg-oakland,   type: legistar, enabled: true, client: oakland,      state: CA, jurisdiction: Oakland}
+  - {name: leg-sanjose,   type: legistar, enabled: true, client: sanjose,      state: CA, jurisdiction: San Jose}
+  - {name: leg-denver,    type: legistar, enabled: true, client: denver,       state: CO, jurisdiction: Denver}
+  - {name: leg-atlanta,   type: legistar, enabled: true, client: atlanta,      state: GA, jurisdiction: Atlanta}
+  - {name: leg-milwaukee, type: legistar, enabled: true, client: milwaukee,    state: WI, jurisdiction: Milwaukee}
+  - {name: leg-baltimore, type: legistar, enabled: true, client: baltimore,    state: MD, jurisdiction: Baltimore}
+  - {name: leg-portland,  type: legistar, enabled: true, client: portland,     state: OR, jurisdiction: Portland}
+  - {name: leg-longbeach, type: legistar, enabled: true, client: longbeach,    state: CA, jurisdiction: Long Beach}
+
   # --- Statewide portals. These cover every agency in the state that buys
   # --- through the state contract system -- much higher yield per source.
   - {name: state-ny,      type: socrata, enabled: false, domain: data.ny.gov,        dataset: "", state: NY}

@@ -112,6 +112,34 @@ def match_vendor(vendor_raw: str) -> Tuple[Optional[Vendor], float]:
     return None, 0.0
 
 
+def match_vendor_in_text(text: str) -> Tuple[Optional[Vendor], str]:
+    """Find a known vendor named anywhere inside a block of text.
+
+    Council resolutions and solicitation notices name the vendor mid-sentence
+    rather than in a dedicated field, so the whole string has to be scanned.
+    Longest match wins, so "Motorola Solutions" is not shadowed by a shorter
+    alias that happens to appear first.
+    """
+    norm = normalize_vendor_name(text)
+    if not norm:
+        return None, ""
+    tokens = norm.split()
+    best: Optional[Vendor] = None
+    best_len = 0
+    max_span = min(len(tokens), 5)
+    for span in range(max_span, 0, -1):
+        for start in range(0, len(tokens) - span + 1):
+            candidate = " ".join(tokens[start:start + span])
+            if span == 1 and len(candidate) < 5:
+                continue
+            vendor = VENDOR_INDEX.get(candidate)
+            if vendor and span > best_len:
+                best, best_len = vendor, span
+        if best:
+            break
+    return best, (best.canonical if best else "")
+
+
 def category_from_text(text: str) -> Tuple[Optional[str], float]:
     """Infer a category from free text. Longer phrase matches win."""
     if not text:

@@ -156,3 +156,65 @@ def test_min_value_filter(db, capsys):
     capsys.readouterr()
     run(db, "targets", "--today", "2026-09-04", "--min-value", "5000000")
     assert "No targets matched" in capsys.readouterr().out
+
+
+# --- `try`: the zero-config live probe ------------------------------------
+
+USASPENDING_PAGE = {
+    "results": [{
+        "Award ID": "GS-1234", "Recipient Name": "MARK43 INC",
+        "Start Date": "2025-01-01", "End Date": "2029-12-31",
+        "Award Amount": 4_500_000,
+        "Description": "RECORDS MANAGEMENT SYSTEM SOFTWARE",
+        "Awarding Sub Agency": "Federal Bureau of Investigation",
+        "Place of Performance State Code": "VA",
+        "generated_internal_id": "CONT_AWD_1",
+    }],
+    "page_metadata": {"hasNext": False},
+}
+
+
+def _patch_fetcher(monkeypatch, fetcher):
+    import pdcontracts.sources.base as base
+
+    monkeypatch.setattr(base, "HttpFetcher", lambda *a, **k: fetcher)
+
+
+def test_try_prints_live_results(monkeypatch, capsys, db):
+    from conftest import FakeFetcher
+
+    _patch_fetcher(monkeypatch, FakeFetcher(responses={"spending_by_award": USASPENDING_PAGE}))
+    assert run(db, "try") == 0
+    out = capsys.readouterr().out
+    assert "MARK43 INC" in out
+    assert "2029-12-31" in out
+    assert "usaspending.gov/award/CONT_AWD_1" in out
+
+
+def test_try_explains_a_blocked_network_instead_of_failing_silently(monkeypatch, capsys, db):
+    """A blocked proxy must read as a network problem, not an empty result."""
+    from conftest import FakeFetcher
+
+    class Blocked(FakeFetcher):
+        def post_json(self, url, payload, headers=None):
+            from pdcontracts.sources.base import FetchError
+
+            raise FetchError("Tunnel connection failed: 403 Forbidden")
+
+    _patch_fetcher(monkeypatch, Blocked())
+    assert run(db, "try") == 1
+    out = capsys.readouterr().out
+    assert "network problem, not a data problem" in out
+    assert "403" in out
+    assert "curl" in out
+
+
+def test_try_needs_no_database_or_config(monkeypatch, capsys, tmp_path):
+    """It must work on a fresh clone before init has ever run."""
+    from conftest import FakeFetcher
+
+    _patch_fetcher(monkeypatch, FakeFetcher(responses={"spending_by_award": USASPENDING_PAGE}))
+    missing = str(tmp_path / "does-not-exist.sqlite")
+    assert main(["--db", missing, "try"]) == 0
+    assert "MARK43" in capsys.readouterr().out
+    assert not Path(missing).exists()

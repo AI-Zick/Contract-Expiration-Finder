@@ -20,21 +20,81 @@ There is no national database of local police software contracts, and any
 vendor who sells you one is selling a partial scrape. Roughly 18,000 US law
 enforcement agencies buy independently, and their contract data is scattered:
 
+**These contracts are public records.** Nothing here scrapes anything private
+or requires a vendor data subscription. The catch is that "public" does not
+mean "in one place" — it means 18,000 agencies each publishing, or not
+publishing, on their own terms.
+
 | Where contracts live | Coverage | This tool |
 |---|---|---|
+| City council agendas (Legistar) | ~hundreds of cities, and the **best source for RMS/CAD/MDT** | Automated, no API key |
 | Federal awards (USAspending.gov) | Federal LE agencies + DOJ grants to cities | Automated, no API key |
-| City open-data portals (Socrata) | A few hundred large cities | Automated, needs dataset discovery |
-| State procurement portals | Varies wildly by state | Partly automated (Socrata states) |
+| City open-data portals (Socrata) | A few hundred large cities | Automated via `bootstrap` |
+| State procurement portals | Varies wildly by state | Socrata states automated; others via CSV export |
 | Cooperative purchasing vehicles | Thousands of agencies buy off these | Maintained CSV |
 | **Everything else** | **The large majority of agencies** | **Records requests** |
 
-That last row is the honest part. For most agencies the only way to get a
-contract expiration date is to ask for it, so this tool generates the request
-letters as a first-class feature rather than pretending the gap does not exist.
+The first row deserves emphasis for your use case. An RMS or CAD replacement
+costs millions and runs five to seven years, which in nearly every city puts it
+over the threshold requiring a **public council vote**. So it surfaces as a
+dated council resolution:
 
-Expect to build coverage in this order: federal awards and big-city portals get
-you a starting pipeline in an afternoon; the mid-size agencies where most deals
-actually live come from records requests you send in batches.
+> *"Resolution authorizing a five-year agreement with Tyler Technologies for a
+> police records management system in an amount not to exceed $2,450,000, with
+> two additional one-year renewal options"*
+
+Vendor, term, ceiling, renewals, date — everything the pitch engine needs, and
+it appears when the deal is approved rather than in an annual data release.
+Legistar exposes this for several hundred cities with no API key.
+
+For the agencies that publish nothing, a records request is the route, which is
+why the letter generator is a first-class feature rather than an afterthought.
+
+### Prove it reaches real data first
+
+```bash
+pdcontracts try
+```
+
+No database, no config, no API key. It queries USAspending.gov live and prints
+real federal law-enforcement software awards with links you can click through
+to verify. If your network or a corporate proxy is blocking the API, this says
+so explicitly rather than returning an empty pipeline that looks like "no data
+exists".
+
+### Getting real data, start to finish
+
+```bash
+pdcontracts init
+pdcontracts bootstrap --write     # find, test and pin real datasets
+pdcontracts collect               # council agendas + federal awards + portals
+pdcontracts serve                 # look at the pipeline
+```
+
+`bootstrap` is the step that used to be manual. For every configured city it
+searches the Socrata catalog, **probes each candidate dataset with a real
+request**, checks whether the column mapper can find a vendor and an expiration
+in it and whether it actually contains police rows, then pins the winners into
+`config/sources.yml`. Run it without `--write` first to see what it found.
+
+Coverage builds in this order: council agendas and federal awards give you a
+real pipeline the first afternoon; big-city portals add contract registers;
+the mid-size agencies where most deals live come from records requests you send
+in batches.
+
+### Sources worth adding by hand
+
+Not everything has an API. These publish searchable contract data that exports
+to CSV, which `pdcontracts import` ingests directly:
+
+- **State comptrollers / transparency portals** — Texas (CPA), Florida (FACTS),
+  Ohio, Virginia (eVA), Washington, New York (OpenBook). Statewide contracts
+  cover every agency buying through the state vehicle.
+- **Cooperative purchasing** — Sourcewell, NASPO ValuePoint, OMNIA, BuyBoard,
+  HGACBuy, TIPS. These publish master agreement expirations *and* which
+  agencies bought off them.
+- **Commercial aggregators** — GovSpend, BidPrime, Deltek. Paid, and they are
+  scraping the same public sources, but they save time on the long tail.
 
 ---
 
@@ -243,7 +303,9 @@ individual contracts.
 | Command | Purpose |
 |---|---|
 | `init` | Create the database, load agency reference data |
-| `discover [domain] [--all]` | Find contract datasets on Socrata portals |
+| `try` | Hit a live public API immediately, no setup |
+| `bootstrap [--write]` | Find, probe and pin real datasets automatically |
+| `discover [domain] [--all]` | Search a Socrata portal by hand |
 | `doctor` | Check every configured source is reachable and mappable |
 | `collect [--only X] [--state ST]` | Run the collectors |
 | `import FILE` | Load a CSV (records responses, exports, purchased lists) |
@@ -289,6 +351,10 @@ Motorola radio contract is infrastructure rather than a software deal.
 - **Cooperative contract dates ship unverified** and must be filled in.
 - **Inferred expirations** (start date + typical term, when a source gives no
   end date) are flagged in the rationale. Confirm before acting.
+- **Council-derived expirations are computed**, not quoted: the resolution
+  states a term, and the end date is that term added to the approval date. The
+  executed contract may start weeks later. Treat these as accurate to the month
+  and confirm before acting.
 - Everything collected here is public procurement data. Confirm expiration and
   renewal terms with the agency before committing to a plan.
 
@@ -296,7 +362,7 @@ Motorola radio contract is infrastructure rather than a software deal.
 
 ```bash
 pip install -e ".[dev]"
-pytest              # 159 tests, no network required
+pytest              # 190 tests, no network required
 ```
 
 Connectors take an injected HTTP fetcher, so the whole suite runs offline
