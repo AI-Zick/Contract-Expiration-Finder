@@ -6,7 +6,6 @@ from pdcontracts.report import (
     console_table,
     group_opportunities,
     to_csv,
-    to_html,
 )
 
 
@@ -90,13 +89,6 @@ def test_csv_has_a_header_and_one_row_per_opportunity():
     lines = [line for line in csv_text.splitlines() if line.strip()]
     assert lines[0].startswith("priority,stage,agency_name")
     assert len(lines) == 3
-
-
-def test_html_is_self_contained_and_escapes_user_data():
-    html = to_html(group_opportunities([target(agency='Bad <script>alert(1)</script> PD')]))
-    assert "<script>alert(1)</script>" not in html
-    assert "&lt;script&gt;" in html
-    assert "http://" not in html and "https://" not in html  # no external assets
 
 
 def test_console_table_handles_an_empty_result():

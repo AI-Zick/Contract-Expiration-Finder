@@ -12,7 +12,6 @@ from __future__ import annotations
 
 import csv
 import datetime as _dt
-import html
 import io
 from collections import defaultdict
 from dataclasses import dataclass, field
@@ -123,7 +122,7 @@ def group_opportunities(targets: List[Target]) -> List[Opportunity]:
             opp.rationale.insert(
                 0,
                 f"{len(members)} contracts with {opp.incumbent} at this agency "
-                f"({opp.category_labels}) -- likely one suite decision.",
+                f"({opp.category_labels}) \u2014 likely one suite decision.",
             )
         out.append(opp)
 
@@ -221,115 +220,3 @@ def to_csv(opportunities: List[Opportunity]) -> str:
             }
         )
     return buffer.getvalue()
-
-
-# --- html -----------------------------------------------------------------
-
-_HTML_HEAD = """<!doctype html>
-<meta charset="utf-8">
-<title>Police software contract pipeline</title>
-<style>
-  :root { color-scheme: light dark; --bg:#fbfbfa; --fg:#1c1c1a; --muted:#6b6b66;
-          --line:#e3e3df; --card:#fff; --accent:#8a3324; }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg:#16161a; --fg:#ececea; --muted:#9a9a95; --line:#2c2c31; --card:#1e1e23; }
-  }
-  body { margin:0; background:var(--bg); color:var(--fg);
-         font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
-  .wrap { max-width:1180px; margin:0 auto; padding:32px 20px 64px; }
-  h1 { font-size:24px; margin:0 0 4px; letter-spacing:-0.01em; }
-  .sub { color:var(--muted); margin:0 0 24px; }
-  .stats { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:24px; }
-  .stat { background:var(--card); border:1px solid var(--line); border-radius:8px;
-          padding:12px 16px; min-width:120px; }
-  .stat b { display:block; font-size:20px; }
-  .stat span { color:var(--muted); font-size:12px; text-transform:uppercase;
-               letter-spacing:.05em; }
-  .scroll { overflow-x:auto; border:1px solid var(--line); border-radius:8px;
-            background:var(--card); }
-  table { border-collapse:collapse; width:100%; font-size:13px; }
-  th,td { text-align:left; padding:9px 12px; border-bottom:1px solid var(--line);
-          vertical-align:top; white-space:nowrap; }
-  th { font-size:11px; text-transform:uppercase; letter-spacing:.05em;
-       color:var(--muted); position:sticky; top:0; background:var(--card); }
-  tr:last-child td { border-bottom:none; }
-  td.wrap-cell { white-space:normal; min-width:280px; color:var(--muted); }
-  .pri { font-variant-numeric:tabular-nums; font-weight:600; }
-  .tag { display:inline-block; padding:2px 8px; border-radius:99px; font-size:11px;
-         font-weight:600; }
-  .s-pitch_now { background:#1f7a4d22; color:#1f7a4d; }
-  .s-procurement_live { background:#b4690022; color:#b46900; }
-  .s-too_early { background:#5a5a5a22; color:var(--muted); }
-  .s-expired, .s-late { background:#8a332422; color:var(--accent); }
-  .s-unknown { background:#5a5a5a22; color:var(--muted); }
-  footer { color:var(--muted); font-size:12px; margin-top:28px; }
-</style>
-"""
-
-
-def to_html(opportunities: List[Opportunity], generated: Optional[_dt.date] = None,
-            note: str = "") -> str:
-    generated = generated or _dt.date.today()
-    by_stage: Dict[str, int] = defaultdict(int)
-    for opp in opportunities:
-        by_stage[opp.stage] += 1
-    total_value = sum(o.annual_value or 0 for o in opportunities)
-
-    parts = [_HTML_HEAD, '<div class="wrap">']
-    parts.append("<h1>Police software contract pipeline</h1>")
-    parts.append(
-        f'<p class="sub">{len(opportunities)} opportunities &middot; generated '
-        f'{generated:%d %b %Y}{" &middot; " + html.escape(note) if note else ""}</p>'
-    )
-
-    parts.append('<div class="stats">')
-    parts.append(
-        f'<div class="stat"><b>{by_stage.get("pitch_now", 0)}</b>'
-        f'<span>Pitch now</span></div>'
-    )
-    parts.append(
-        f'<div class="stat"><b>{by_stage.get("procurement_live", 0)}</b>'
-        f'<span>Procurement live</span></div>'
-    )
-    parts.append(
-        f'<div class="stat"><b>{by_stage.get("too_early", 0)}</b>'
-        f'<span>Watchlist</span></div>'
-    )
-    parts.append(
-        f'<div class="stat"><b>{_money(total_value)}</b>'
-        f'<span>Annual value in view</span></div>'
-    )
-    parts.append("</div>")
-
-    parts.append('<div class="scroll"><table><thead><tr>')
-    for col in ["#", "Priority", "Stage", "Agency", "ST", "Incumbent", "Systems",
-                "Annual", "Expires", "Pitch by", "Action"]:
-        parts.append(f"<th>{col}</th>")
-    parts.append("</tr></thead><tbody>")
-
-    for i, opp in enumerate(opportunities, 1):
-        parts.append("<tr>")
-        parts.append(f"<td>{i}</td>")
-        parts.append(f'<td class="pri">{opp.priority:.1f}</td>')
-        parts.append(
-            f'<td><span class="tag s-{html.escape(opp.stage)}">'
-            f'{html.escape(STAGE_LABEL.get(opp.stage, opp.stage))}</span></td>'
-        )
-        parts.append(f"<td>{html.escape(opp.agency_name)}</td>")
-        parts.append(f"<td>{html.escape(opp.state)}</td>")
-        parts.append(f"<td>{html.escape(opp.incumbent)}</td>")
-        parts.append(f"<td>{html.escape(opp.category_labels)}</td>")
-        parts.append(f"<td>{_money(opp.annual_value)}</td>")
-        parts.append(f"<td>{_date(opp.earliest_end)}</td>")
-        parts.append(f"<td>{_date(opp.budget_deadline)}</td>")
-        parts.append(f'<td class="wrap-cell">{html.escape(opp.action)}</td>')
-        parts.append("</tr>")
-
-    parts.append("</tbody></table></div>")
-    parts.append(
-        "<footer>Dates are derived from public procurement records and modeled "
-        "budget calendars. Confirm expiration and renewal terms with the agency "
-        "before acting.</footer>"
-    )
-    parts.append("</div>")
-    return "\n".join(parts)

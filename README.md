@@ -52,9 +52,16 @@ Python 3.9+. Dependencies are `requests` and `PyYAML`.
 
 ```bash
 pdcontracts init                                   # create the database
-pdcontracts import samples/sample_foia_response.csv --state IL
+pdcontracts import samples/demo_pipeline.csv       # 61 sample contracts
+pdcontracts serve                                  # open the dashboard
+```
+
+That opens a web dashboard at `http://127.0.0.1:8000` — the version your sales
+team actually uses. Everything below is also available on the command line.
+
+```bash
 pdcontracts targets --top 20                       # who to pitch, in order
-pdcontracts report --format html -o out/pipeline.html
+pdcontracts report --format html -o out/pipeline.html   # shareable single file
 ```
 
 Output:
@@ -70,6 +77,37 @@ Output:
 `PITCH BY` is the column that matters. It is not the expiration date — it is the
 date the agency's budget request is due for the fiscal year in which the
 contract expires. Miss it and you are selling into next cycle.
+
+---
+
+## The dashboard
+
+```bash
+pdcontracts serve                    # localhost:8000, rebuilt from the db each request
+pdcontracts serve --state TX CA --stage pitch_now
+```
+
+**Pitch calendar** is the default view. Each row is one agency; the solid bar is
+the window where a pitch can still change the outcome, the thin line runs on to
+expiration ◆, and the vertical rule is today. Colour is the stage. Because the
+bar ends at the budget deadline rather than the expiration, you can see at a
+glance which deals are still winnable and which are already decided.
+
+Gridlines are calendar years, not fiscal years — agencies run different fiscal
+calendars, so a shared fiscal grid would be wrong for most rows. Each row marks
+its own budget deadline instead.
+
+Click any row for the reasoning: the fiscal year the money comes from, the
+category's term and stickiness, renewal options, and every underlying contract.
+**Table** view gives sortable columns; **Copy CSV** takes the current filter
+into your CRM.
+
+The server binds to `127.0.0.1` by default. A contract pipeline is commercially
+sensitive — use `--host 0.0.0.0` only deliberately.
+
+For sharing outside your network, `report --format html -o file.html` writes the
+same dashboard as one self-contained file with the data baked in. No server, no
+build step, no external assets beyond a webfont.
 
 ---
 
@@ -209,8 +247,9 @@ individual contracts.
 | `doctor` | Check every configured source is reachable and mappable |
 | `collect [--only X] [--state ST]` | Run the collectors |
 | `import FILE` | Load a CSV (records responses, exports, purchased lists) |
+| `serve [--port N]` | Open the interactive dashboard in a browser |
 | `targets [--detail] [--json]` | Ranked list of who to pitch and when |
-| `report --format html\|csv` | Written briefing for the team |
+| `report --format html\|csv` | Self-contained dashboard, or CSV |
 | `foia [--out DIR]` | Generate records request letters |
 | `vehicles` | Cooperative purchasing vehicles |
 | `stats [--log]` | Coverage and collection history |
@@ -257,11 +296,20 @@ Motorola radio contract is infrastructure rather than a software deal.
 
 ```bash
 pip install -e ".[dev]"
-pytest              # 142 tests, no network required
+pytest              # 159 tests, no network required
 ```
 
 Connectors take an injected HTTP fetcher, so the whole suite runs offline
 against recorded portal responses.
+
+The dashboard is one HTML asset (`pdcontracts/assets/dashboard.html`) with a
+JSON placeholder. `pdcontracts/web.py` injects the payload and either wraps it
+in a document shell (server, export) or returns the bare fragment (for hosts
+that supply their own). One UI, three surfaces.
+
+Its stage colours were checked with a colourblind-safety validator rather than
+chosen by eye: green/amber/blue/crimson clear ΔE 10+ separation under
+deuteranopia and protanopia, in both light and dark steps.
 
 ### Adding a source
 

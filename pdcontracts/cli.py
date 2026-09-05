@@ -22,11 +22,11 @@ from .report import (
     detail,
     group_opportunities,
     to_csv,
-    to_html,
 )
 from .sources import registry
 from .sources.base import HttpFetcher
 from .store import Store
+from .web import render_dashboard
 from .taxonomy import CATEGORIES, VENDORS
 
 
@@ -310,9 +310,16 @@ def cmd_report(args) -> int:
     opportunities = _load_targets(args, store, settings)
 
     categories = _focus(args, settings)
-    note = f"focus: {', '.join(categories)}" if categories else "all categories"
+    today = _dt.date.fromisoformat(args.today) if args.today else None
     if args.format == "html":
-        content = to_html(opportunities, note=note)
+        content = render_dashboard(
+            opportunities,
+            focus=categories,
+            today=today,
+            standalone=True,
+            sample=bool(args.sample_note),
+            sample_note=args.sample_note or "",
+        )
     elif args.format == "csv":
         content = to_csv(opportunities)
     else:
@@ -325,6 +332,30 @@ def cmd_report(args) -> int:
     else:
         print(content)
     store.close()
+    return 0
+
+
+def cmd_serve(args) -> int:
+    """Open the pipeline as a local web dashboard."""
+    from .server import serve
+
+    settings = load_settings(args.settings)
+    db_path = args.db or settings["database"]
+
+    def builder():
+        # A fresh store per request so a collection run in another terminal is
+        # picked up on refresh rather than requiring a restart.
+        store = Store(db_path)
+        try:
+            opportunities = _load_targets(args, store, settings)
+            focus = _focus(args, settings) or []
+            today = _dt.date.fromisoformat(args.today) if args.today else _dt.date.today()
+            return opportunities, focus, today
+        finally:
+            store.close()
+
+    serve(builder, host=args.host, port=args.port,
+          open_browser=not args.no_browser, quiet=args.quiet)
     return 0
 
 
@@ -531,7 +562,18 @@ def build_parser() -> argparse.ArgumentParser:
     add_target_filters(p)
     p.add_argument("--format", choices=["html", "csv", "text"], default="html")
     p.add_argument("--out", "-o")
+    p.add_argument("--sample-note", default="",
+                   help="mark the export as sample data with this caption")
     p.set_defaults(func=cmd_report)
+
+    p = sub.add_parser("serve", help="open the pipeline as a local web dashboard")
+    add_target_filters(p)
+    p.add_argument("--port", type=int, default=8000)
+    p.add_argument("--host", default="127.0.0.1",
+                   help="bind address; localhost by default")
+    p.add_argument("--no-browser", action="store_true")
+    p.add_argument("--quiet", action="store_true")
+    p.set_defaults(func=cmd_serve)
 
     p = sub.add_parser("foia", help="generate public records request letters")
     p.add_argument("--agency", help="single agency name")

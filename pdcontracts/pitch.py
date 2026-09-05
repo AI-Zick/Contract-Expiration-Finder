@@ -122,6 +122,8 @@ def build_target(
         category=contract.category,
         end_date=end_date,
         annual_value=annual,
+        description=contract.description,
+        contract_number=contract.contract_number,
         contract_fingerprint=contract.fingerprint,
         source=contract.source,
         source_url=contract.source_url,
@@ -193,7 +195,7 @@ def build_target(
         stage = "procurement_live"
         timing = 0.6
         action = (
-            f"Budget request already filed. Compete on the solicitation -- ask "
+            f"Budget request already filed. Compete on the solicitation \u2014 ask "
             f"procurement whether an RFP is planned before {end_date:%b %Y}."
         )
     elif today <= end_date:
@@ -208,7 +210,7 @@ def build_target(
         timing = 0.35
         action = (
             f"Contract expired {end_date:%b %Y} with no newer record found. "
-            f"Likely extended or auto-renewed -- confirm current status; an "
+            f"Likely extended or auto-renewed \u2014 confirm current status; an "
             f"agency operating on an extension is unusually reachable."
         )
         rationale.append("Past expiration with no successor contract in the data.")
@@ -217,7 +219,7 @@ def build_target(
         timing *= 0.75
     if contract.renewal_options:
         rationale.append(
-            f"{contract.renewal_options} renewal option(s) on the contract -- the "
+            f"{contract.renewal_options} renewal option(s) on the contract \u2014 the "
             f"buyer can extend without re-bidding, so treat the date as the "
             f"earliest decision point, not a guaranteed one."
         )

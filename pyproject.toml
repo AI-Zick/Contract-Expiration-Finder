@@ -21,5 +21,8 @@ pdcontracts = "pdcontracts.cli:main"
 [tool.setuptools.packages.find]
 include = ["pdcontracts*"]
 
+[tool.setuptools.package-data]
+pdcontracts = ["assets/*.html"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]

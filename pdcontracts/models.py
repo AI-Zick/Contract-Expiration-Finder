@@ -199,6 +199,8 @@ class Target:
     action: str = ""
     rationale: List[str] = field(default_factory=list)
 
+    description: str = ""
+    contract_number: str = ""
     contract_fingerprint: str = ""
     source: str = ""
     source_url: str = ""

@@ -1,0 +1,62 @@
+Department,State,Vendor,Description,Start,Expiration,Amount,ContractNo,RenewalOptions
+Harborview Police Department,WA,Caliber Public Safety,Hosted records management system,2024-02-01,2031-01-31,829616,WA-26-963,0
+Northgate Police Department,OR,Caliber Public Safety,Hosted records management system,2022-07-31,2027-07-31,59362,OR-22-938,1
+Northgate Police Department,OR,Axon,Body worn camera program and Evidence.com storage,2025-06-01,2028-05-31,80000,OR-21-525,1
+Cedar Bluff Police Department,IA,SOMA Global,Cloud public safety records management platform,2025-05-31,2030-05-31,285258,IA-25-818,2
+Cedar Bluff Police Department,IA,Flock Safety,License plate reader camera subscription,2025-12-01,2028-11-30,420000,IA-20-589,1
+Fairmont Heights Police Department,MD,CentralSquare Technologies,Enterprise public safety records management suite,2027-09-01,2030-08-31,38896,MD-20-157,2
+Fairmont Heights Police Department,MD,Utility Inc,BodyWorn camera program,2025-06-01,2028-05-31,420000,MD-24-183,1
+Westbrook Police Department,ME,CODY Systems,Records management system hosted subscription,2025-01-31,2030-01-31,194972,ME-22-376,0
+Westbrook Police Department,ME,SoundThinking,Gunshot detection service annual subscription,2024-01-01,2026-12-31,420000,ME-21-654,1
+Silver Creek Police Department,CO,Hexagon,Records management system license,2025-07-31,2029-07-31,53924,CO-22-596,1
+Silver Creek Police Department,CO,Hexagon,Computer aided dispatch system upgrade,2025-07-31,2029-07-31,72314,CO-22-202,0
+Ravenswood Police Department,IL,Motorola Solutions,PremierOne records management system,2022-06-01,2029-05-31,551693,IL-18-524,1
+Ravenswood Police Department,IL,Cellebrite,Mobile forensics extraction licenses,2026-05-01,2029-04-30,260000,IL-21-161,1
+Ironton Falls Police Department,OH,ProPhoenix,Records management and computer aided dispatch suite,2023-01-01,2029-12-31,302639,OH-22-896,1
+Ironton Falls Police Department,OH,Cellebrite,Mobile forensics extraction licenses,2024-06-30,2027-06-30,150000,OH-25-416,0
+Granite Bay Police Department,CA,Motorola Solutions,PremierOne records management system,2026-10-31,2030-10-31,176879,CA-26-634,0
+Pinehurst Valley Police Department,NC,CentralSquare Technologies,Enterprise public safety records management suite,2023-08-01,2028-07-31,69024,NC-22-407,0
+Pinehurst Valley Police Department,NC,CentralSquare Technologies,Enterprise computer aided dispatch hosted subscription,2023-08-01,2028-07-31,72096,NC-24-629,1
+Pinehurst Valley Police Department,NC,Lexipol,Policy manual and daily training bulletins,2024-11-30,2027-11-30,80000,NC-26-666,0
+Copper Ridge Police Department,AZ,Hexagon,Records management system license,2020-05-31,2027-05-31,1252810,AZ-18-574,0
+Bayshore Police Department,FL,Caliber Public Safety,Hosted records management system,2022-05-01,2029-04-30,996634,FL-18-782,1
+Bayshore Police Department,FL,Caliber Public Safety,Computer aided dispatch hosted service,2022-05-01,2029-04-30,1224045,FL-25-625,0
+Bayshore Police Department,FL,SoundThinking,Gunshot detection service annual subscription,2024-02-29,2027-02-28,260000,FL-23-630,1
+Stonebridge Police Department,NJ,Mark43,Cloud records management system subscription,2021-08-01,2028-07-31,775766,NJ-19-824,2
+Stonebridge Police Department,NJ,RapidSOS,Emergency data platform subscription,2026-04-01,2029-03-31,80000,NJ-21-317,1
+Clearwater Ridge Police Department,TN,Tyler Technologies,New World records management system license and support,2024-07-31,2027-07-31,119559,TN-21-667,0
+Clearwater Ridge Police Department,TN,RapidSOS,Emergency data platform subscription,2024-02-01,2027-01-31,80000,TN-22-427,1
+Foxridge Police Department,VA,CentralSquare Technologies,Enterprise public safety records management suite,2021-12-01,2028-11-30,1905172,VA-23-315,1
+Foxridge Police Department,VA,CentralSquare Technologies,Enterprise computer aided dispatch hosted subscription,2021-12-01,2028-11-30,3464511,VA-20-463,1
+Foxridge Police Department,VA,NEOGOV,PowerDMS policy management subscription,2026-04-01,2029-03-31,420000,VA-20-811,0
+Tanglewood Police Department,GA,Caliber Public Safety,Hosted records management system,2024-07-31,2031-07-31,168990,GA-18-352,2
+Tanglewood Police Department,GA,Caliber Public Safety,Computer aided dispatch hosted service,2024-07-31,2031-07-31,148182,GA-21-864,1
+Tanglewood Police Department,GA,NEOGOV,PowerDMS policy management subscription,2024-01-01,2026-12-31,260000,GA-22-799,1
+Sunridge Police Department,NV,SOMA Global,Cloud public safety records management platform,2025-11-30,2030-11-30,209738,NV-20-614,0
+Kestrel County Sheriff's Office,TX,Hexagon,Records management system license,2023-12-01,2028-11-30,1035450,TX-22-422,1
+Kestrel County Sheriff's Office,TX,Hexagon,Computer aided dispatch system upgrade,2023-12-01,2028-11-30,703780,TX-26-925,0
+Kestrel County Sheriff's Office,TX,SoundThinking,Gunshot detection service annual subscription,2025-08-01,2028-07-31,45000,TX-24-383,0
+Ardmore County Sheriff's Office,OK,SOMA Global,Cloud public safety records management platform,2022-11-30,2026-11-30,278817,OK-20-968,1
+Ardmore County Sheriff's Office,OK,SOMA Global,Cloud computer aided dispatch,2022-11-30,2026-11-30,316964,OK-25-499,1
+Ardmore County Sheriff's Office,OK,Axon,Body worn camera program and Evidence.com storage,2025-04-01,2028-03-31,150000,OK-24-644,1
+Dunmore County Sheriff's Office,PA,Tyler Technologies,New World records management system license and support,2022-08-31,2027-08-31,304361,PA-21-166,1
+Dunmore County Sheriff's Office,PA,Tyler Technologies,New World computer aided dispatch maintenance,2022-08-31,2027-08-31,342728,PA-25-677,1
+Whitfield County Sheriff's Office,WI,Versaterm,Records management system annual support,2025-05-01,2028-04-30,118766,WI-26-866,1
+Whitfield County Sheriff's Office,WI,Lexipol,Policy manual and daily training bulletins,2025-07-01,2028-06-30,150000,WI-26-410,0
+Carter County Sheriff's Office,KY,Tyler Technologies,New World records management system license and support,2022-01-31,2027-01-31,194470,KY-18-197,1
+Carter County Sheriff's Office,KY,Tyler Technologies,New World computer aided dispatch maintenance,2022-01-31,,193157,KY-24-255,2
+Carter County Sheriff's Office,KY,Utility Inc,BodyWorn camera program,2025-03-01,2028-02-29,420000,KY-25-637,1
+Marberry County Sheriff's Office,MO,ProPhoenix,Records management and computer aided dispatch suite,2028-05-31,2031-05-31,322310,MO-26-299,0
+Lakeview Police Department,MI,Motorola Solutions,PremierOne records management system,2021-06-01,2028-05-31,296531,MI-24-245,0
+Lakeview Police Department,MI,Motorola Solutions,PremierOne computer aided dispatch software maintenance,2021-06-01,2028-05-31,311234,MI-24-151,1
+Elmwood Park Police Department,NY,Tyler Technologies,New World records management system license and support,2022-04-01,2029-03-31,409928,NY-18-331,2
+Elmwood Park Police Department,NY,Tyler Technologies,New World computer aided dispatch maintenance,2022-04-01,2029-03-31,282125,NY-20-882,2
+Kingsport Hollow Police Department,SC,Tyler Technologies,New World records management system license and support,2025-10-31,2030-10-31,584835,SC-23-327,0
+Kingsport Hollow Police Department,SC,Tyler Technologies,New World computer aided dispatch maintenance,2025-10-31,2030-10-31,411504,SC-23-166,0
+Kingsport Hollow Police Department,SC,Tyler Technologies,New World mobile field reporting licenses,2025-10-31,2030-10-31,491042,SC-19-660,0
+Kingsport Hollow Police Department,SC,Flock Safety,License plate reader camera subscription,2024-07-31,2027-07-31,45000,SC-23-547,1
+Brookhaven Township Police Department,MN,CODY Systems,Records management system hosted subscription,2020-12-31,2027-12-31,544972,MN-23-199,2
+Brookhaven Township Police Department,MN,Lexipol,Policy manual and daily training bulletins,2024-11-30,2027-11-30,80000,MN-20-503,0
+Ashford Police Department,CT,Hexagon,Records management system license,2023-04-01,2030-03-31,973458,CT-18-850,0
+Ashford Police Department,CT,Hexagon,Computer aided dispatch system upgrade,2023-04-01,2030-03-31,940873,CT-24-985,2
+Ashford Police Department,CT,NEOGOV,PowerDMS policy management subscription,2026-10-01,2029-09-30,420000,CT-23-189,0

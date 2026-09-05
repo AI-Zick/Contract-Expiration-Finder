@@ -100,7 +100,10 @@ def test_html_and_csv_reports_are_written(db, tmp_path, capsys):
     run(db, "report", "--today", "2026-09-04", "--format", "html", "-o", str(html_path))
     run(db, "report", "--today", "2026-09-04", "--format", "csv", "-o", str(csv_path))
 
-    assert "<table>" in html_path.read_text()
+    page = html_path.read_text()
+    assert "<!doctype html>" in page
+    assert "Pitch Calendar" in page
+    assert '"opportunities"' in page
     assert csv_path.read_text().startswith("priority,stage,agency_name")
 
 
