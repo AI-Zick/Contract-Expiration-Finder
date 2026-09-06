@@ -214,3 +214,58 @@ def test_csv_import_reports_a_missing_vendor_column():
 
 def test_csv_import_handles_an_empty_file():
     assert CSVSource({}).collect(text="").status == "empty"
+
+
+# --- federal grants: buyer must actually be law enforcement ---------------
+
+def _grant(recipient, description, awarder="Bureau of Justice Assistance"):
+    return {
+        "results": [{
+            "Award ID": "X-1", "Recipient Name": recipient,
+            "Start Date": "2025-01-01", "End Date": "2029-12-31",
+            "Award Amount": 5_000_000, "Description": description,
+            "Awarding Sub Agency": awarder,
+            "Place of Performance State Code": "CA",
+            "generated_internal_id": "ASST_1",
+        }],
+        "page_metadata": {"hasNext": False},
+    }
+
+
+def _collect_grant(recipient, description, awarder="Bureau of Justice Assistance"):
+    source = USASpendingSource(
+        {"keywords": ["computer aided dispatch"]},
+        FakeFetcher(responses={"spending_by_award": _grant(recipient, description, awarder)}),
+    )
+    return source.collect().contracts
+
+
+def test_transit_cad_grant_is_not_a_police_lead():
+    """Transit agencies run computer-aided dispatch too. A live run surfaced
+    three of them as police-software leads."""
+    assert _collect_grant("GOLDEN EMPIRE TRANSIT DISTRICT",
+                          "COMPUTER AIDED DISPATCH AND AVL REPLACEMENT",
+                          "Federal Transit Administration") == []
+
+
+def test_transit_authority_excluded_even_from_a_justice_grant():
+    """The buyer name decides; the funding programme cannot override it."""
+    assert _collect_grant("HILLSBOROUGH TRANSIT AUTHORITY", "CAD SYSTEM UPGRADE",
+                          "Bureau of Justice Assistance") == []
+
+
+def test_transit_police_department_stays_in_scope():
+    assert len(_collect_grant("BAY AREA RAPID TRANSIT POLICE DEPARTMENT",
+                              "CAD SYSTEM UPGRADE")) == 1
+
+
+def test_city_grant_naming_police_is_kept():
+    contracts = _collect_grant("CITY OF CONCORD",
+                               "POLICE RECORDS MANAGEMENT SYSTEM UPGRADE")
+    assert len(contracts) == 1
+    assert contracts[0].agency_name == "CITY OF CONCORD"
+
+
+def test_sheriff_grant_is_kept():
+    assert len(_collect_grant("COUNTY OF X",
+                              "SHERIFF COMPUTER AIDED DISPATCH REPLACEMENT")) == 1

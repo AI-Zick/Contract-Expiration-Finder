@@ -20,7 +20,14 @@ from typing import List, Optional
 
 from ..classify import classify
 from ..models import Contract
-from ..normalize import clean_text, normalize_state, parse_date, parse_money
+from ..normalize import (
+    clean_text,
+    is_non_police_buyer,
+    looks_like_law_enforcement,
+    normalize_state,
+    parse_date,
+    parse_money,
+)
 from .base import FetchError, Source, SourceResult, register
 
 API = "https://api.usaspending.gov/api/v2"
@@ -29,6 +36,28 @@ API = "https://api.usaspending.gov/api/v2"
 # funding software show up alongside direct purchases.
 CONTRACT_TYPES = ["A", "B", "C", "D"]
 GRANT_TYPES = ["02", "03", "04", "05"]
+
+# Grant programs that only fund law enforcement. A JAG award saying "records
+# management system" is a police lead even when the text never says "police";
+# an identically worded transit award from the FTA is not.
+LE_GRANTMAKERS = (
+    "bureau of justice assistance",
+    "office of justice programs",
+    "office of community oriented policing",
+    "cops office",
+    "national institute of justice",
+    "bureau of justice statistics",
+    "drug enforcement administration",
+    "federal bureau of investigation",
+    "us marshals",
+    "bureau of alcohol",
+)
+
+
+def _is_le_grantmaker(agency: str) -> bool:
+    low = (agency or "").lower()
+    return any(name in low for name in LE_GRANTMAKERS)
+
 
 DEFAULT_KEYWORDS = [
     "records management system",
@@ -146,6 +175,24 @@ class USASpendingSource(Source):
             description = clean_text(row.get("Description"))
             is_grant = row.get("_kind") == "grant"
 
+            awarder = clean_text(
+                row.get("Awarding Sub Agency") or row.get("Awarding Agency"), 200
+            )
+            # A grant's recipient is a city, county or district, so the buyer
+            # name carries no police signal. Accept it when the text names one,
+            # or when the money comes from a law-enforcement grant programme.
+            # Transit agencies run computer-aided dispatch too, and without this
+            # test their awards read as police leads.
+            if is_grant:
+                # Transit districts and fire departments are excluded on the
+                # buyer name alone -- a law-enforcement funder does not make
+                # them a police lead.
+                if is_non_police_buyer(recipient):
+                    continue
+                if not (looks_like_law_enforcement(recipient, description)
+                        or _is_le_grantmaker(awarder)):
+                    continue
+
             # For a grant the recipient is the buyer (a city), and the vendor is
             # not yet chosen -- that is exactly why it is an early signal.
             if is_grant:
@@ -157,9 +204,7 @@ class USASpendingSource(Source):
                 result = classify(vendor_raw, description)
                 confidence = self.default_confidence
 
-            agency_name = recipient if is_grant else clean_text(
-                row.get("Awarding Sub Agency") or row.get("Awarding Agency"), 200
-            )
+            agency_name = recipient if is_grant else awarder
             if not agency_name:
                 continue
 

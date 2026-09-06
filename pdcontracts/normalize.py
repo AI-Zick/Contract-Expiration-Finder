@@ -43,7 +43,8 @@ LE_EXCLUDE = re.compile(
     r"animal control|parking enforcement|code enforcement|"
     r"department of corrections|probation|parole|"
     r"police (and )?fire pension|pension fund|police athletic league|"
-    r"crossing guard)\b",
+    r"crossing guard|transit (authority|district|agency)|"
+    r"transportation authority|regional transit)\b",
     re.I,
 )
 
@@ -186,6 +187,21 @@ def looks_like_law_enforcement(*texts: str) -> bool:
         if not re.search(r"\bpolice\b|\bsheriff", blob, re.I):
             return False
     return bool(_LE_RE.search(blob))
+
+
+def is_non_police_buyer(name: str) -> bool:
+    """True when a buyer name is a known adjacent-but-different agency.
+
+    Fire departments, transit districts and pension funds buy software that
+    reads like police software. This is a hard exclusion, independent of who
+    funded the purchase -- except where the name itself says police or sheriff,
+    which is how transit police departments stay in scope.
+    """
+    if not name:
+        return False
+    if re.search(r"\bpolice\b|\bsheriff", name, re.I):
+        return False
+    return bool(LE_EXCLUDE.search(name))
 
 
 def parse_bool(value: Any) -> Optional[bool]:
