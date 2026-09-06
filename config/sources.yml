@@ -105,3 +105,95 @@ sources:
   - {name: state-or,      type: socrata, enabled: false, domain: data.oregon.gov,    dataset: "", state: OR}
   - {name: state-ut,      type: socrata, enabled: false, domain: data.utah.gov,      dataset: "", state: UT}
   - {name: state-hi,      type: socrata, enabled: false, domain: data.hawaii.gov,    dataset: "", state: HI}
+
+  # Discovered live by `pdcontracts discover-councils`.
+  # 89 councils whose agenda API answered.
+  - {name: leg-huntsvilleal, type: legistar, enabled: true, client: huntsvilleal, state: AL, jurisdiction: Huntsville, years_back: 8, max_pages: 2}
+  - {name: leg-mesa, type: legistar, enabled: true, client: mesa, state: AZ, jurisdiction: Mesa, years_back: 8, max_pages: 2}
+  - {name: leg-phoenix, type: legistar, enabled: true, client: phoenix, state: AZ, jurisdiction: Phoenix, years_back: 8, max_pages: 2}
+  - {name: leg-alameda, type: legistar, enabled: true, client: alameda, state: CA, jurisdiction: Alameda, years_back: 8, max_pages: 2}
+  - {name: leg-chulavista, type: legistar, enabled: true, client: chulavista, state: CA, jurisdiction: Chula Vista, years_back: 8, max_pages: 2}
+  - {name: leg-corona, type: legistar, enabled: true, client: corona, state: CA, jurisdiction: Corona, years_back: 8, max_pages: 2}
+  - {name: leg-fontana, type: legistar, enabled: true, client: fontana, state: CA, jurisdiction: Fontana, years_back: 8, max_pages: 2}
+  - {name: leg-fresno, type: legistar, enabled: true, client: fresno, state: CA, jurisdiction: Fresno, years_back: 8, max_pages: 2}
+  - {name: leg-fullerton, type: legistar, enabled: true, client: fullerton, state: CA, jurisdiction: Fullerton, years_back: 8, max_pages: 2}
+  - {name: leg-hayward, type: legistar, enabled: true, client: hayward, state: CA, jurisdiction: Hayward, years_back: 8, max_pages: 2}
+  - {name: leg-huntingtonbeach, type: legistar, enabled: true, client: huntingtonbeach, state: CA, jurisdiction: Huntington Beach, years_back: 8, max_pages: 2}
+  - {name: leg-mountainview, type: legistar, enabled: true, client: mountainview, state: CA, jurisdiction: Mountain View, years_back: 8, max_pages: 2}
+  - {name: leg-murrieta, type: legistar, enabled: true, client: murrieta, state: CA, jurisdiction: Murrieta, years_back: 8, max_pages: 2}
+  - {name: leg-napa, type: legistar, enabled: true, client: napa, state: CA, jurisdiction: Napa, years_back: 8, max_pages: 2}
+  - {name: leg-pomona, type: legistar, enabled: true, client: pomona, state: CA, jurisdiction: Pomona, years_back: 8, max_pages: 2}
+  - {name: leg-rialto, type: legistar, enabled: true, client: rialto, state: CA, jurisdiction: Rialto, years_back: 8, max_pages: 2}
+  - {name: leg-riversideca, type: legistar, enabled: true, client: riversideca, state: CA, jurisdiction: Riverside, years_back: 8, max_pages: 2}
+  - {name: leg-sacramento, type: legistar, enabled: true, client: sacramento, state: CA, jurisdiction: Sacramento, years_back: 8, max_pages: 2}
+  - {name: leg-salinas, type: legistar, enabled: true, client: salinas, state: CA, jurisdiction: Salinas, years_back: 8, max_pages: 2}
+  - {name: leg-sanbernardino, type: legistar, enabled: true, client: sanbernardino, state: CA, jurisdiction: San Bernardino, years_back: 8, max_pages: 2}
+  - {name: leg-santaclara, type: legistar, enabled: true, client: santaclara, state: CA, jurisdiction: Santa Clara, years_back: 8, max_pages: 2}
+  - {name: leg-stockton, type: legistar, enabled: true, client: stockton, state: CA, jurisdiction: Stockton, years_back: 8, max_pages: 2}
+  - {name: leg-sunnyvaleca, type: legistar, enabled: true, client: sunnyvaleca, state: CA, jurisdiction: Sunnyvale, years_back: 8, max_pages: 2}
+  - {name: leg-visalia, type: legistar, enabled: true, client: visalia, state: CA, jurisdiction: Visalia, years_back: 8, max_pages: 2}
+  - {name: leg-coloradosprings, type: legistar, enabled: true, client: coloradosprings, state: CO, jurisdiction: Colorado Springs, years_back: 8, max_pages: 2}
+  - {name: leg-bridgeportct, type: legistar, enabled: true, client: bridgeportct, state: CT, jurisdiction: Bridgeport, years_back: 8, max_pages: 2}
+  - {name: leg-clearwater, type: legistar, enabled: true, client: clearwater, state: FL, jurisdiction: Clearwater, years_back: 8, max_pages: 2}
+  - {name: leg-fortlauderdale, type: legistar, enabled: true, client: fortlauderdale, state: FL, jurisdiction: Fort Lauderdale, years_back: 8, max_pages: 2}
+  - {name: leg-gainesville, type: legistar, enabled: true, client: gainesville, state: FL, jurisdiction: Gainesville, years_back: 8, max_pages: 2}
+  - {name: leg-hillsboroughcounty, type: legistar, enabled: true, client: hillsboroughcounty, state: FL, jurisdiction: Hillsborough County, years_back: 8, max_pages: 2}
+  - {name: leg-hollywoodfl, type: legistar, enabled: true, client: hollywoodfl, state: FL, jurisdiction: Hollywood, years_back: 8, max_pages: 2}
+  - {name: leg-miamifl, type: legistar, enabled: true, client: miamifl, state: FL, jurisdiction: Miami, years_back: 8, max_pages: 2}
+  - {name: leg-miramar, type: legistar, enabled: true, client: miramar, state: FL, jurisdiction: Miramar, years_back: 8, max_pages: 2}
+  - {name: leg-atlantaga, type: legistar, enabled: true, client: atlantaga, state: GA, jurisdiction: Atlanta, years_back: 8, max_pages: 2}
+  - {name: leg-dekalbcountyga, type: legistar, enabled: true, client: dekalbcountyga, state: GA, jurisdiction: DeKalb County, years_back: 8, max_pages: 2}
+  - {name: leg-joliet, type: legistar, enabled: true, client: joliet, state: IL, jurisdiction: Joliet, years_back: 8, max_pages: 2}
+  - {name: leg-naperville, type: legistar, enabled: true, client: naperville, state: IL, jurisdiction: Naperville, years_back: 8, max_pages: 2}
+  - {name: leg-peoriail, type: legistar, enabled: true, client: peoriail, state: IL, jurisdiction: Peoria, years_back: 8, max_pages: 2}
+  - {name: leg-rockfordil, type: legistar, enabled: true, client: rockfordil, state: IL, jurisdiction: Rockford, years_back: 8, max_pages: 2}
+  - {name: leg-olatheks, type: legistar, enabled: true, client: olatheks, state: KS, jurisdiction: Olathe, years_back: 8, max_pages: 2}
+  - {name: leg-sedgwickcounty, type: legistar, enabled: true, client: sedgwickcounty, state: KS, jurisdiction: Sedgwick County, years_back: 8, max_pages: 2}
+  - {name: leg-lexington, type: legistar, enabled: true, client: lexington, state: KY, jurisdiction: Lexington, years_back: 8, max_pages: 2}
+  - {name: leg-louisville, type: legistar, enabled: true, client: louisville, state: KY, jurisdiction: Louisville, years_back: 8, max_pages: 2}
+  - {name: leg-boston, type: legistar, enabled: true, client: boston, state: MA, jurisdiction: Boston, years_back: 8, max_pages: 2}
+  - {name: leg-montgomerycountymd, type: legistar, enabled: true, client: montgomerycountymd, state: MD, jurisdiction: Montgomery County, years_back: 8, max_pages: 2}
+  - {name: leg-princegeorgescountymd, type: legistar, enabled: true, client: princegeorgescountymd, state: MD, jurisdiction: Prince Georges County, years_back: 8, max_pages: 2}
+  - {name: leg-detroit, type: legistar, enabled: true, client: detroit, state: MI, jurisdiction: Detroit, years_back: 8, max_pages: 2}
+  - {name: leg-hennepinmn, type: legistar, enabled: true, client: hennepinmn, state: MN, jurisdiction: Hennepin County, years_back: 8, max_pages: 2}
+  - {name: leg-minneapolismn, type: legistar, enabled: true, client: minneapolismn, state: MN, jurisdiction: Minneapolis, years_back: 8, max_pages: 2}
+  - {name: leg-ramseycountymn, type: legistar, enabled: true, client: ramseycountymn, state: MN, jurisdiction: Ramsey County, years_back: 8, max_pages: 2}
+  - {name: leg-kansascity, type: legistar, enabled: true, client: kansascity, state: MO, jurisdiction: Kansas City, years_back: 8, max_pages: 2}
+  - {name: leg-charlottenc, type: legistar, enabled: true, client: charlottenc, state: NC, jurisdiction: Charlotte, years_back: 8, max_pages: 2}
+  - {name: leg-durhamcounty, type: legistar, enabled: true, client: durhamcounty, state: NC, jurisdiction: Durham County, years_back: 8, max_pages: 2}
+  - {name: leg-greensboro, type: legistar, enabled: true, client: greensboro, state: NC, jurisdiction: Greensboro, years_back: 8, max_pages: 2}
+  - {name: leg-wilmington, type: legistar, enabled: true, client: wilmington, state: NC, jurisdiction: Wilmington, years_back: 8, max_pages: 2}
+  - {name: leg-fargond, type: legistar, enabled: true, client: fargond, state: ND, jurisdiction: Fargo, years_back: 8, max_pages: 2}
+  - {name: leg-douglascounty, type: legistar, enabled: true, client: douglascounty, state: NE, jurisdiction: Douglas County, years_back: 8, max_pages: 2}
+  - {name: leg-hobokennj, type: legistar, enabled: true, client: hobokennj, state: NJ, jurisdiction: Hoboken, years_back: 8, max_pages: 2}
+  - {name: leg-newark, type: legistar, enabled: true, client: newark, state: NJ, jurisdiction: Newark, years_back: 8, max_pages: 2}
+  - {name: leg-westchestercountyny, type: legistar, enabled: true, client: westchestercountyny, state: NY, jurisdiction: Westchester County, years_back: 8, max_pages: 2}
+  - {name: leg-yonkersny, type: legistar, enabled: true, client: yonkersny, state: NY, jurisdiction: Yonkers, years_back: 8, max_pages: 2}
+  - {name: leg-cincinnatioh, type: legistar, enabled: true, client: cincinnatioh, state: OH, jurisdiction: Cincinnati, years_back: 8, max_pages: 2}
+  - {name: leg-columbus, type: legistar, enabled: true, client: columbus, state: OH, jurisdiction: Columbus, years_back: 8, max_pages: 2}
+  - {name: leg-toledo, type: legistar, enabled: true, client: toledo, state: OH, jurisdiction: Toledo, years_back: 8, max_pages: 2}
+  - {name: leg-salem, type: legistar, enabled: true, client: salem, state: OR, jurisdiction: Salem, years_back: 8, max_pages: 2}
+  - {name: leg-allentownpa, type: legistar, enabled: true, client: allentownpa, state: PA, jurisdiction: Allentown, years_back: 8, max_pages: 2}
+  - {name: leg-erie, type: legistar, enabled: true, client: erie, state: PA, jurisdiction: Erie, years_back: 8, max_pages: 2}
+  - {name: leg-pittsburgh, type: legistar, enabled: true, client: pittsburgh, state: PA, jurisdiction: Pittsburgh, years_back: 8, max_pages: 2}
+  - {name: leg-providenceri, type: legistar, enabled: true, client: providenceri, state: RI, jurisdiction: Providence, years_back: 8, max_pages: 2}
+  - {name: leg-nashville, type: legistar, enabled: true, client: nashville, state: TN, jurisdiction: Nashville, years_back: 8, max_pages: 2}
+  - {name: leg-carrolltontx, type: legistar, enabled: true, client: carrolltontx, state: TX, jurisdiction: Carrollton, years_back: 8, max_pages: 2}
+  - {name: leg-corpuschristi, type: legistar, enabled: true, client: corpuschristi, state: TX, jurisdiction: Corpus Christi, years_back: 8, max_pages: 2}
+  - {name: leg-grandprairie, type: legistar, enabled: true, client: grandprairie, state: TX, jurisdiction: Grand Prairie, years_back: 8, max_pages: 2}
+  - {name: leg-harriscountytx, type: legistar, enabled: true, client: harriscountytx, state: TX, jurisdiction: Harris County, years_back: 8, max_pages: 2}
+  - {name: leg-killeen, type: legistar, enabled: true, client: killeen, state: TX, jurisdiction: Killeen, years_back: 8, max_pages: 2}
+  - {name: leg-leaguecity, type: legistar, enabled: true, client: leaguecity, state: TX, jurisdiction: League City, years_back: 8, max_pages: 2}
+  - {name: leg-mckinney, type: legistar, enabled: true, client: mckinney, state: TX, jurisdiction: McKinney, years_back: 8, max_pages: 2}
+  - {name: leg-mesquite, type: legistar, enabled: true, client: mesquite, state: TX, jurisdiction: Mesquite, years_back: 8, max_pages: 2}
+  - {name: leg-plano, type: legistar, enabled: true, client: plano, state: TX, jurisdiction: Plano, years_back: 8, max_pages: 2}
+  - {name: leg-roundrock, type: legistar, enabled: true, client: roundrock, state: TX, jurisdiction: Round Rock, years_back: 8, max_pages: 2}
+  - {name: leg-sanantonio, type: legistar, enabled: true, client: sanantonio, state: TX, jurisdiction: San Antonio, years_back: 8, max_pages: 2}
+  - {name: leg-alexandria, type: legistar, enabled: true, client: alexandria, state: VA, jurisdiction: Alexandria, years_back: 8, max_pages: 2}
+  - {name: leg-hampton, type: legistar, enabled: true, client: hampton, state: VA, jurisdiction: Hampton, years_back: 8, max_pages: 2}
+  - {name: leg-richmondva, type: legistar, enabled: true, client: richmondva, state: VA, jurisdiction: Richmond, years_back: 8, max_pages: 2}
+  - {name: leg-bellevue, type: legistar, enabled: true, client: bellevue, state: WA, jurisdiction: Bellevue, years_back: 8, max_pages: 2}
+  - {name: leg-kingcounty, type: legistar, enabled: true, client: kingcounty, state: WA, jurisdiction: King County, years_back: 8, max_pages: 2}
+  - {name: leg-olympia, type: legistar, enabled: true, client: olympia, state: WA, jurisdiction: Olympia, years_back: 8, max_pages: 2}
+  - {name: leg-madison, type: legistar, enabled: true, client: madison, state: WI, jurisdiction: Madison, years_back: 8, max_pages: 2}
+  - {name: leg-milwaukeecounty, type: legistar, enabled: true, client: milwaukeecounty, state: WI, jurisdiction: Milwaukee County, years_back: 8, max_pages: 2}

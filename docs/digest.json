@@ -1,152 +1,486 @@
 {
  "generated": "2026-09-06",
  "totals": {
-  "total": 143,
-  "with_expiration": 142,
-  "agencies": 158,
+  "total": 265,
+  "with_expiration": 261,
+  "agencies": 190,
   "by_state": {
-   "CA": 14,
-   "PA": 12,
-   "DC": 9,
-   "VA": 9,
-   "NC": 8,
-   "CO": 7,
+   "CA": 37,
+   "TX": 23,
+   "AZ": 22,
+   "OH": 19,
+   "FL": 13,
+   "PA": 11,
+   "GA": 10,
+   "CO": 9,
+   "KY": 9,
+   "NC": 9,
+   "VA": 8,
+   "DC": 7,
+   "OR": 7,
+   "WA": 7,
+   "IL": 6,
+   "SC": 6,
    "WI": 6,
-   "AZ": 5,
-   "IL": 5,
-   "MD": 5,
-   "KY": 4,
+   "AK": 5,
+   "MT": 5,
+   "MD": 4,
    "MO": 4,
-   "OH": 4,
-   "WA": 4,
-   "WV": 4,
-   "AS": 3,
-   "FL": 3,
-   "MT": 3,
+   "MA": 3,
    "NJ": 3,
-   "RI": 3,
-   "CT": 2,
-   "NH": 2,
-   "NM": 2,
+   "NM": 3,
+   "TN": 3,
+   "AL": 2,
+   "AR": 2,
+   "ID": 2,
    "NV": 2,
-   "SC": 2,
-   "TN": 2,
-   "TX": 2,
+   "RI": 2,
+   "UT": 2,
    "WY": 2,
    "?": 1,
-   "AK": 1,
-   "GA": 1,
-   "HI": 1,
-   "ID": 1,
-   "MA": 1,
+   "IA": 1,
+   "IN": 1,
    "ME": 1,
    "MI": 1,
-   "MP": 1,
+   "MN": 1,
+   "NH": 1,
    "NY": 1,
    "OK": 1,
-   "OR": 1
+   "SD": 1,
+   "VT": 1,
+   "WV": 1
   },
   "by_category": {
-   "cad": 52,
-   "rms": 28,
-   "other_software": 26,
-   "dispatch_mobile": 24,
+   "cad": 109,
+   "dispatch_mobile": 67,
+   "rms": 67,
+   "other_software": 17,
    "alpr": 3,
-   "bwc": 3,
-   "case": 2,
-   "training": 2,
-   "ecitation": 1,
-   "eis": 1,
+   "bwc": 1,
    "rtcc": 1
   },
   "by_source": {
-   "usaspending": 130,
-   "legistar": 13
+   "usaspending": 141,
+   "legistar": 124
   }
  },
  "runs": [
   {
-   "id": 8,
+   "id": 97,
    "source": "legistar",
-   "dataset": "longbeach",
-   "ran_at": "2026-09-06T10:19:00",
-   "fetched": 5,
-   "kept": 3,
+   "dataset": "milwaukeecounty",
+   "ran_at": "2026-09-06T10:39:35",
+   "fetched": 3,
+   "kept": 0,
    "status": "ok",
-   "message": "filtered query: scanned 5 council items; kept 3"
+   "message": "filtered query: scanned 3 council items; kept 0"
   },
   {
-   "id": 7,
+   "id": 96,
    "source": "legistar",
-   "dataset": "baltimore",
-   "ran_at": "2026-09-06T10:18:54",
+   "dataset": "madison",
+   "ran_at": "2026-09-06T10:39:33",
    "fetched": 1,
    "kept": 0,
    "status": "ok",
    "message": "filtered query: scanned 1 council items; kept 0"
   },
   {
-   "id": 6,
+   "id": 95,
    "source": "legistar",
-   "dataset": "milwaukee",
-   "ran_at": "2026-09-06T10:18:53",
-   "fetched": 8,
-   "kept": 6,
-   "status": "ok",
-   "message": "filtered query: scanned 8 council items; kept 6"
-  },
-  {
-   "id": 5,
-   "source": "legistar",
-   "dataset": "denver",
-   "ran_at": "2026-09-06T10:18:49",
-   "fetched": 12,
-   "kept": 3,
-   "status": "ok",
-   "message": "filtered query: scanned 12 council items; kept 3"
-  },
-  {
-   "id": 4,
-   "source": "legistar",
-   "dataset": "sanjose",
-   "ran_at": "2026-09-06T10:18:42",
-   "fetched": 1,
-   "kept": 0,
-   "status": "ok",
-   "message": "filtered query: scanned 1 council items; kept 0"
-  },
-  {
-   "id": 3,
-   "source": "legistar",
-   "dataset": "oakland",
-   "ran_at": "2026-09-06T10:18:41",
+   "dataset": "olympia",
+   "ran_at": "2026-09-06T10:39:27",
    "fetched": 2,
    "kept": 1,
    "status": "ok",
    "message": "filtered query: scanned 2 council items; kept 1"
   },
   {
-   "id": 2,
+   "id": 94,
    "source": "legistar",
-   "dataset": "seattle",
-   "ran_at": "2026-09-06T10:18:37",
-   "fetched": 2,
+   "dataset": "kingcounty",
+   "ran_at": "2026-09-06T10:39:26",
+   "fetched": 1,
    "kept": 0,
    "status": "ok",
-   "message": "filtered query: scanned 2 council items; kept 0"
+   "message": "filtered query: scanned 1 council items; kept 0"
   },
   {
-   "id": 1,
-   "source": "usaspending",
-   "dataset": "spending_by_award",
-   "ran_at": "2026-09-06T10:18:35",
-   "fetched": 243,
-   "kept": 130,
+   "id": 93,
+   "source": "legistar",
+   "dataset": "bellevue",
+   "ran_at": "2026-09-06T10:39:25",
+   "fetched": 1,
+   "kept": 1,
    "status": "ok",
-   "message": "kept 191 of 243"
+   "message": "filtered query: scanned 1 council items; kept 1"
+  },
+  {
+   "id": 92,
+   "source": "legistar",
+   "dataset": "richmondva",
+   "ran_at": "2026-09-06T10:39:23",
+   "fetched": 1,
+   "kept": 1,
+   "status": "ok",
+   "message": "filtered query: scanned 1 council items; kept 1"
+  },
+  {
+   "id": 91,
+   "source": "legistar",
+   "dataset": "hampton",
+   "ran_at": "2026-09-06T10:39:20",
+   "fetched": 1,
+   "kept": 0,
+   "status": "ok",
+   "message": "filtered query: scanned 1 council items; kept 0"
+  },
+  {
+   "id": 90,
+   "source": "legistar",
+   "dataset": "alexandria",
+   "ran_at": "2026-09-06T10:39:19",
+   "fetched": 1,
+   "kept": 0,
+   "status": "ok",
+   "message": "filtered query: scanned 1 council items; kept 0"
+  },
+  {
+   "id": 89,
+   "source": "legistar",
+   "dataset": "sanantonio",
+   "ran_at": "2026-09-06T10:39:16",
+   "fetched": 7,
+   "kept": 6,
+   "status": "ok",
+   "message": "filtered query: scanned 7 council items; kept 6"
+  },
+  {
+   "id": 88,
+   "source": "legistar",
+   "dataset": "roundrock",
+   "ran_at": "2026-09-06T10:39:12",
+   "fetched": 2,
+   "kept": 1,
+   "status": "ok",
+   "message": "filtered query: scanned 2 council items; kept 1"
+  },
+  {
+   "id": 87,
+   "source": "legistar",
+   "dataset": "plano",
+   "ran_at": "2026-09-06T10:39:10",
+   "fetched": 0,
+   "kept": 0,
+   "status": "empty",
+   "message": "no matters returned"
+  },
+  {
+   "id": 86,
+   "source": "legistar",
+   "dataset": "mesquite",
+   "ran_at": "2026-09-06T10:39:09",
+   "fetched": 10,
+   "kept": 3,
+   "status": "ok",
+   "message": "filtered query: scanned 10 council items; kept 3"
+  },
+  {
+   "id": 85,
+   "source": "legistar",
+   "dataset": "mckinney",
+   "ran_at": "2026-09-06T10:39:08",
+   "fetched": 1,
+   "kept": 0,
+   "status": "ok",
+   "message": "filtered query: scanned 1 council items; kept 0"
+  },
+  {
+   "id": 84,
+   "source": "legistar",
+   "dataset": "leaguecity",
+   "ran_at": "2026-09-06T10:39:05",
+   "fetched": 2,
+   "kept": 2,
+   "status": "ok",
+   "message": "filtered query: scanned 2 council items; kept 2"
+  },
+  {
+   "id": 83,
+   "source": "legistar",
+   "dataset": "killeen",
+   "ran_at": "2026-09-06T10:39:04",
+   "fetched": 6,
+   "kept": 3,
+   "status": "ok",
+   "message": "filtered query: scanned 6 council items; kept 3"
+  },
+  {
+   "id": 82,
+   "source": "legistar",
+   "dataset": "harriscountytx",
+   "ran_at": "2026-09-06T10:39:03",
+   "fetched": 21,
+   "kept": 1,
+   "status": "ok",
+   "message": "filtered query: scanned 21 council items; kept 1"
+  },
+  {
+   "id": 81,
+   "source": "legistar",
+   "dataset": "grandprairie",
+   "ran_at": "2026-09-06T10:38:53",
+   "fetched": 2,
+   "kept": 1,
+   "status": "ok",
+   "message": "filtered query: scanned 2 council items; kept 1"
+  },
+  {
+   "id": 80,
+   "source": "legistar",
+   "dataset": "corpuschristi",
+   "ran_at": "2026-09-06T10:38:52",
+   "fetched": 10,
+   "kept": 6,
+   "status": "ok",
+   "message": "filtered query: scanned 10 council items; kept 6"
+  },
+  {
+   "id": 79,
+   "source": "legistar",
+   "dataset": "carrolltontx",
+   "ran_at": "2026-09-06T10:38:48",
+   "fetched": 4,
+   "kept": 0,
+   "status": "ok",
+   "message": "filtered query: scanned 4 council items; kept 0"
+  },
+  {
+   "id": 78,
+   "source": "legistar",
+   "dataset": "nashville",
+   "ran_at": "2026-09-06T10:38:47",
+   "fetched": 4,
+   "kept": 2,
+   "status": "ok",
+   "message": "filtered query: scanned 4 council items; kept 2"
+  },
+  {
+   "id": 77,
+   "source": "legistar",
+   "dataset": "providenceri",
+   "ran_at": "2026-09-06T10:38:44",
+   "fetched": 0,
+   "kept": 0,
+   "status": "empty",
+   "message": "no matters returned"
+  },
+  {
+   "id": 76,
+   "source": "legistar",
+   "dataset": "pittsburgh",
+   "ran_at": "2026-09-06T10:38:44",
+   "fetched": 8,
+   "kept": 3,
+   "status": "ok",
+   "message": "filtered query: scanned 8 council items; kept 3"
+  },
+  {
+   "id": 75,
+   "source": "legistar",
+   "dataset": "erie",
+   "ran_at": "2026-09-06T10:38:40",
+   "fetched": 0,
+   "kept": 0,
+   "status": "empty",
+   "message": "no matters returned"
+  },
+  {
+   "id": 74,
+   "source": "legistar",
+   "dataset": "allentownpa",
+   "ran_at": "2026-09-06T10:38:39",
+   "fetched": 2,
+   "kept": 1,
+   "status": "ok",
+   "message": "filtered query: scanned 2 council items; kept 1"
+  },
+  {
+   "id": 73,
+   "source": "legistar",
+   "dataset": "salem",
+   "ran_at": "2026-09-06T10:38:38",
+   "fetched": 0,
+   "kept": 0,
+   "status": "empty",
+   "message": "no matters returned"
+  },
+  {
+   "id": 72,
+   "source": "legistar",
+   "dataset": "toledo",
+   "ran_at": "2026-09-06T10:38:36",
+   "fetched": 5,
+   "kept": 5,
+   "status": "ok",
+   "message": "filtered query: scanned 5 council items; kept 5"
+  },
+  {
+   "id": 71,
+   "source": "legistar",
+   "dataset": "columbus",
+   "ran_at": "2026-09-06T10:38:34",
+   "fetched": 9,
+   "kept": 7,
+   "status": "ok",
+   "message": "filtered query: scanned 9 council items; kept 7"
+  },
+  {
+   "id": 70,
+   "source": "legistar",
+   "dataset": "cincinnatioh",
+   "ran_at": "2026-09-06T10:38:25",
+   "fetched": 7,
+   "kept": 2,
+   "status": "ok",
+   "message": "filtered query: scanned 7 council items; kept 2"
+  },
+  {
+   "id": 69,
+   "source": "legistar",
+   "dataset": "yonkersny",
+   "ran_at": "2026-09-06T10:38:21",
+   "fetched": 0,
+   "kept": 0,
+   "status": "empty",
+   "message": "no matters returned"
+  },
+  {
+   "id": 68,
+   "source": "legistar",
+   "dataset": "westchestercountyny",
+   "ran_at": "2026-09-06T10:38:20",
+   "fetched": 1,
+   "kept": 1,
+   "status": "ok",
+   "message": "filtered query: scanned 1 council items; kept 1"
+  },
+  {
+   "id": 67,
+   "source": "legistar",
+   "dataset": "newark",
+   "ran_at": "2026-09-06T10:38:19",
+   "fetched": 26,
+   "kept": 2,
+   "status": "ok",
+   "message": "filtered query: scanned 26 council items; kept 2"
+  },
+  {
+   "id": 66,
+   "source": "legistar",
+   "dataset": "hobokennj",
+   "ran_at": "2026-09-06T10:38:10",
+   "fetched": 0,
+   "kept": 0,
+   "status": "empty",
+   "message": "no matters returned"
+  },
+  {
+   "id": 65,
+   "source": "legistar",
+   "dataset": "douglascounty",
+   "ran_at": "2026-09-06T10:38:09",
+   "fetched": 1,
+   "kept": 0,
+   "status": "ok",
+   "message": "filtered query: scanned 1 council items; kept 0"
+  },
+  {
+   "id": 64,
+   "source": "legistar",
+   "dataset": "fargond",
+   "ran_at": "2026-09-06T10:38:08",
+   "fetched": 0,
+   "kept": 0,
+   "status": "empty",
+   "message": "no matters returned"
+  },
+  {
+   "id": 63,
+   "source": "legistar",
+   "dataset": "wilmington",
+   "ran_at": "2026-09-06T10:38:07",
+   "fetched": 0,
+   "kept": 0,
+   "status": "empty",
+   "message": "no matters returned"
+  },
+  {
+   "id": 62,
+   "source": "legistar",
+   "dataset": "greensboro",
+   "ran_at": "2026-09-06T10:38:06",
+   "fetched": 0,
+   "kept": 0,
+   "status": "empty",
+   "message": "no matters returned"
+  },
+  {
+   "id": 61,
+   "source": "legistar",
+   "dataset": "durhamcounty",
+   "ran_at": "2026-09-06T10:38:05",
+   "fetched": 1,
+   "kept": 0,
+   "status": "ok",
+   "message": "filtered query: scanned 1 council items; kept 0"
+  },
+  {
+   "id": 60,
+   "source": "legistar",
+   "dataset": "charlottenc",
+   "ran_at": "2026-09-06T10:38:04",
+   "fetched": 3,
+   "kept": 0,
+   "status": "ok",
+   "message": "filtered query: scanned 3 council items; kept 0"
+  },
+  {
+   "id": 59,
+   "source": "legistar",
+   "dataset": "kansascity",
+   "ran_at": "2026-09-06T10:38:02",
+   "fetched": 0,
+   "kept": 0,
+   "status": "empty",
+   "message": "no matters returned"
+  },
+  {
+   "id": 58,
+   "source": "legistar",
+   "dataset": "ramseycountymn",
+   "ran_at": "2026-09-06T10:37:59",
+   "fetched": 0,
+   "kept": 0,
+   "status": "empty",
+   "message": "no matters returned"
   }
  ],
  "top": [
+  {
+   "agency": "DeKalb County Police Department",
+   "state": "GA",
+   "incumbent": "CentralSquare Technologies",
+   "categoryLabels": "Computer-Aided Dispatch, Records Management System",
+   "annual": 25595.98857142857,
+   "expires": "2029-07-12",
+   "budgetDeadline": "2029-02-01",
+   "stage": "too_early",
+   "priority": 87.2,
+   "sources": [
+    "legistar"
+   ]
+  },
   {
    "agency": "LOUISVILLE-JEFFERSON COUNTY METRO GOVERNMENT",
    "state": "KY",
@@ -156,7 +490,7 @@
    "expires": "2027-09-30",
    "budgetDeadline": "2027-02-01",
    "stage": "pitch_now",
-   "priority": 82.0,
+   "priority": 84.0,
    "sources": [
     "usaspending"
    ]
@@ -176,6 +510,20 @@
    ]
   },
   {
+   "agency": "Phoenix Police Department",
+   "state": "AZ",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Records Management System",
+   "annual": null,
+   "expires": "2033-05-20",
+   "budgetDeadline": "2032-02-01",
+   "stage": "too_early",
+   "priority": 78.2,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
    "agency": "ST. LOUIS COUNTY, MISSOURI",
    "state": "MO",
    "incumbent": "UNAWARDED (grant-funded)",
@@ -185,6 +533,20 @@
    "budgetDeadline": "2027-02-01",
    "stage": "pitch_now",
    "priority": 74.0,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "ANCHORAGE, MUNICIPALITY OF (INC)",
+   "state": "AK",
+   "incumbent": "UNAWARDED (grant-funded)",
+   "categoryLabels": "Mobile / Field Reporting, Records Management System",
+   "annual": 222100.59574468085,
+   "expires": "2021-09-30",
+   "budgetDeadline": "2021-02-01",
+   "stage": "expired",
+   "priority": 73.7,
    "sources": [
     "usaspending"
    ]
@@ -201,6 +563,34 @@
    "priority": 73.4,
    "sources": [
     "usaspending"
+   ]
+  },
+  {
+   "agency": "CITY OF DES MOINES",
+   "state": "IA",
+   "incumbent": "UNAWARDED (grant-funded)",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 44198.04255319149,
+   "expires": "2027-09-30",
+   "budgetDeadline": "2027-02-01",
+   "stage": "pitch_now",
+   "priority": 72.8,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "Mesa Police Department",
+   "state": "AZ",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 35714.28571428572,
+   "expires": "2027-12-01",
+   "budgetDeadline": "2027-02-01",
+   "stage": "pitch_now",
+   "priority": 72.0,
+   "sources": [
+    "legistar"
    ]
   },
   {
@@ -260,17 +650,17 @@
    ]
   },
   {
-   "agency": "CITY OF TACOMA WASHINGTON",
-   "state": "WA",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Records Management System",
-   "annual": 86613.1914893617,
-   "expires": "2027-09-30",
-   "budgetDeadline": "2027-02-01",
-   "stage": "pitch_now",
-   "priority": 69.3,
+   "agency": "Columbus Police Department",
+   "state": "OH",
+   "incumbent": "Hexagon",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 34284.350000000006,
+   "expires": "2031-07-24",
+   "budgetDeadline": "2031-02-01",
+   "stage": "too_early",
+   "priority": 69.2,
    "sources": [
-    "usaspending"
+    "legistar"
    ]
   },
   {
@@ -288,15 +678,15 @@
    ]
   },
   {
-   "agency": "PROVIDENCE POLICE DEPARTMENT",
-   "state": "RI",
+   "agency": "CITY OF MEDFORD",
+   "state": "OR",
    "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Records Management System",
-   "annual": 46918.46808510638,
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 11244.510638297872,
    "expires": "2027-09-30",
    "budgetDeadline": "2027-02-01",
    "stage": "pitch_now",
-   "priority": 65.1,
+   "priority": 67.9,
    "sources": [
     "usaspending"
    ]
@@ -310,23 +700,79 @@
    "expires": "2027-08-31",
    "budgetDeadline": "2027-02-01",
    "stage": "pitch_now",
-   "priority": 64.6,
+   "priority": 66.6,
    "sources": [
     "usaspending"
    ]
   },
   {
-   "agency": "CITY OF SCRANTON",
-   "state": "PA",
-   "incumbent": "UNAWARDED (grant-funded)",
+   "agency": "Columbus Police Department",
+   "state": "OH",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Computer-Aided Dispatch, Records Management System",
+   "annual": 723714.2857142858,
+   "expires": "2028-12-08",
+   "budgetDeadline": "2028-02-01",
+   "stage": "too_early",
+   "priority": 64.5,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
+   "agency": "Corpus Christi Police Department",
+   "state": "TX",
+   "incumbent": "i-PRO",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 116993.75,
+   "expires": "2029-08-19",
+   "budgetDeadline": "2028-04-01",
+   "stage": "too_early",
+   "priority": 64.4,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
+   "agency": "Salinas Police Department",
+   "state": "CA",
+   "incumbent": "UNNAMED (see council item)",
    "categoryLabels": "Records Management System",
-   "annual": 12178.468085106382,
-   "expires": "2027-09-30",
+   "annual": null,
+   "expires": "2027-10-27",
    "budgetDeadline": "2027-02-01",
    "stage": "pitch_now",
    "priority": 62.2,
    "sources": [
-    "usaspending"
+    "legistar"
+   ]
+  },
+  {
+   "agency": "Killeen Police Department",
+   "state": "TX",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Mobile / Field Reporting, Records Management System",
+   "annual": 108781.61821428571,
+   "expires": "2027-06-13",
+   "budgetDeadline": "2026-04-01",
+   "stage": "procurement_live",
+   "priority": 62.0,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
+   "agency": "Peoria Police Department",
+   "state": "IL",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 16071.42857142857,
+   "expires": "2027-07-28",
+   "budgetDeadline": "2027-02-01",
+   "stage": "pitch_now",
+   "priority": 61.6,
+   "sources": [
+    "legistar"
    ]
   },
   {
@@ -358,6 +804,62 @@
    ]
   },
   {
+   "agency": "Mesa Police Department",
+   "state": "AZ",
+   "incumbent": "Peregrine Technologies",
+   "categoryLabels": "Records Management System",
+   "annual": 216000.0,
+   "expires": "2026-12-08",
+   "budgetDeadline": "2026-02-01",
+   "stage": "procurement_live",
+   "priority": 60.5,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
+   "agency": "Westchester County Police Department",
+   "state": "NY",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": null,
+   "expires": "2027-09-14",
+   "budgetDeadline": "2026-11-01",
+   "stage": "pitch_now",
+   "priority": 60.2,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
+   "agency": "Richmond Police Department",
+   "state": "VA",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Records Management System",
+   "annual": null,
+   "expires": "2028-02-08",
+   "budgetDeadline": "2027-02-01",
+   "stage": "pitch_now",
+   "priority": 60.2,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
+   "agency": "Mesa Police Department",
+   "state": "AZ",
+   "incumbent": "Versaterm",
+   "categoryLabels": "Records Management System",
+   "annual": 375000.0,
+   "expires": "2029-01-27",
+   "budgetDeadline": "2028-02-01",
+   "stage": "too_early",
+   "priority": 59.7,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
    "agency": "Long Beach Police Department",
    "state": "CA",
    "incumbent": "UNNAMED (see council item)",
@@ -386,6 +888,48 @@
    ]
   },
   {
+   "agency": "National Park Service",
+   "state": "CO",
+   "incumbent": "TRIBALCO LLC",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 52650.240000000005,
+   "expires": "2028-09-20",
+   "budgetDeadline": "2028-02-01",
+   "stage": "too_early",
+   "priority": 57.6,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "Fresno Police Department",
+   "state": "CA",
+   "incumbent": "Axon",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 3673652.9359999998,
+   "expires": "2029-07-25",
+   "budgetDeadline": "2029-02-01",
+   "stage": "too_early",
+   "priority": 57.1,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
+   "agency": "Toledo Police Department",
+   "state": "OH",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 36750.0,
+   "expires": "2030-07-14",
+   "budgetDeadline": "2030-02-01",
+   "stage": "too_early",
+   "priority": 57.1,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
    "agency": "Department of the Army",
    "state": "AZ",
    "incumbent": "TELOS CORPORATION",
@@ -395,6 +939,20 @@
    "budgetDeadline": "2025-02-01",
    "stage": "expired",
    "priority": 56.6,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "Department of Veterans Affairs",
+   "state": "MN",
+   "incumbent": "HENNEPIN COUNTY",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 31239.944347826087,
+   "expires": "2026-12-31",
+   "budgetDeadline": "2026-02-01",
+   "stage": "procurement_live",
+   "priority": 56.5,
    "sources": [
     "usaspending"
    ]
@@ -414,17 +972,17 @@
    ]
   },
   {
-   "agency": "National Park Service",
-   "state": "CO",
-   "incumbent": "TRIBALCO LLC",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 52650.240000000005,
-   "expires": "2028-09-20",
-   "budgetDeadline": "2028-02-01",
-   "stage": "too_early",
-   "priority": 55.6,
+   "agency": "Corpus Christi Police Department",
+   "state": "TX",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 500000.0,
+   "expires": "2025-10-26",
+   "budgetDeadline": "2025-04-01",
+   "stage": "expired",
+   "priority": 56.0,
    "sources": [
-    "usaspending"
+    "legistar"
    ]
   },
   {
@@ -442,6 +1000,48 @@
    ]
   },
   {
+   "agency": "San Bernardino Police Department",
+   "state": "CA",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": null,
+   "expires": "2028-04-23",
+   "budgetDeadline": "2027-02-01",
+   "stage": "too_early",
+   "priority": 55.0,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
+   "agency": "Mesquite Police Department",
+   "state": "TX",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 132036.825,
+   "expires": "2029-05-19",
+   "budgetDeadline": "2028-04-01",
+   "stage": "too_early",
+   "priority": 53.7,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
+   "agency": "Hollywood Police Department",
+   "state": "FL",
+   "incumbent": "CentralSquare Technologies",
+   "categoryLabels": "Records Management System",
+   "annual": 92857.14285714286,
+   "expires": "2032-09-17",
+   "budgetDeadline": "2032-02-01",
+   "stage": "too_early",
+   "priority": 53.2,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
    "agency": "Department of the Army",
    "state": "VA",
    "incumbent": "CLOUD LAKE TECHNOLOGY LLC",
@@ -456,31 +1056,45 @@
    ]
   },
   {
-   "agency": "AMERICAN SAMOA CRIMINAL JUSTICE PLANNING AGENCY",
-   "state": "AS",
+   "agency": "TOWN OF FLORENCE Z",
+   "state": "AZ",
    "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Records Management System",
-   "annual": 75000.0,
-   "expires": "2027-06-30",
-   "budgetDeadline": "2026-02-01",
-   "stage": "procurement_live",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 314042.55319148937,
+   "expires": "2028-09-30",
+   "budgetDeadline": "2028-02-01",
+   "stage": "too_early",
    "priority": 52.8,
    "sources": [
     "usaspending"
    ]
   },
   {
-   "agency": "Departmental Offices",
-   "state": "DC",
-   "incumbent": "Niche Technology",
-   "categoryLabels": "Records Management System",
-   "annual": 1076699.5454545454,
-   "expires": "2021-09-07",
-   "budgetDeadline": "2021-02-01",
-   "stage": "expired",
-   "priority": 51.5,
+   "agency": "Harris County Police Department",
+   "state": "TX",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": null,
+   "expires": "2027-01-31",
+   "budgetDeadline": "2026-04-01",
+   "stage": "procurement_live",
+   "priority": 52.2,
    "sources": [
-    "usaspending"
+    "legistar"
+   ]
+  },
+  {
+   "agency": "San Antonio Police Department",
+   "state": "TX",
+   "incumbent": "Mark43",
+   "categoryLabels": "Records Management System",
+   "annual": 708311.4285714285,
+   "expires": "2026-11-14",
+   "budgetDeadline": "2026-05-01",
+   "stage": "late",
+   "priority": 51.8,
+   "sources": [
+    "legistar"
    ]
   },
   {
@@ -512,6 +1126,20 @@
    ]
   },
   {
+   "agency": "Napa Police Department",
+   "state": "CA",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Records Management System",
+   "annual": 2334767.0,
+   "expires": "2025-12-31",
+   "budgetDeadline": "2025-02-01",
+   "stage": "expired",
+   "priority": 50.5,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
    "agency": "COMBINED REGIONAL COMMUNICATIONS AUTHORITY",
    "state": "CO",
    "incumbent": "UNAWARDED (grant-funded)",
@@ -526,17 +1154,87 @@
    ]
   },
   {
-   "agency": "LAW & PUBLIC SAFETY, NEW JERSEY DEPARTMENT OF",
-   "state": "NJ",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Records Management System",
-   "annual": 1502608.6956521738,
-   "expires": "2025-06-30",
-   "budgetDeadline": "2024-02-01",
+   "agency": "National Park Service",
+   "state": "WA",
+   "incumbent": "TRIBALCO LLC",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 17283.07,
+   "expires": "2022-06-30",
+   "budgetDeadline": "2021-02-01",
    "stage": "expired",
    "priority": 50.1,
    "sources": [
     "usaspending"
+   ]
+  },
+  {
+   "agency": "San Antonio Police Department",
+   "state": "TX",
+   "incumbent": "CentralSquare Technologies",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 238663.94000000003,
+   "expires": "2020-09-19",
+   "budgetDeadline": "2019-05-01",
+   "stage": "expired",
+   "priority": 49.7,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
+   "agency": "National Park Service",
+   "state": "MD",
+   "incumbent": "TRIBALCO LLC",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 18412.75,
+   "expires": "2024-08-13",
+   "budgetDeadline": "2024-02-01",
+   "stage": "expired",
+   "priority": 49.4,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "Rialto Police Department",
+   "state": "CA",
+   "incumbent": "CentralSquare Technologies",
+   "categoryLabels": "Computer-Aided Dispatch, Records Management System",
+   "annual": 595571.48,
+   "expires": "2029-09-24",
+   "budgetDeadline": "2029-02-01",
+   "stage": "too_early",
+   "priority": 49.4,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
+   "agency": "National Highway Traffic Safety Administration",
+   "state": "DC",
+   "incumbent": "DYNAMIC-PRO INC.",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 625780.18,
+   "expires": "2020-09-28",
+   "budgetDeadline": "2020-02-01",
+   "stage": "expired",
+   "priority": 49.3,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "Bellevue Police Department",
+   "state": "WA",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 75000.0,
+   "expires": "2023-11-04",
+   "budgetDeadline": "2023-02-01",
+   "stage": "expired",
+   "priority": 49.1,
+   "sources": [
+    "legistar"
    ]
   },
   {
@@ -582,6 +1280,34 @@
    ]
   },
   {
+   "agency": "Grand Prairie Police Department",
+   "state": "TX",
+   "incumbent": "CentralSquare Technologies",
+   "categoryLabels": "Records Management System",
+   "annual": 1332057.74,
+   "expires": "2019-10-16",
+   "budgetDeadline": "2019-04-01",
+   "stage": "expired",
+   "priority": 47.8,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
+   "agency": "Miramar Police Department",
+   "state": "FL",
+   "incumbent": "Mark43",
+   "categoryLabels": "Records Management System",
+   "annual": 279497.3333333333,
+   "expires": "2029-05-20",
+   "budgetDeadline": "2028-02-01",
+   "stage": "too_early",
+   "priority": 47.3,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
    "agency": "Department of the Air Force",
    "state": "FL",
    "incumbent": "Motorola Solutions",
@@ -596,6 +1322,48 @@
    ]
   },
   {
+   "agency": "Boston Police Department",
+   "state": "MA",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Records Management System",
+   "annual": 68845.57142857143,
+   "expires": "2030-11-01",
+   "budgetDeadline": "2030-02-01",
+   "stage": "too_early",
+   "priority": 46.3,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
+   "agency": "Department of the Air Force",
+   "state": "NC",
+   "incumbent": "THIN BLUE LINE REPORTING HEADQUARTERS LLC",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 262920.0,
+   "expires": "2018-10-31",
+   "budgetDeadline": "2018-02-01",
+   "stage": "expired",
+   "priority": 46.2,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "San Antonio Police Department",
+   "state": "TX",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Computer-Aided Dispatch, Records Management System",
+   "annual": null,
+   "expires": "2026-03-19",
+   "budgetDeadline": "2025-05-01",
+   "stage": "expired",
+   "priority": 46.2,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
    "agency": "Department of the Air Force",
    "state": "SC",
    "incumbent": "SOUTHERN SOFTWARE INC",
@@ -605,6 +1373,34 @@
    "budgetDeadline": "2025-02-01",
    "stage": "expired",
    "priority": 45.7,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "Fresno Police Department",
+   "state": "CA",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 54035.71428571428,
+   "expires": "2026-04-04",
+   "budgetDeadline": "2025-02-01",
+   "stage": "expired",
+   "priority": 45.5,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
+   "agency": "Department of Veterans Affairs",
+   "state": "AR",
+   "incumbent": "COMPETITIVE EDGE SOFTWARE, LLC",
+   "categoryLabels": "Records Management System",
+   "annual": 212250.0,
+   "expires": "2020-09-14",
+   "budgetDeadline": "2020-02-01",
+   "stage": "expired",
+   "priority": 45.4,
    "sources": [
     "usaspending"
    ]
@@ -624,6 +1420,62 @@
    ]
   },
   {
+   "agency": "National Park Service",
+   "state": "FL",
+   "incumbent": "TRIBALCO LLC",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 190577.688,
+   "expires": "2020-04-03",
+   "budgetDeadline": "2019-02-01",
+   "stage": "expired",
+   "priority": 45.0,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "Corpus Christi Police Department",
+   "state": "TX",
+   "incumbent": "Hexagon",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 577016.818,
+   "expires": "2026-10-26",
+   "budgetDeadline": "2026-04-01",
+   "stage": "late",
+   "priority": 45.0,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
+   "agency": "National Park Service",
+   "state": "AZ",
+   "incumbent": "TRANSOURCE SERVICES CORP.",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 183276.0,
+   "expires": "2018-05-25",
+   "budgetDeadline": "2017-02-01",
+   "stage": "expired",
+   "priority": 44.9,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "ROCK HILL, CITY OF",
+   "state": "SC",
+   "incumbent": "UNAWARDED (grant-funded)",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 8019.574468085107,
+   "expires": "2021-09-30",
+   "budgetDeadline": "2021-02-01",
+   "stage": "expired",
+   "priority": 44.7,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
    "agency": "RESEARCH TRIANGLE INSTITUTE",
    "state": "NC",
    "incumbent": "UNAWARDED (grant-funded)",
@@ -635,6 +1487,34 @@
    "priority": 44.4,
    "sources": [
     "usaspending"
+   ]
+  },
+  {
+   "agency": "CITY OF SAVANNAH",
+   "state": "GA",
+   "incumbent": "UNAWARDED (grant-funded)",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 21485.617021276597,
+   "expires": "2018-09-30",
+   "budgetDeadline": "2018-02-01",
+   "stage": "expired",
+   "priority": 44.2,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "Lexington Police Department",
+   "state": "KY",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": null,
+   "expires": "2026-02-10",
+   "budgetDeadline": "2025-02-01",
+   "stage": "expired",
+   "priority": 44.2,
+   "sources": [
+    "legistar"
    ]
   },
   {
@@ -680,20 +1560,6 @@
    ]
   },
   {
-   "agency": "VILLAGE OF PHOENIX",
-   "state": "IL",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Records Management System",
-   "annual": 156000.0,
-   "expires": "2025-05-31",
-   "budgetDeadline": "2024-02-01",
-   "stage": "expired",
-   "priority": 43.4,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
    "agency": "Department of the Air Force",
    "state": "MD",
    "incumbent": "ADVANCED COMPUTER CONCEPTS, INC.",
@@ -720,555 +1586,31 @@
    "sources": [
     "usaspending"
    ]
-  },
-  {
-   "agency": "National Park Service",
-   "state": "TN",
-   "incumbent": "TRIBALCO LLC",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 111320.12372093023,
-   "expires": "2022-03-02",
-   "budgetDeadline": "2021-02-01",
-   "stage": "expired",
-   "priority": 43.1,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Bureau of Land Management",
-   "state": "AZ",
-   "incumbent": "TRIBALCO LLC",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 109970.39999999998,
-   "expires": "2023-03-30",
-   "budgetDeadline": "2022-02-01",
-   "stage": "expired",
-   "priority": 43.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Federal Transit Administration",
-   "state": "OR",
-   "incumbent": "DAVID EVANS AND ASSOCIATES, INC.",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 101800.16444444444,
-   "expires": "2022-06-23",
-   "budgetDeadline": "2021-02-01",
-   "stage": "expired",
-   "priority": 42.7,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "CITY OF SPOKANE POLICE",
-   "state": "WA",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 342857.14285714284,
-   "expires": "2026-09-30",
-   "budgetDeadline": "2026-02-01",
-   "stage": "late",
-   "priority": 42.3,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "CITY OF BUFFALO",
-   "state": "NY",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Records Management System",
-   "annual": 110663.8217142857,
-   "expires": "2020-09-30",
-   "budgetDeadline": "2019-11-01",
-   "stage": "expired",
-   "priority": 42.2,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Department of the Navy",
-   "state": "CA",
-   "incumbent": "IDENTIV, INC.",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 86430.0,
-   "expires": "2025-08-15",
-   "budgetDeadline": "2025-02-01",
-   "stage": "expired",
-   "priority": 42.1,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "PENNSYLVANIA DEPARTMENT OF TRANSPORTATION",
-   "state": "PA",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 759600.0,
-   "expires": null,
-   "budgetDeadline": "2027-02-01",
-   "stage": "unknown",
-   "priority": 42.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "National Park Service",
-   "state": "AZ",
-   "incumbent": "TRIBALCO LLC",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 79403.52967741936,
-   "expires": "2023-11-30",
-   "budgetDeadline": "2023-02-01",
-   "stage": "expired",
-   "priority": 41.8,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "National Park Service",
-   "state": "WY",
-   "incumbent": "TRIBALCO LLC",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 77931.72923076923,
-   "expires": "2026-04-15",
-   "budgetDeadline": "2025-02-01",
-   "stage": "expired",
-   "priority": 41.8,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Department of the Army",
-   "state": "AK",
-   "incumbent": "CITY OF FAIRBANKS",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 77839.75,
-   "expires": "2021-09-17",
-   "budgetDeadline": "2021-02-01",
-   "stage": "expired",
-   "priority": 41.8,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "National Park Service",
-   "state": "CA",
-   "incumbent": "COMPUTER INFORMATION SYSTEMS INC",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 24437.76,
-   "expires": "2024-12-31",
-   "budgetDeadline": "2024-02-01",
-   "stage": "expired",
-   "priority": 41.8,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Department of the Army",
-   "state": "PA",
-   "incumbent": "VERTOSOFT, LLC",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 203514.96,
-   "expires": "2026-10-05",
-   "budgetDeadline": "2026-02-01",
-   "stage": "late",
-   "priority": 41.2,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "National Park Service",
-   "state": "WY",
-   "incumbent": "COMPUTER INFORMATION SYSTEMS INC",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 64442.80000000001,
-   "expires": "2026-01-31",
-   "budgetDeadline": "2025-02-01",
-   "stage": "expired",
-   "priority": 41.1,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "National Park Service",
-   "state": "MT",
-   "incumbent": "TRIBALCO LLC",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 61559.371999999996,
-   "expires": "2022-09-10",
-   "budgetDeadline": "2022-02-01",
-   "stage": "expired",
-   "priority": 40.9,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "National Park Service",
-   "state": "PA",
-   "incumbent": "COMPUTER INFORMATION SYSTEMS INC",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 53887.44,
-   "expires": "2024-12-31",
-   "budgetDeadline": "2024-02-01",
-   "stage": "expired",
-   "priority": 40.4,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "CITY OF HINESVILLE",
-   "state": "GA",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Mobile / Field Reporting",
-   "annual": 7264.695652173913,
-   "expires": "2024-09-30",
-   "budgetDeadline": "2024-02-01",
-   "stage": "expired",
-   "priority": 40.3,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "LEON COUNTY SHERIFFS OFFICE",
-   "state": "FL",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 182418.26086956522,
-   "expires": "2026-09-30",
-   "budgetDeadline": "2026-02-01",
-   "stage": "late",
-   "priority": 40.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "CITY OF PORTLAND",
-   "state": "ME",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Mobile / Field Reporting",
-   "annual": 20331.063829787236,
-   "expires": "2026-09-30",
-   "budgetDeadline": "2026-02-01",
-   "stage": "late",
-   "priority": 40.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "COUNTY OF DINWIDDIE, VIRGINIA",
-   "state": "VA",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Mobile / Field Reporting",
-   "annual": 5460.0,
-   "expires": "2022-09-30",
-   "budgetDeadline": "2022-02-01",
-   "stage": "expired",
-   "priority": 39.3,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "COUNTY OF CHESHIRE ADMINISTRATION",
-   "state": "NH",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Mobile / Field Reporting",
-   "annual": 5376.521739130435,
-   "expires": "2025-09-30",
-   "budgetDeadline": "2025-02-01",
-   "stage": "expired",
-   "priority": 39.2,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "CITY OF KALISPELL",
-   "state": "MT",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Mobile / Field Reporting",
-   "annual": 5211.208695652173,
-   "expires": "2020-09-30",
-   "budgetDeadline": "2020-02-01",
-   "stage": "expired",
-   "priority": 39.1,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Department of Veterans Affairs",
-   "state": "PA",
-   "incumbent": "ALL TRAFFIC SOLUTIONS, INC.",
-   "categoryLabels": "Mobile / Field Reporting",
-   "annual": 3697.2972972972975,
-   "expires": "2025-12-31",
-   "budgetDeadline": "2025-02-01",
-   "stage": "expired",
-   "priority": 38.7,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "CITY OF BLOOMINGTON",
-   "state": "IL",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Mobile / Field Reporting",
-   "annual": 9842.297872340425,
-   "expires": "2026-09-30",
-   "budgetDeadline": "2026-02-01",
-   "stage": "late",
-   "priority": 37.4,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Department of Veterans Affairs",
-   "state": "PA",
-   "incumbent": "COUNTY OF LEBANON",
-   "categoryLabels": "Mobile / Field Reporting",
-   "annual": 2463.157894736842,
-   "expires": "2025-12-31",
-   "budgetDeadline": "2025-02-01",
-   "stage": "expired",
-   "priority": 37.3,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Department of the Air Force",
-   "state": "MD",
-   "incumbent": "MEDICAL PRIORITY CONSULTANTS, INC.",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 56023.584,
-   "expires": "2026-09-17",
-   "budgetDeadline": "2026-02-01",
-   "stage": "late",
-   "priority": 36.6,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "National Park Service",
-   "state": "VA",
-   "incumbent": "COMPUTER INFORMATION SYSTEMS INC",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 18417.366666666665,
-   "expires": "2026-08-16",
-   "budgetDeadline": "2026-02-01",
-   "stage": "expired",
-   "priority": 36.5,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "National Park Service",
-   "state": "MD",
-   "incumbent": "TRIBALCO LLC",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 18412.75,
-   "expires": "2024-08-13",
-   "budgetDeadline": "2024-02-01",
-   "stage": "expired",
-   "priority": 36.5,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "National Park Service",
-   "state": "WA",
-   "incumbent": "TRIBALCO LLC",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 17283.07,
-   "expires": "2022-06-30",
-   "budgetDeadline": "2021-02-01",
-   "stage": "expired",
-   "priority": 36.3,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "U.S. Customs and Border Protection",
-   "state": "OH",
-   "incumbent": "GOVERNMENT ACQUISITIONS INC",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 17139.25,
-   "expires": "2026-09-01",
-   "budgetDeadline": "2026-02-01",
-   "stage": "expired",
-   "priority": 36.3,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "LOGAN COUNTY COMMISSION",
-   "state": "WV",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Records Management System",
-   "annual": 8769.91304347826,
-   "expires": "2025-09-30",
-   "budgetDeadline": "2025-02-01",
-   "stage": "expired",
-   "priority": 36.2,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "National Park Service",
-   "state": "IL",
-   "incumbent": "COMPUTER INFORMATION SYSTEMS INC",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 16250.379999999997,
-   "expires": "2026-08-15",
-   "budgetDeadline": "2026-02-01",
-   "stage": "expired",
-   "priority": 36.1,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Department of the Army",
-   "state": "CA",
-   "incumbent": "CentralSquare Technologies",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 11250.0,
-   "expires": "2022-01-21",
-   "budgetDeadline": "2021-02-01",
-   "stage": "expired",
-   "priority": 35.3,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Department of the Army",
-   "state": "CA",
-   "incumbent": "E-9 CORPORATION",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 10916.713333333333,
-   "expires": "2018-09-19",
-   "budgetDeadline": "2018-02-01",
-   "stage": "expired",
-   "priority": 34.7,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "ATTORNEY GENERAL HAWAII DEPARTMENT OF TH",
-   "state": "HI",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Records Management System",
-   "annual": 37080.0,
-   "expires": "2026-09-30",
-   "budgetDeadline": "2026-02-01",
-   "stage": "late",
-   "priority": 34.2,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "THE CITY-COUNTY OF BUTTE SILVER BOW",
-   "state": "MT",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Records Management System",
-   "annual": 9276.521739130434,
-   "expires": "2024-09-30",
-   "budgetDeadline": "2024-02-01",
-   "stage": "expired",
-   "priority": 33.2,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "National Aeronautics and Space Administration",
-   "state": "VA",
-   "incumbent": "Tyler Technologies",
-   "categoryLabels": "Records Management System",
-   "annual": 7809.096,
-   "expires": "2026-06-30",
-   "budgetDeadline": "2025-02-01",
-   "stage": "expired",
-   "priority": 32.8,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "CITY OF NEWARK",
-   "state": "OH",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 6076.173913043478,
-   "expires": "2025-09-30",
-   "budgetDeadline": "2025-02-01",
-   "stage": "expired",
-   "priority": 31.7,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "CITY OF BETHLEHEM",
-   "state": "PA",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Records Management System",
-   "annual": 10114.978723404256,
-   "expires": "2026-09-30",
-   "budgetDeadline": "2026-02-01",
-   "stage": "late",
-   "priority": 29.5,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "CITY OF NORWICH",
-   "state": "CT",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Records Management System",
-   "annual": 6828.255319148936,
-   "expires": "2026-09-30",
-   "budgetDeadline": "2026-02-01",
-   "stage": "late",
-   "priority": 28.1,
-   "sources": [
-    "usaspending"
-   ]
   }
  ],
  "raw_sample": [
+  {
+   "agency": "Fresno Police Department",
+   "vendor": "Axon",
+   "cat": "cad",
+   "start": "2024-07-25",
+   "end": "2029-07-25",
+   "value": 18368264.68,
+   "src": "legistar",
+   "url": "https://fresno.legistar.com/LegislationDetail.aspx?ID=18201",
+   "desc": "Actions pertaining to the Fresno Police Department\u2019s technology contract with Axon Enterprises, Inc. 1. Award a sole source contract with Axon Enterprise, Inc., hereinafter referred to as \u201cAxon\u201d in an amount not to excee"
+  },
+  {
+   "agency": "Fresno Police Department",
+   "vendor": "Axon",
+   "cat": "cad",
+   "start": "2024-06-27",
+   "end": "2029-06-27",
+   "value": 18368264.68,
+   "src": "legistar",
+   "url": "https://fresno.legistar.com/LegislationDetail.aspx?ID=18138",
+   "desc": "Actions pertaining to the Fresno Police Department\u2019s technology contract with Axon Enterprises, Inc. 1. Award a sole source contract with Axon Enterprise, Inc., hereinafter referred to as \u201cAxon\u201d in an amount not to excee"
+  },
   {
    "agency": "Departmental Offices",
    "vendor": "BIGHORN INFORMATION SYSTEMS",
@@ -1325,6 +1667,17 @@
    "desc": "A resolution approving a proposed Fifth Amendatory Agreement between the City and County of Denver and Versaterm, Inc. to revise Annex A, extend the term and increase compensation for the continual use and support of the"
   },
   {
+   "agency": "Newark Police Department",
+   "vendor": "Mark43",
+   "cat": "cad",
+   "start": "2025-12-17",
+   "end": "2032-12-17",
+   "value": 8000000.0,
+   "src": "legistar",
+   "url": "https://newark.legistar.com/LegislationDetail.aspx?ID=1610850",
+   "desc": "Dept/ Agency: Administration/Division of Central Purchasing Action: ( ) Ratifying ( X) Authorizing ( ) Amending Type of Service: Cooperative Purchasing Agreement Purpose: To authorize the use of Sourcewell Cooperative Co"
+  },
+  {
    "agency": "Departmental Offices",
    "vendor": "SIMPLE TECHNOLOGY SOLUTIONS INC.",
    "cat": "rms",
@@ -1336,15 +1689,59 @@
    "desc": "LAW ENFORCEMENT RECORDS MANAGEMENT SYSTEM PROCUREMENT"
   },
   {
-   "agency": "Departmental Offices",
-   "vendor": "Niche Technology",
+   "agency": "Naperville Police Department",
+   "vendor": "Tyler Technologies",
+   "cat": "cad",
+   "start": "2023-09-19",
+   "end": "2033-09-19",
+   "value": 5279236.5,
+   "src": "legistar",
+   "url": "https://naperville.legistar.com/LegislationDetail.aspx?ID=10872",
+   "desc": "Approve the award of RFP 22-309, Computer Aided Dispatch/Mobile Data System/Law Enforcement Records Management System, to Tyler Technologies, for an amount not to exceed $5,279,236.50, plus a 3% contingency on implementa"
+  },
+  {
+   "agency": "Columbus Police Department",
+   "vendor": "",
+   "cat": "cad",
+   "start": "2021-12-08",
+   "end": "2028-12-08",
+   "value": 5000000.0,
+   "src": "legistar",
+   "url": "https://columbus.legistar.com/LegislationDetail.aspx?ID=119162",
+   "desc": "To authorize and direct the City Auditor to set up a certificate in the amount of $5,000,000.00 to develop and implement various projects, including a new integrated Computer Aided Dispatching (CAD) and Records Managemen"
+  },
+  {
+   "agency": "San Antonio Police Department",
+   "vendor": "Mark43",
    "cat": "rms",
-   "start": "2016-03-08",
-   "end": "2021-09-07",
-   "value": 5921847.5,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_IND16PD00334_1406_GS35F321CA_4732",
-   "desc": "IGF::OT::IGF INCIDENT MANAGEMENT, ANALYSIS, AND REPORTING SYSTEM (IMARS) RECORDS MANAGEMENT SYSTEM (RMS) LICENSES AND MAINTENANCE"
+   "start": "2019-11-14",
+   "end": "2026-11-14",
+   "value": 4958180.0,
+   "src": "legistar",
+   "url": "https://sanantonio.legistar.com/LegislationDetail.aspx?ID=34013",
+   "desc": "Ordinance approving a contract with Mark43, Inc. for a Records Management System for San Antonio Police Department and services required to fully implement and integrate the system for a planned value of $3,849,700.00 fo"
+  },
+  {
+   "agency": "Mesa Police Department",
+   "vendor": "Hexagon",
+   "cat": "cad",
+   "start": "2019-02-25",
+   "end": "2031-02-25",
+   "value": 4680669.0,
+   "src": "legistar",
+   "url": "https://mesa.legistar.com/LegislationDetail.aspx?ID=13145",
+   "desc": "Contract Amendment and Dollar-Limit Increase to the Contract for the Police Records Management and Field-Based Reporting System for the Purchase of a Replacement Computer Aided Dispatch and Mobile Dispatch System for the"
+  },
+  {
+   "agency": "Napa Police Department",
+   "vendor": "",
+   "cat": "rms",
+   "start": "2023-12-31",
+   "end": "2025-12-31",
+   "value": 4669534.0,
+   "src": "legistar",
+   "url": "https://napa.legistar.com/LegislationDetail.aspx?ID=5172",
+   "desc": "Sheriff requests approval of and authorization for the Chair to sign Amendment No. 8 to Cooperative Joint Powers Dispatching Services Agreement No. 170779B with the City of Napa increasing the amount over two years by $3"
   },
   {
    "agency": "Department of the Army",
@@ -1380,15 +1777,26 @@
    "desc": "COMPUTER AIDED DISPATCH/ RECORDS MANAGEMENT SYSTEM OPERATION AND MAINTENANCE SERVICES"
   },
   {
-   "agency": "LAW & PUBLIC SAFETY, NEW JERSEY DEPARTMENT OF",
-   "vendor": "",
+   "agency": "Corpus Christi Police Department",
+   "vendor": "Hexagon",
+   "cat": "cad",
+   "start": "2021-10-26",
+   "end": "2026-10-26",
+   "value": 2885084.09,
+   "src": "legistar",
+   "url": "https://corpuschristi.legistar.com/LegislationDetail.aspx?ID=16514",
+   "desc": "Resolution authorizing a five-year master service agreement with Intergraph Corporation dba Hexagon Safety & Infrastructure, of Madison, Alabama, in an amount not to exceed $2,885,084.09, for updated software and mainten"
+  },
+  {
+   "agency": "Rialto Police Department",
+   "vendor": "CentralSquare Technologies",
    "cat": "rms",
-   "start": "2023-07-01",
-   "end": "2025-06-30",
-   "value": 2880000.0,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/ASST_NON_15PBJS23GK00312NCHI_015",
-   "desc": "UNDER THIS AWARD, THE NEW JERSEY DEPARTMENT OF PUBLIC SAFETY REQUESTS FUNDS TO IMPLEMENT THE NEW JERSEY STATE POLICES (NJSP) RECORDS MANAGEMENT SYSTEM (RMS) MODERNIZATION PROJECT. THE PURPOSE IS TO UTILIZE A SYSTEMATIC A"
+   "start": "2024-09-24",
+   "end": "2029-09-24",
+   "value": 2828922.0,
+   "src": "legistar",
+   "url": "https://rialto.legistar.com/LegislationDetail.aspx?ID=14442",
+   "desc": "Request City Council to 1) Approve a Five (5) Year Master Service Agreement with CentralSquare Technologies LLC. for Public Safety Software Systems in the Amount of $2,828,922. 2) Gain approval for the department to proc"
   },
   {
    "agency": "Long Beach Police Department",
@@ -1402,6 +1810,17 @@
    "desc": "Recommendation to adopt Specifications No. RFP PD19-065 and award a contract to CentralSquare Technologies, LLC, formerly TriTech Software Systems, of Lake Mary, FL, to provide, implement, and maintain a Police Records M"
   },
   {
+   "agency": "DeKalb County Police Department",
+   "vendor": "CentralSquare Technologies",
+   "cat": "rms",
+   "start": "2020-12-15",
+   "end": "2027-12-15",
+   "value": 2419769.6,
+   "src": "legistar",
+   "url": "https://dekalbcountyga.legistar.com/LegislationDetail.aspx?ID=8143",
+   "desc": "Commission District(s): ALL SS - Records Management System (RMS) Software Maintenance and Support (Multiyear Sole Source Maintenance Contract): for use by Police Services (PS). This contract consists of maintenance and s"
+  },
+  {
    "agency": "Long Beach Police Department",
    "vendor": "",
    "cat": "dispatch_mobile",
@@ -1411,6 +1830,28 @@
    "src": "legistar",
    "url": "https://longbeach.legistar.com/LegislationDetail.aspx?ID=240408",
    "desc": "Recommendation to adopt Specifications No. ITB TI 22-020 and award a contract to CDCE, Inc., of Yorba Linda, CA, for the purchase of public safety mobile data terminals including accessories and peripherals for docking, "
+  },
+  {
+   "agency": "Rialto Police Department",
+   "vendor": "SOMA Global",
+   "cat": "rms",
+   "start": "2021-09-14",
+   "end": "2031-09-14",
+   "value": 2015331.0,
+   "src": "legistar",
+   "url": "https://rialto.legistar.com/LegislationDetail.aspx?ID=11193",
+   "desc": "Request City Council to Approve a 10-Year Master Service Agreement with SOMA Global, Inc., a Delaware Corporation in the Amount of $2,015,331 for Development, Implementation and Maintenance of an Upgraded Computer Automa"
+  },
+  {
+   "agency": "Corpus Christi Police Department",
+   "vendor": "",
+   "cat": "dispatch_mobile",
+   "start": "2021-10-26",
+   "end": "2025-10-26",
+   "value": 2000000.0,
+   "src": "legistar",
+   "url": "https://corpuschristi.legistar.com/LegislationDetail.aspx?ID=16515",
+   "desc": "Resolution authorizing the lease-purchase, via KS StateBank, of mobile data computers from Turn-Key Mobile, Inc., of Jefferson City, Missouri, for Police, Fire, Animal Control, and Airport Public Safety to be purchased t"
   },
   {
    "agency": "COMBINED REGIONAL COMMUNICATIONS AUTHORITY",
@@ -1435,6 +1876,17 @@
    "desc": "SERVICE, UPGRADE TO EXISTING COMPUTER AIDED DISPATCH (CAD) SYSTEM AT LAKE MEAD NATIONAL RECREATION AREA."
   },
   {
+   "agency": "Mesa Police Department",
+   "vendor": "Versaterm",
+   "cat": "rms",
+   "start": "2025-01-27",
+   "end": "2029-01-27",
+   "value": 1500000.0,
+   "src": "legistar",
+   "url": "https://mesa.legistar.com/LegislationDetail.aspx?ID=22180",
+   "desc": "Four-Year Term Contract with Six One-Year Renewal Options for Online Police Reporting Solution for the Mesa Police Department and Department of Innovation and Technology (Citywide) Community Report is a product that prov"
+  },
+  {
    "agency": "LASSEN COUNTY",
    "vendor": "",
    "cat": "cad",
@@ -1446,6 +1898,28 @@
    "desc": "LASSEN AND PLUMAS COUNTIES PROPOSE TO IMPLEMENT THE LASSEN AND PLUMAS COUNTY EMERGENCY COMMUNICATIONS INTEGRATION PROJECT. THE PURPOSE OF THIS PROJECT IS TO INTEGRATE THE 911 DISPATCH SYSTEMS, AND RADIO COMMUNICATIONS SY"
   },
   {
+   "agency": "Mesa Police Department",
+   "vendor": "",
+   "cat": "cad",
+   "start": "2019-04-01",
+   "end": "2026-04-01",
+   "value": 1350000.0,
+   "src": "legistar",
+   "url": "https://mesa.legistar.com/LegislationDetail.aspx?ID=13295",
+   "desc": "Contract Amendment and Dollar-Limit Increase to the Term Contract for Cellular Phone Equipment, Wireless Voice, and Data Service Plan for Citywide Departments (as requested by the Police Department) (Citywide) The Police"
+  },
+  {
+   "agency": "Grand Prairie Police Department",
+   "vendor": "CentralSquare Technologies",
+   "cat": "rms",
+   "start": "2018-10-16",
+   "end": "2019-10-16",
+   "value": 1332057.74,
+   "src": "legistar",
+   "url": "https://grandprairie.legistar.com/LegislationDetail.aspx?ID=9337",
+   "desc": "Renewal of the annual Software Maintenance Agreement with Superion, LLC for support and maintenance of our Public Safety software in the estimated annual amount not to exceed $241,068.88 with 5% annual increase; and auth"
+  },
+  {
    "agency": "Departmental Offices",
    "vendor": "ALVAREZ LLC",
    "cat": "cad",
@@ -1455,6 +1929,61 @@
    "src": "usaspending",
    "url": "https://www.usaspending.gov/award/CONT_AWD_IND16PD00410_1406_NNG15SD19B_8000",
    "desc": "IGF::OT::IGF COMPUTER AIDED DISPATCH SYSTEM (CADS) FOR FEDERAL LAW ENFORCEMENT"
+  },
+  {
+   "agency": "National Highway Traffic Safety Administration",
+   "vendor": "DYNAMIC-PRO INC.",
+   "cat": "cad",
+   "start": "2018-09-29",
+   "end": "2020-09-28",
+   "value": 1251560.36,
+   "src": "usaspending",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_693JJ918F000243_6940_GS10F0329X_4732",
+   "desc": "TITLE: NATIONALLY UNIFORM 911 DATA SYSTEM THE PURPOSE OF THIS PROCUREMENT IS TO SECURE THE FACILITIES AND THE SERVICES OF A CONTRACTOR TO COMPLETE A LIST OF UNIFORM DATA ELEMENTS AND SCHEMA FOR 911 CALL RECEIVING, PROCES"
+  },
+  {
+   "agency": "TOWN OF FLORENCE Z",
+   "vendor": "",
+   "cat": "dispatch_mobile",
+   "start": "2024-10-01",
+   "end": "2028-09-30",
+   "value": 1230000.0,
+   "src": "usaspending",
+   "url": "https://www.usaspending.gov/award/ASST_NON_15PBJA24GG00179BRND_015",
+   "desc": "THE FLORENCE POLICE DEPARTMENT (FPD) PROPOSES TO IMPLEMENT THE PUBLIC SAFETY DISPATCH CENTER PROJECT. THE PURPOSE IS TO IMPROVE INTEROPERABLE COMMUNICATIONS BETWEEN THE PUBLIC SAFETY DISPATCH CENTER AND PUBLIC SAFETY AGE"
+  },
+  {
+   "agency": "Newark Police Department",
+   "vendor": "",
+   "cat": "cad",
+   "start": "2025-12-17",
+   "end": "2032-12-17",
+   "value": 1200000.0,
+   "src": "legistar",
+   "url": "https://newark.legistar.com/LegislationDetail.aspx?ID=1610843",
+   "desc": "Dept/ Agency: Administration/Division of Central Purchasing Action: ( X ) Ratifying ( X) Authorizing ( ) Amending Type of Service: Exception to Public Bidding - for Goods and Services provided in Support or Maintenance o"
+  },
+  {
+   "agency": "Alameda Police Department",
+   "vendor": "",
+   "cat": "cad",
+   "start": "2019-11-19",
+   "end": "2024-11-19",
+   "value": 1137825.0,
+   "src": "legistar",
+   "url": "https://alameda.legistar.com/LegislationDetail.aspx?ID=9058",
+   "desc": "Recommendation to Authorize the City Manager to Negotiate and Execute a Purchase Agreement, or in the Alternative a Lease Agreement, and Service Provider Agreement with Sun Ridge Systems Inc. for the Acquisition, Support"
+  },
+  {
+   "agency": "Department of Veterans Affairs",
+   "vendor": "COMPETITIVE EDGE SOFTWARE, LLC",
+   "cat": "rms",
+   "start": "2015-09-15",
+   "end": "2020-09-14",
+   "value": 1061250.0,
+   "src": "usaspending",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_VA119A15P0239_3600_-NONE-_-NONE-",
+   "desc": "IGF::OT::IGF LAW ENFORCEMENT RECORDS MANAGEMENT SYSTEM"
   },
   {
    "agency": "CITY OF SPOKANE POLICE",
@@ -1479,235 +2008,26 @@
    "desc": "PURPOSE AREA 3 TRIBAL JUSTICE SYSTEMS (TJS) - PROJECT ABSTRACT PURPOSE AREA 1: THE PA 3 TRIBAL JUSTICE SYSTEMS (TJS) FUNDING WILL ENABLE THE PUEBLO OF ZIA POLICE DEPARTMENT (ZPD) TO BUILD THE LAW ENFORCEMENT INFRASTRUCTU"
   },
   {
-   "agency": "LOUISVILLE-JEFFERSON COUNTY METRO GOVERNMENT",
-   "vendor": "",
+   "agency": "Corpus Christi Police Department",
+   "vendor": "i-PRO",
    "cat": "dispatch_mobile",
-   "start": "2022-10-01",
-   "end": "2026-09-30",
-   "value": 847059.0,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/ASST_NON_15PBJA23GG03419JAGX_015",
-   "desc": "TO ADDRESS PRECIPITOUS INCREASES IN VIOLENT CRIME, AND TO LEVERAGE TECHNOLOGICAL ADVANCEMENTS, LOUISVILLE METRO GOVERNMENT RESPONDS TO THE JAG FY2023 SOLICITATION, AND PROPOSES A PROJECT TO REPLACE 122 MOBILE DATA TERMIN"
-  },
-  {
-   "agency": "Washington Headquarters Services",
-   "vendor": "LBO TECHNOLOGY LLC",
-   "cat": "cad",
-   "start": "2025-09-27",
-   "end": "2028-09-26",
-   "value": 819434.89,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_HQ003425CE084_9700_-NONE-_-NONE-",
-   "desc": "COMPUTER AIDED DISPATCH, RECORDS MANAGEMENT SYSTEM OPERATION, AND MAINTENANCE SERVICES"
-  },
-  {
-   "agency": "National Park Service",
-   "vendor": "COUNTERTRADE PRODUCTS, INC.",
-   "cat": "dispatch_mobile",
-   "start": "2026-08-20",
-   "end": "2026-11-30",
-   "value": 781543.77,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_140P2126F0136_1443_NNG15SC05B_8000",
-   "desc": "EO 14398 MOBILE DATA TERMINAL"
-  },
-  {
-   "agency": "PENNSYLVANIA DEPARTMENT OF TRANSPORTATION",
-   "vendor": "",
-   "cat": "cad",
-   "start": "None",
-   "end": "None",
-   "value": 759600.0,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/ASST_NON_693JJ22540000Y37GPAU099002_069",
-   "desc": "PROJECT TITLE: INTEGRATING COMPUTER AIDED DISPATCH (CAD) DATA INTO TRAFFIC MANAGEMENT CENTER SYSTEMS :::: PROJECT DESCRIPTION: 2023 AID DEMONSTRATION AWARD: PENNDOT WILL RECEIVE $760,000 TO INTEGRATE \u201cCLEANED\u201d COMPUTER A"
-  },
-  {
-   "agency": "LOUISVILLE-JEFFERSON COUNTY METRO GOVERNMENT",
-   "vendor": "",
-   "cat": "dispatch_mobile",
-   "start": "2023-10-01",
-   "end": "2027-09-30",
-   "value": 715513.0,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/ASST_NON_15PBJA24GG05357JAGX_015",
-   "desc": "TO ADDRESS PRECIPITOUS INCREASES IN VIOLENT CRIME IN LOUISVILLE, KENTUCKY (A POPULATION OF OVER 620,000), AND TO LEVERAGE TECHNOLOGICAL ADVANCEMENTS, THE LOUISVILLE METRO POLICE DEPARTMENT RESPONDS TO THE JAG FY2024 SOLI"
-  },
-  {
-   "agency": "Department of Veterans Affairs",
-   "vendor": "OMNIGO SOFTWARE, LLC",
-   "cat": "rms",
-   "start": "2020-09-30",
-   "end": "2024-03-30",
-   "value": 700750.05,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_36C10X20P0150_3600_-NONE-_-NONE-",
-   "desc": "VA LAW ENFORCEMENT TRAINING CENTER POLICE RECORDS MANAGEMENT SYSTEM"
-  },
-  {
-   "agency": "RESEARCH TRIANGLE INSTITUTE",
-   "vendor": "",
-   "cat": "cad",
-   "start": "2022-12-01",
-   "end": "2025-05-31",
-   "value": 499924.0,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/ASST_NON_15PBJS22GK04504BJSB_015",
-   "desc": "RTI INTERNATIONAL, THE NATIONAL POLICING INSTITUTE, AND AH DATALYTICS, ALONG WITH AGENCY AND STAKEHOLDER PARTNERS, WILL CONDUCT RESEARCH AND DEVELOPMENT ACTIVITIES TO PROVIDE ACTIONABLE INFORMATION TO THE BUREAU OF JUSTI"
-  },
-  {
-   "agency": "Bureau of Land Management",
-   "vendor": "TRIBALCO LLC",
-   "cat": "cad",
-   "start": "2018-10-01",
-   "end": "2023-03-30",
-   "value": 485702.6,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_140L6420F0046_1422_140D7018D0017_1406",
-   "desc": "MISSION SUPPORT - COMPUTER AIDED DISPATCH (CAD) REPLACEMENT"
+   "start": "2025-03-18",
+   "end": "2029-03-18",
+   "value": 878300.0,
+   "src": "legistar",
+   "url": "https://corpuschristi.legistar.com/LegislationDetail.aspx?ID=23235",
+   "desc": "Motion authorizing the purchase of 40 additional and 10 replacement Panasonic mobile data computers with dash camera systems from Turn-Key Mobile, Inc, of Jefferson City, Missouri, through the Texas Department of Informa"
   },
   {
    "agency": "National Park Service",
    "vendor": "TRIBALCO LLC",
    "cat": "cad",
-   "start": "2022-09-22",
-   "end": "2026-07-31",
-   "value": 427581.07,
+   "start": "2012-08-31",
+   "end": "2014-12-31",
+   "value": 861724.08,
    "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_140P1222F0090_1443_NNG15SC51B_8000",
-   "desc": "COMPUTER AIDED DISPATCH (CAD) SYSTEM ROCKY MOUNTAIN NATIONAL PARK"
-  },
-  {
-   "agency": "National Park Service",
-   "vendor": "TRIBALCO LLC",
-   "cat": "cad",
-   "start": "2018-09-17",
-   "end": "2023-11-30",
-   "value": 410251.57,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_140P1518F0156_1443_NNG15SC93B_8000",
-   "desc": "COMPUTER AIDED DISPATCH (CAD) SYSTEM - GRCA"
-  },
-  {
-   "agency": "National Park Service",
-   "vendor": "TRIBALCO LLC",
-   "cat": "cad",
-   "start": "2018-08-30",
-   "end": "2022-03-02",
-   "value": 398897.11,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_140P5318F0067_1443_NNG15SC93B_8000",
-   "desc": "COMPUTER AIDED DISPATCH (CAD)"
-  },
-  {
-   "agency": "AMERICAN SAMOA CRIMINAL JUSTICE PLANNING AGENCY",
-   "vendor": "",
-   "cat": "rms",
-   "start": "2023-10-01",
-   "end": "2026-09-30",
-   "value": 390000.0,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/ASST_NON_15PBJS23GK01422NCHI_015",
-   "desc": "THE AMERICAN SAMOA DEPARTMENT OF PUBLIC SAFETY (DPS) CURRENTLY HAS NO AUTOMATED SYSTEM IN PLACE FOR THE COLLECTION, MAINTAINING, SHARING, AND REPORTING OF CRIMINAL RECORDS. THE ORIGINAL CONNECTION BETWEEN THE TERRITORY O"
-  },
-  {
-   "agency": "CITY OF TACOMA WASHINGTON",
-   "vendor": "",
-   "cat": "rms",
-   "start": "2022-10-01",
-   "end": "2026-09-30",
-   "value": 358803.0,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/ASST_NON_15PBJA23GG03917JAGX_015",
-   "desc": "THE DISPARATE JURISDICTIONS OF CITY OF TACOMA AND PIERCE COUNTY WILL USE JAG FUNDS FOR COMMUNITY BASED VIOLENCE INTERVENTIONS AND ADVANCING RACIAL EQUITY TO UNDERSERVED COMMUNITIES. SPECIFICALLY, THE CITY OF TACOMA WILL "
-  },
-  {
-   "agency": "Department of the Air Force",
-   "vendor": "ADVANCED COMPUTER CONCEPTS, INC.",
-   "cat": "cad",
-   "start": "2023-07-21",
-   "end": "2026-06-23",
-   "value": 349774.21,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_FA286023F0061_9700_NNG15SD60B_8000",
-   "desc": "COMPUTER-AIDED DISPATCHING SYSTEM"
-  },
-  {
-   "agency": "LEON COUNTY SHERIFFS OFFICE",
-   "vendor": "",
-   "cat": "cad",
-   "start": "2024-10-01",
-   "end": "2026-09-30",
-   "value": 349635.0,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/ASST_NON_15JCOPS24GG05398DETU_015",
-   "desc": "THE LEON COUNTY SHERIFF'S OFFICE WILL USE FY24 SAFER OUTCOMES FUNDING TO DELIVER CURRICULUM DEVELOPED FROM DATA GATHERED FROM ENCOUNTERS AND INTERACTIONS BETWEEN CITIZENS AND LCSO DEPUTIES. DATA COLLECTION SOURCES INCLUD"
-  },
-  {
-   "agency": "CITY OF TACOMA WASHINGTON",
-   "vendor": "",
-   "cat": "rms",
-   "start": "2023-10-01",
-   "end": "2027-09-30",
-   "value": 339235.0,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/ASST_NON_15PBJA24GG05322JAGX_015",
-   "desc": "THE DISPARATE JURISDICTIONS OF CITY OF TACOMA AND PIERCE COUNTY WILL USE JAG FUNDS FOR ADVANCING RACIAL EQUITY TO UNDERSERVED COMMUNITIES, PREVENTION AND PROSECUTION OF CRIMES AS WELL AS VIOLENT CRIME REDUCTION. SPECIFIC"
-  },
-  {
-   "agency": "National Park Service",
-   "vendor": "TRIBALCO LLC",
-   "cat": "cad",
-   "start": "2021-12-17",
-   "end": "2026-04-15",
-   "value": 337704.16,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_140P1422F0012_1443_140D7018D0017_1406",
-   "desc": "PROCURE A COMPUTER AIDED DISPATCH SYSTEM FOR TETON INTERAGENCY DISPATCH CENTER LOCATED IN GRAND TETON NATIONAL PARK."
-  },
-  {
-   "agency": "CITY OF BUFFALO",
-   "vendor": "",
-   "cat": "rms",
-   "start": "2017-10-01",
-   "end": "2020-09-30",
-   "value": 322769.48,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/ASST_NON_2017MUCXK038_015",
-   "desc": "CITY OF BUFFALO POLICE TRANSITION TO NIBRS BY UPDATING CRIMINAL HISTORY RECORDS MANAGEMENT SYSTEM"
-  },
-  {
-   "agency": "Department of the Army",
-   "vendor": "CITY OF FAIRBANKS",
-   "cat": "cad",
-   "start": "2017-09-15",
-   "end": "2021-09-17",
-   "value": 311359.0,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_W912D017C0006_9700_-NONE-_-NONE-",
-   "desc": "IGF::OT::IGF COMPUTER AIDED DISPATCH LICENSE"
-  },
-  {
-   "agency": "National Park Service",
-   "vendor": "TRIBALCO LLC",
-   "cat": "cad",
-   "start": "2017-09-11",
-   "end": "2022-09-10",
-   "value": 307796.86,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_INP17PD02807_1443_NNG15SC93B_8000",
-   "desc": "IGF::OT::IGF X:NOGRN - GLAC COMPUTER AIDED DISPATCH SYSTEM"
-  },
-  {
-   "agency": "TUTTLE POLICE DEPARTMENT",
-   "vendor": "",
-   "cat": "cad",
-   "start": "2024-10-01",
-   "end": "2027-09-30",
-   "value": 299153.0,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/ASST_NON_15PBJA24GG03861RURA_015",
-   "desc": "THE CITY OF TUTTLE, OKLAHOMA, FACES CHALLENGES IN POLICE OPERATIONS DUE TO LIMITED RESOURCES. WITH A POPULATION OF ABOUT 8,300, THE TUTTLE POLICE DEPARTMENT (TPD) HAS 14 OFFICERS, 6 DISPATCHERS, AND 1 ANIMAL CONTROL OFFI"
+   "url": "https://www.usaspending.gov/award/CONT_AWD_INP12PD14570_1443_INF11PC00161_1448",
+   "desc": "IGF::OT::IGF OTHER FUNCTION. SAN FRANCISCO AND WASHINGTON DC COMPUTER AIDED DISPATCH SYSTEM AND SAN FRANCISCO MOBILE DATA SYSTEM."
   }
  ]
 }
