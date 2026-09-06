@@ -24,6 +24,12 @@ from .normalize import looks_like_law_enforcement
 from .sources.base import FetchError, HttpFetcher
 from .sources.socrata import SocrataSource
 
+# Probing is a fail-fast activity: most candidate datasets are not contract
+# registers, and a retry with backoff on each dead one turns discovery into a
+# ten-minute wait. Probe once, briefly, and move on.
+PROBE_TIMEOUT = 12
+PROBE_RETRIES = 1
+
 # A dataset without a vendor column cannot produce a contract at all.
 REQUIRED = "vendor"
 # Points per useful mapped field. An expiration is worth more than everything
@@ -76,10 +82,17 @@ class Probe:
         return "; ".join(bits)
 
 
+def probe_fetcher() -> HttpFetcher:
+    """A fetcher tuned for probing: one attempt, short timeout."""
+    return HttpFetcher(timeout=PROBE_TIMEOUT, retries=PROBE_RETRIES, delay=0.1)
+
+
 def probe_dataset(source: SocrataSource, name: str = "") -> Probe:
     """Fetch a sample of a dataset and score how usable it is."""
     probe = Probe(domain=source.domain, dataset=source.dataset, name=name)
     try:
+        # 200 rows is enough to infer columns; asking for more just slows the
+        # sweep across dozens of candidates.
         rows = source._fetch_page(200, 0)
     except FetchError as exc:
         probe.error = str(exc)
@@ -116,7 +129,7 @@ def discover_and_probe(
     app_token: str = "",
 ) -> List[Probe]:
     """Find contract datasets on a domain and probe each one."""
-    fetcher = fetcher or HttpFetcher()
+    fetcher = fetcher or probe_fetcher()
     finder = SocrataSource({"domain": domain, "app_token": app_token}, fetcher)
     try:
         candidates = finder.discover(limit=limit)
@@ -175,7 +188,7 @@ def bootstrap(
         and (not only or s.get("name") in only)
     ]
 
-    fetcher = fetcher or HttpFetcher()
+    fetcher = fetcher or probe_fetcher()
     results: List[Tuple[str, Probe]] = []
     for spec in pending:
         name = spec.get("name") or spec["domain"]
