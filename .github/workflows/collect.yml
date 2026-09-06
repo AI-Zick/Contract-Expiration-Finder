@@ -17,6 +17,10 @@ on:
         description: "Also discover and pin Socrata datasets (slow)"
         type: boolean
         default: false
+      councils:
+        description: "Probe hundreds of cities for council agenda APIs first"
+        type: boolean
+        default: false
       years_back:
         description: "Years of council agendas to scan"
         default: "6"
@@ -42,7 +46,7 @@ jobs:
   collect:
     if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -59,6 +63,10 @@ jobs:
         run: pdcontracts doctor --timeout 15 || true
 
       - run: pdcontracts init
+
+      - name: Discover council agenda APIs nationally
+        if: github.event.inputs.councils == 'true'
+        run: pdcontracts discover-councils --write --workers 16 --quiet
 
       - name: Discover and pin real Socrata datasets
         if: github.event.inputs.bootstrap == 'true'

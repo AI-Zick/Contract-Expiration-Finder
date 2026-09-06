@@ -25,15 +25,24 @@ sources:
     type: usaspending
     enabled: true
     include_grants: true
-    years_back: 6
-    max_pages: 3
+    # Grants are the national layer: JAG and COPS awards reach hundreds of
+    # local agencies a year, and each one names a buyer that has money and has
+    # not chosen a vendor.
+    years_back: 10
+    max_pages: 12
     keywords:
-      - records management system
+      - police records management system
+      - law enforcement records management
       - computer aided dispatch
       - mobile data terminal
-      - police records management
+      - mobile data computer
+      - police mobile field reporting
       - law enforcement software
       - public safety software
+      - police department software
+      - sheriff records management
+      - CAD RMS
+      - police technology upgrade
 
   # --- Cooperative purchasing vehicles ------------------------------------
   # Not agency contracts -- these are the master agreements an agency can buy

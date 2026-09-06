@@ -255,6 +255,58 @@ def cmd_try(args) -> int:
     return 0
 
 
+def cmd_discover_councils(args) -> int:
+    """Probe hundreds of cities for a readable council agenda API."""
+    from .councils import PLACES, discover, to_source_entries
+
+    places = PLACES
+    if args.state:
+        wanted = {s.upper() for s in args.state}
+        places = [p for p in PLACES if p[1] in wanted]
+
+    print(f"probing {len(places)} places for Legistar council APIs "
+          f"({args.workers} workers)...")
+
+    def progress(done, total, hits):
+        print(f"  {done}/{total} probes, {hits} live", flush=True)
+
+    councils = discover(places, workers=args.workers, limit=args.limit,
+                        progress=progress if not args.quiet else None)
+
+    print(f"\n{len(councils)} councils reachable:\n")
+    for c in councils:
+        print(f"  {c.state}  {c.name:28} {c.slug}")
+
+    if not args.write:
+        print(f"\nre-run with --write to add these to {args.sources}")
+        return 0
+
+    import yaml
+
+    text = Path(args.sources).read_text(encoding="utf-8")
+    raw = yaml.safe_load(text) or {}
+    existing = {s.get("client") for s in raw.get("sources", [])
+                if s.get("type") == "legistar"}
+    new = [e for e in to_source_entries(councils) if e["client"] not in existing]
+    if not new:
+        print("\nevery discovered council is already configured")
+        return 0
+
+    lines = ["", "  # Discovered live by `pdcontracts discover-councils`.",
+             f"  # {len(new)} councils whose agenda API answered."]
+    for e in new:
+        lines.append(
+            "  - {{name: {name}, type: legistar, enabled: true, client: {client}, "
+            "state: {state}, jurisdiction: {jur}, years_back: {yb}, max_pages: {mp}}}".format(
+                name=e["name"], client=e["client"], state=e["state"],
+                jur=e["jurisdiction"], yb=e["years_back"], mp=e["max_pages"])
+        )
+    Path(args.sources).write_text(text.rstrip("\n") + "\n" + "\n".join(lines) + "\n",
+                                  encoding="utf-8")
+    print(f"\nadded {len(new)} council sources to {args.sources}")
+    return 0
+
+
 def cmd_bootstrap(args) -> int:
     """Discover, probe and pin real datasets in one command."""
     from .bootstrap import bootstrap
@@ -623,6 +675,15 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--timeout", type=int, default=30)
     p.add_argument("--no-grants", action="store_true")
     p.set_defaults(func=cmd_try)
+
+    p = sub.add_parser("discover-councils",
+                       help="probe hundreds of cities for readable council agendas")
+    p.add_argument("--write", action="store_true", help="add hits to sources.yml")
+    p.add_argument("--state", nargs="*", help="limit to these states")
+    p.add_argument("--workers", type=int, default=12)
+    p.add_argument("--limit", type=int, help="probe only the first N places")
+    p.add_argument("--quiet", action="store_true")
+    p.set_defaults(func=cmd_discover_councils)
 
     p = sub.add_parser("bootstrap",
                        help="find, test and pin real contract datasets automatically")
