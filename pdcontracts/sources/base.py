@@ -116,6 +116,12 @@ class SourceResult:
     dataset: str = ""
 
 
+# A single source must not be able to consume a national run. At a few hundred
+# sources, one jurisdiction whose API hangs would otherwise stall everything
+# behind it.
+DEFAULT_BUDGET_SECONDS = 90
+
+
 class Source:
     """Base connector.
 
@@ -132,6 +138,18 @@ class Source:
     def __init__(self, config: Optional[dict] = None, fetcher: Optional[HttpFetcher] = None):
         self.config = config or {}
         self.fetcher = fetcher or HttpFetcher()
+        self.budget_seconds = float(
+            self.config.get("budget_seconds", DEFAULT_BUDGET_SECONDS)
+        )
+        self._deadline: Optional[float] = None
+
+    def start_clock(self) -> None:
+        """Begin this source's time budget."""
+        self._deadline = time.monotonic() + self.budget_seconds
+
+    def over_budget(self) -> bool:
+        """True once this source has had its share of the run."""
+        return self._deadline is not None and time.monotonic() > self._deadline
 
     def collect(self, **kwargs) -> SourceResult:
         raise NotImplementedError

@@ -308,3 +308,57 @@ def test_backoff_still_happens_between_real_retries(monkeypatch):
     with pytest.raises(base.FetchError):
         fetcher.get_text("https://example.invalid/")
     assert len(slept) == 2          # between attempts, not after the last
+
+
+# --- per-source time budget -----------------------------------------------
+# One jurisdiction whose API hangs must not stall a national run behind it.
+
+def test_source_reports_when_it_is_over_budget():
+    from pdcontracts.sources.base import Source
+
+    source = Source({"budget_seconds": 0})
+    assert not source.over_budget()      # clock not started yet
+    source.start_clock()
+    assert source.over_budget()
+
+
+def test_budget_defaults_to_something_finite():
+    from pdcontracts.sources.base import DEFAULT_BUDGET_SECONDS, Source
+
+    assert 0 < DEFAULT_BUDGET_SECONDS <= 600
+    assert Source({}).budget_seconds == DEFAULT_BUDGET_SECONDS
+
+
+def test_legistar_truncates_at_its_budget_and_says_so():
+    from pdcontracts.sources.legistar import LegistarSource
+
+    class Endless(FakeFetcher):
+        def __init__(self):
+            super().__init__()
+            self.pages_served = 0
+
+        def get_json(self, url, params=None, headers=None):
+            self.pages_served += 1
+            return [{"MatterId": 1, "MatterTitle": "x", "MatterBodyName": "y"}] * 1000
+
+    source = LegistarSource({"client": "slow", "budget_seconds": 0}, Endless())
+    result = source.collect()
+    assert source.fetcher.pages_served == 0     # stopped before the first page
+    assert "budget" in source.query_mode
+
+
+def test_usaspending_stops_paging_at_its_budget():
+    class Endless(FakeFetcher):
+        def __init__(self):
+            super().__init__()
+            self.calls_made = 0
+
+        def post_json(self, url, payload, headers=None):
+            self.calls_made += 1
+            return {"results": [], "page_metadata": {"hasNext": True}}
+
+    source = USASpendingSource(
+        {"keywords": ["x"], "max_pages": 50, "budget_seconds": 0}, Endless()
+    )
+    source.collect()
+    assert source.fetcher.calls_made == 0

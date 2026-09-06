@@ -133,6 +133,7 @@ class SocrataSource(Source):
         if not (self.domain and self.dataset):
             return SourceResult(status="error", message="domain and dataset required")
 
+        self.start_clock()
         try:
             sample = self._fetch_page(200, 0)
         except FetchError as exc:
@@ -153,6 +154,8 @@ class SocrataSource(Source):
         offset = 0
         try:
             while offset < self.max_rows:
+                if self.over_budget():
+                    break
                 page = self._fetch_page(PAGE_SIZE, offset, where)
                 if not page:
                     break

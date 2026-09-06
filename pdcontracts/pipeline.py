@@ -98,7 +98,9 @@ def collect_all(
     """Run every enabled source, returning a per-source summary."""
     settings = settings or load_settings()
     specs = load_sources(sources_path)
-    fetcher = fetcher or HttpFetcher()
+    # Across hundreds of sources, breadth beats persistence: a shorter timeout
+    # and one retry keeps a slow jurisdiction from eating the run.
+    fetcher = fetcher or HttpFetcher(timeout=20, retries=2, delay=0.2)
     summary: List[Dict[str, Any]] = []
 
     for spec in specs:

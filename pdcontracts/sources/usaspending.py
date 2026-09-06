@@ -101,6 +101,8 @@ class USASpendingSource(Source):
     def _search(self, keyword: str, award_types: List[str], fields: List[str]) -> List[dict]:
         rows: List[dict] = []
         for page in range(1, self.max_pages + 1):
+            if self.over_budget():
+                break
             payload = {
                 "filters": {
                     "keywords": [keyword],
@@ -131,6 +133,7 @@ class USASpendingSource(Source):
                             message=f"api reachable, {n} agencies listed")
 
     def collect(self, **kwargs) -> SourceResult:
+        self.start_clock()
         rows: List[dict] = []
         errors: List[str] = []
         for keyword in self.keywords:

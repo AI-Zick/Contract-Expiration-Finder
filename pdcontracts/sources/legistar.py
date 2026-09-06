@@ -180,6 +180,9 @@ class LegistarSource(Source):
             rows: List[dict] = []
             try:
                 for page in range(pages):
+                    if self.over_budget():
+                        self.query_mode = f"{mode} (truncated at budget)"
+                        return rows
                     batch = self._page(page, where)
                     if not batch:
                         break
@@ -198,6 +201,7 @@ class LegistarSource(Source):
     def collect(self, **kwargs) -> SourceResult:
         if not self.client:
             return SourceResult(status="error", message="legistar 'client' slug required")
+        self.start_clock()
         try:
             rows = self._fetch()
         except FetchError as exc:
