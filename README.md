@@ -50,6 +50,31 @@ Legistar exposes this for several hundred cities with no API key.
 For the agencies that publish nothing, a records request is the route, which is
 why the letter generator is a first-class feature rather than an afterthought.
 
+### Live results
+
+`docs/` in this repository holds a real collection run, produced by GitHub
+Actions against the live public APIs — not a fixture. Latest run: **143
+contracts across 158 agencies**, 142 with expiration dates.
+
+Real examples it found:
+
+| Agency | Incumbent | System | Expires | Value |
+|---|---|---|---|---|
+| Denver Police Department | Versaterm | RMS | 2028-12-22 | $12,332,142 |
+| Long Beach Police Department | CentralSquare | RMS | 2021-06-16 | $2,452,691 |
+| Long Beach Police Department | (integrator) | Mobile data terminals | 2026-08-09 | $2,348,500 |
+| Milwaukee Police Department | CentralSquare | CAD | 2027-03-03 | — |
+
+Every row links back to the council item or federal award it came from.
+
+```bash
+# Re-run it yourself; the runner has the network access
+gh workflow run collect.yml -f sources="legistar usaspending"
+```
+
+Publishing `docs/` to GitHub Pages makes it a live, self-updating site. The
+schedule is weekly — expiration dates do not move often enough to justify more.
+
 ### Prove it reaches real data first
 
 ```bash
@@ -362,7 +387,7 @@ Motorola radio contract is infrastructure rather than a software deal.
 
 ```bash
 pip install -e ".[dev]"
-pytest              # 190 tests, no network required
+pytest              # 226 tests, no network required
 ```
 
 Connectors take an injected HTTP fetcher, so the whole suite runs offline
@@ -376,6 +401,27 @@ that supply their own). One UI, three surfaces.
 Its stage colours were checked with a colourblind-safety validator rather than
 chosen by eye: green/amber/blue/crimson clear ΔE 10+ separation under
 deuteranopia and protanopia, in both light and dark steps.
+
+### What the live data changed
+
+Running against real records found five defects that no fixture would have:
+
+1. **Transit agencies run computer-aided dispatch too.** Three transit
+   districts came back as police-software leads. Federal grants now need a
+   police signal in the award text or a law-enforcement funding programme.
+2. **"Records management system" is generic enterprise IT.** A $69M Army
+   personnel records system, a USDA document archive and an Army fire-service
+   system all classified as police RMS. Categories now veto the non-policing
+   senses of their own vocabulary.
+3. **Legistar rejects `tolower()` inside `substringof`.** Every city silently
+   fell back to an unfiltered page and matched nothing. Case variants are now
+   matched explicitly, and the collection log records which query path ran.
+4. **Amendment chains are one contract, not several.** Denver's fifth, sixth
+   and seventh Versaterm agreements each appear as their own council item;
+   timing off the earliest pointed at an agreement superseded twice over.
+5. **"Public safety" was indexed as a vendor alias.** It normalized out of
+   "public safety corporation" and, being the longest match, attributed
+   Denver's Versaterm contracts to CentralSquare.
 
 ### Adding a source
 
