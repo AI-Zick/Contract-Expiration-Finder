@@ -69,7 +69,7 @@
    "id": 8,
    "source": "legistar",
    "dataset": "longbeach",
-   "ran_at": "2026-09-06T10:14:37",
+   "ran_at": "2026-09-06T10:19:00",
    "fetched": 5,
    "kept": 3,
    "status": "ok",
@@ -79,7 +79,7 @@
    "id": 7,
    "source": "legistar",
    "dataset": "baltimore",
-   "ran_at": "2026-09-06T10:14:32",
+   "ran_at": "2026-09-06T10:18:54",
    "fetched": 1,
    "kept": 0,
    "status": "ok",
@@ -89,7 +89,7 @@
    "id": 6,
    "source": "legistar",
    "dataset": "milwaukee",
-   "ran_at": "2026-09-06T10:14:31",
+   "ran_at": "2026-09-06T10:18:53",
    "fetched": 8,
    "kept": 6,
    "status": "ok",
@@ -99,7 +99,7 @@
    "id": 5,
    "source": "legistar",
    "dataset": "denver",
-   "ran_at": "2026-09-06T10:14:27",
+   "ran_at": "2026-09-06T10:18:49",
    "fetched": 12,
    "kept": 3,
    "status": "ok",
@@ -109,7 +109,7 @@
    "id": 4,
    "source": "legistar",
    "dataset": "sanjose",
-   "ran_at": "2026-09-06T10:14:20",
+   "ran_at": "2026-09-06T10:18:42",
    "fetched": 1,
    "kept": 0,
    "status": "ok",
@@ -119,7 +119,7 @@
    "id": 3,
    "source": "legistar",
    "dataset": "oakland",
-   "ran_at": "2026-09-06T10:14:18",
+   "ran_at": "2026-09-06T10:18:41",
    "fetched": 2,
    "kept": 1,
    "status": "ok",
@@ -129,7 +129,7 @@
    "id": 2,
    "source": "legistar",
    "dataset": "seattle",
-   "ran_at": "2026-09-06T10:14:14",
+   "ran_at": "2026-09-06T10:18:37",
    "fetched": 2,
    "kept": 0,
    "status": "ok",
@@ -139,7 +139,7 @@
    "id": 1,
    "source": "usaspending",
    "dataset": "spending_by_award",
-   "ran_at": "2026-09-06T10:14:12",
+   "ran_at": "2026-09-06T10:18:35",
    "fetched": 243,
    "kept": 130,
    "status": "ok",
@@ -152,10 +152,10 @@
    "state": "KY",
    "incumbent": "UNAWARDED (grant-funded)",
    "categoryLabels": "Mobile / Field Reporting",
-   "annual": 398954.55319148937,
-   "expires": "2021-09-30",
-   "budgetDeadline": "2021-02-01",
-   "stage": "expired",
+   "annual": 182684.17021276595,
+   "expires": "2027-09-30",
+   "budgetDeadline": "2027-02-01",
+   "stage": "pitch_now",
    "priority": 82.0,
    "sources": [
     "usaspending"
@@ -166,10 +166,10 @@
    "state": "DC",
    "incumbent": "SIMPLE TECHNOLOGY SOLUTIONS INC.",
    "categoryLabels": "Records Management System",
-   "annual": 12467803.394615386,
-   "expires": "2026-10-31",
-   "budgetDeadline": "2026-02-01",
-   "stage": "late",
+   "annual": 7348183.45,
+   "expires": "2027-08-29",
+   "budgetDeadline": "2027-02-01",
+   "stage": "pitch_now",
    "priority": 81.0,
    "sources": [
     "usaspending"
@@ -180,10 +180,10 @@
    "state": "MO",
    "incumbent": "UNAWARDED (grant-funded)",
    "categoryLabels": "Mobile / Field Reporting",
-   "annual": 76648.59574468085,
-   "expires": "2026-09-30",
-   "budgetDeadline": "2026-02-01",
-   "stage": "late",
+   "annual": 35221.53191489362,
+   "expires": "2027-09-30",
+   "budgetDeadline": "2027-02-01",
+   "stage": "pitch_now",
    "priority": 74.0,
    "sources": [
     "usaspending"
@@ -208,10 +208,10 @@
    "state": "NC",
    "incumbent": "UNAWARDED (grant-funded)",
    "categoryLabels": "Mobile / Field Reporting",
-   "annual": 29898.893617021276,
-   "expires": "2024-09-30",
-   "budgetDeadline": "2024-02-01",
-   "stage": "expired",
+   "annual": 19366.978723404256,
+   "expires": "2027-09-30",
+   "budgetDeadline": "2027-02-01",
+   "stage": "pitch_now",
    "priority": 71.9,
    "sources": [
     "usaspending"
@@ -229,6 +229,20 @@
    "priority": 70.0,
    "sources": [
     "usaspending"
+   ]
+  },
+  {
+   "agency": "Denver Police Department",
+   "state": "CO",
+   "incumbent": "Versaterm",
+   "categoryLabels": "Records Management System",
+   "annual": 4110714.0,
+   "expires": "2028-12-22",
+   "budgetDeadline": "2027-08-01",
+   "stage": "too_early",
+   "priority": 69.5,
+   "sources": [
+    "legistar"
    ]
   },
   {
@@ -250,10 +264,10 @@
    "state": "WA",
    "incumbent": "UNAWARDED (grant-funded)",
    "categoryLabels": "Records Management System",
-   "annual": 178222.4680851064,
-   "expires": "2026-09-30",
-   "budgetDeadline": "2026-02-01",
-   "stage": "late",
+   "annual": 86613.1914893617,
+   "expires": "2027-09-30",
+   "budgetDeadline": "2027-02-01",
+   "stage": "pitch_now",
    "priority": 69.3,
    "sources": [
     "usaspending"
@@ -271,20 +285,6 @@
    "priority": 67.9,
    "sources": [
     "usaspending"
-   ]
-  },
-  {
-   "agency": "Denver Police Department",
-   "state": "CO",
-   "incumbent": "CentralSquare Technologies",
-   "categoryLabels": "Records Management System",
-   "annual": 8964838.0,
-   "expires": "2025-11-06",
-   "budgetDeadline": "2024-08-01",
-   "stage": "expired",
-   "priority": 67.5,
-   "sources": [
-    "legistar"
    ]
   },
   {
@@ -320,10 +320,10 @@
    "state": "PA",
    "incumbent": "UNAWARDED (grant-funded)",
    "categoryLabels": "Records Management System",
-   "annual": 36152.425531914894,
-   "expires": "2026-09-30",
-   "budgetDeadline": "2026-02-01",
-   "stage": "late",
+   "annual": 12178.468085106382,
+   "expires": "2027-09-30",
+   "budgetDeadline": "2027-02-01",
+   "stage": "pitch_now",
    "priority": 62.2,
    "sources": [
     "usaspending"
@@ -334,27 +334,13 @@
    "state": "DC",
    "incumbent": "LBO TECHNOLOGY LLC",
    "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 1010083.5783333331,
-   "expires": "2025-09-26",
-   "budgetDeadline": "2025-02-01",
-   "stage": "expired",
+   "annual": 273144.9633333333,
+   "expires": "2028-09-26",
+   "budgetDeadline": "2028-02-01",
+   "stage": "too_early",
    "priority": 61.3,
    "sources": [
     "usaspending"
-   ]
-  },
-  {
-   "agency": "Long Beach Police Department",
-   "state": "CA",
-   "incumbent": "CentralSquare Technologies",
-   "categoryLabels": "Mobile / Field Reporting, Records Management System",
-   "annual": 3039816.0,
-   "expires": "2021-06-16",
-   "budgetDeadline": "2020-02-01",
-   "stage": "expired",
-   "priority": 61.1,
-   "sources": [
-    "legistar"
    ]
   },
   {
@@ -372,29 +358,29 @@
    ]
   },
   {
-   "agency": "Milwaukee Police Department",
-   "state": "WI",
+   "agency": "Long Beach Police Department",
+   "state": "CA",
    "incumbent": "UNNAMED (see council item)",
-   "categoryLabels": "Computer-Aided Dispatch, Records Management System",
-   "annual": null,
-   "expires": "2027-12-15",
-   "budgetDeadline": "2026-08-01",
-   "stage": "procurement_live",
-   "priority": 58.2,
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 587125.0,
+   "expires": "2026-08-09",
+   "budgetDeadline": "2026-02-01",
+   "stage": "expired",
+   "priority": 58.6,
    "sources": [
     "legistar"
    ]
   },
   {
-   "agency": "Denver Police Department",
-   "state": "CO",
-   "incumbent": "Versaterm",
-   "categoryLabels": "Records Management System",
-   "annual": 2726203.3333333335,
-   "expires": "2024-01-04",
-   "budgetDeadline": "2023-08-01",
-   "stage": "expired",
-   "priority": 57.0,
+   "agency": "Milwaukee Police Department",
+   "state": "WI",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Computer-Aided Dispatch, Records Management System",
+   "annual": null,
+   "expires": "2030-05-18",
+   "budgetDeadline": "2029-08-01",
+   "stage": "too_early",
+   "priority": 58.2,
    "sources": [
     "legistar"
    ]
@@ -432,10 +418,10 @@
    "state": "CO",
    "incumbent": "TRIBALCO LLC",
    "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 164193.12782608694,
-   "expires": "2026-07-31",
-   "budgetDeadline": "2026-02-01",
-   "stage": "expired",
+   "annual": 52650.240000000005,
+   "expires": "2028-09-20",
+   "budgetDeadline": "2028-02-01",
+   "stage": "too_early",
    "priority": 55.6,
    "sources": [
     "usaspending"
@@ -460,9 +446,9 @@
    "state": "VA",
    "incumbent": "CLOUD LAKE TECHNOLOGY LLC",
    "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 7310327.46,
-   "expires": "2024-09-24",
-   "budgetDeadline": "2024-02-01",
+   "annual": 3797665.02,
+   "expires": "2025-09-24",
+   "budgetDeadline": "2025-02-01",
    "stage": "expired",
    "priority": 53.0,
    "sources": [
@@ -474,10 +460,10 @@
    "state": "AS",
    "incumbent": "UNAWARDED (grant-funded)",
    "categoryLabels": "Records Management System",
-   "annual": 208714.2857142857,
-   "expires": "2026-09-30",
+   "annual": 75000.0,
+   "expires": "2027-06-30",
    "budgetDeadline": "2026-02-01",
-   "stage": "late",
+   "stage": "procurement_live",
    "priority": 52.8,
    "sources": [
     "usaspending"
@@ -551,6 +537,20 @@
    "priority": 50.1,
    "sources": [
     "usaspending"
+   ]
+  },
+  {
+   "agency": "Long Beach Police Department",
+   "state": "CA",
+   "incumbent": "CentralSquare Technologies",
+   "categoryLabels": "Records Management System",
+   "annual": 2452691.0,
+   "expires": "2021-06-16",
+   "budgetDeadline": "2020-02-01",
+   "stage": "expired",
+   "priority": 48.9,
+   "sources": [
+    "legistar"
    ]
   },
   {
@@ -712,9 +712,9 @@
    "state": "NC",
    "incumbent": "UNAWARDED (grant-funded)",
    "categoryLabels": "Mobile / Field Reporting",
-   "annual": 17750.086956521736,
-   "expires": "2024-09-30",
-   "budgetDeadline": "2024-02-01",
+   "annual": 8545.565217391304,
+   "expires": "2025-09-30",
+   "budgetDeadline": "2025-02-01",
    "stage": "expired",
    "priority": 43.2,
    "sources": [
@@ -866,9 +866,9 @@
    "state": "CA",
    "incumbent": "COMPUTER INFORMATION SYSTEMS INC",
    "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 72170.745,
-   "expires": "2021-10-31",
-   "budgetDeadline": "2021-02-01",
+   "annual": 24437.76,
+   "expires": "2024-12-31",
+   "budgetDeadline": "2024-02-01",
    "stage": "expired",
    "priority": 41.8,
    "sources": [
@@ -1132,9 +1132,9 @@
    "state": "WV",
    "incumbent": "UNAWARDED (grant-funded)",
    "categoryLabels": "Records Management System",
-   "annual": 20966.086956521736,
-   "expires": "2024-09-30",
-   "budgetDeadline": "2024-02-01",
+   "annual": 8769.91304347826,
+   "expires": "2025-09-30",
+   "budgetDeadline": "2025-02-01",
    "stage": "expired",
    "priority": 36.2,
    "sources": [
@@ -1282,7 +1282,7 @@
   },
   {
    "agency": "Denver Police Department",
-   "vendor": "CentralSquare Technologies",
+   "vendor": "Versaterm",
    "cat": "rms",
    "start": "2025-12-22",
    "end": "2028-12-22",
@@ -1304,7 +1304,7 @@
   },
   {
    "agency": "Denver Police Department",
-   "vendor": "CentralSquare Technologies",
+   "vendor": "Versaterm",
    "cat": "rms",
    "start": "2023-11-06",
    "end": "2025-11-06",
@@ -1403,7 +1403,7 @@
   },
   {
    "agency": "Long Beach Police Department",
-   "vendor": "CentralSquare Technologies",
+   "vendor": "",
    "cat": "dispatch_mobile",
    "start": "2022-08-09",
    "end": "2026-08-09",
