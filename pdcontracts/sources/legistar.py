@@ -39,6 +39,14 @@ from .base import FetchError, Source, SourceResult, register
 API = "https://webapi.legistar.com/v1"
 PAGE = 1000
 
+# Only the fields the parser reads. Legistar matters carry a dozen large free
+# text fields (MatterEXText1..10) that dwarf everything else; selecting the
+# columns we need turns a multi-megabyte page into a small one.
+SELECT = ",".join([
+    "MatterId", "MatterFile", "MatterName", "MatterTitle", "MatterBodyName",
+    "MatterIntroDate", "MatterAgendaDate", "MatterPassedDate",
+])
+
 # Phrases that identify a public-safety software item in a resolution title.
 MATTER_KEYWORDS = [
     "records management", "computer aided dispatch", "computer-aided dispatch",
@@ -118,23 +126,53 @@ class LegistarSource(Source):
             dataset=self.client,
         )
 
+    def _keyword_filter(self) -> str:
+        """OData clause matching any keyword, case-insensitively.
+
+        Council titles are inconsistently cased, so both sides are lowered.
+        """
+        clauses = [
+            f"substringof('{k.replace(chr(39), chr(39) * 2)}',tolower(MatterTitle))"
+            for k in self.keywords
+        ]
+        return "(" + " or ".join(clauses) + ")"
+
+    def _page(self, page: int, where: str) -> List[dict]:
+        params = {
+            "$top": PAGE,
+            "$skip": page * PAGE,
+            "$orderby": "MatterIntroDate desc",
+            "$select": SELECT,
+            "$filter": where,
+        }
+        return self.fetcher.get_json(self._url("matters"), params=params)
+
     def _fetch(self) -> List[dict]:
+        """Fetch matching matters, filtering server-side where possible.
+
+        Pulling every matter and filtering locally means downloading years of a
+        city's entire legislative history to find a handful of contract items.
+        Legistar's OData supports substringof, so the keyword test is pushed to
+        the server; if a deployment rejects that, fall back to the date filter
+        alone rather than losing the source.
+        """
         since = _dt.date.today().replace(year=_dt.date.today().year - self.years_back)
-        rows: List[dict] = []
-        for page in range(self.max_pages):
-            params = {
-                "$top": PAGE,
-                "$skip": page * PAGE,
-                "$orderby": "MatterIntroDate desc",
-                "$filter": f"MatterIntroDate gt datetime'{since.isoformat()}'",
-            }
-            batch = self.fetcher.get_json(self._url("matters"), params=params)
-            if not batch:
-                break
-            rows.extend(batch)
-            if len(batch) < PAGE:
-                break
-        return rows
+        date_clause = f"MatterIntroDate gt datetime'{since.isoformat()}'"
+
+        for where in (f"{date_clause} and {self._keyword_filter()}", date_clause):
+            rows: List[dict] = []
+            try:
+                for page in range(self.max_pages):
+                    batch = self._page(page, where)
+                    if not batch:
+                        break
+                    rows.extend(batch)
+                    if len(batch) < PAGE:
+                        break
+                return rows
+            except FetchError:
+                continue  # server rejected the filter; try the broader one
+        raise FetchError(f"legistar '{self.client}' rejected both queries")
 
     def collect(self, **kwargs) -> SourceResult:
         if not self.client:

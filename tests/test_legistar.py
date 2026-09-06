@@ -130,3 +130,58 @@ def test_unreachable_api_is_reported_not_raised():
 
     result = LegistarSource({"client": "x"}, Dead()).collect()
     assert result.status == "error"
+
+
+# --- query construction ---------------------------------------------------
+
+def test_keyword_filter_is_pushed_to_the_server():
+    """Downloading a city's whole legislative history to find two contracts is
+    the difference between a fast source and an unusable one."""
+    src = source()
+    src.collect()
+    params = [p for _, p in src.fetcher.calls if p]
+    assert any("substringof" in (p.get("$filter") or "") for p in params)
+
+
+def test_query_lowercases_both_sides():
+    assert "tolower(MatterTitle)" in source()._keyword_filter()
+
+
+def test_query_selects_only_needed_columns():
+    src = source()
+    src.collect()
+    select = [p.get("$select") for _, p in src.fetcher.calls if p]
+    assert any(s and "MatterTitle" in s and "MatterEXText" not in s for s in select)
+
+
+def test_falls_back_when_the_server_rejects_the_filter():
+    """Some Legistar deployments reject substringof; losing the whole city
+    over that would be worse than a slower query."""
+    from pdcontracts.sources.base import FetchError
+
+    class PickyServer(FakeFetcher):
+        def __init__(self):
+            super().__init__()
+            self.attempts = []
+
+        def get_json(self, url, params=None, headers=None):
+            where = (params or {}).get("$filter", "")
+            self.attempts.append(where)
+            if "substringof" in where:
+                raise FetchError("400 Bad Request")
+            return MATTERS if (params or {}).get("$skip", 0) == 0 else []
+
+    src = LegistarSource({"client": "picky", "state": "IL"}, PickyServer())
+    contracts = src.collect().contracts
+    assert len(src.fetcher.attempts) >= 2          # tried filtered, then broad
+    assert len(contracts) == 2                     # still got the data
+
+
+def test_reports_error_when_both_queries_fail():
+    from pdcontracts.sources.base import FetchError
+
+    class Dead(FakeFetcher):
+        def get_json(self, url, params=None, headers=None):
+            raise FetchError("500")
+
+    assert LegistarSource({"client": "x"}, Dead()).collect().status == "error"

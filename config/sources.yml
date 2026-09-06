@@ -65,18 +65,18 @@ sources:
   # --- up here as a dated resolution naming vendor, term and dollar ceiling,
   # --- often months before any contract register. No API key. The `client`
   # --- value is the city's Legistar slug -- check <client>.legistar.com.
-  - {name: leg-chicago,   type: legistar, enabled: true, client: chicago,      state: IL, jurisdiction: Chicago, years_back: 6, max_pages: 4}
-  - {name: leg-nyc,       type: legistar, enabled: true, client: nyc,          state: NY, jurisdiction: New York City, years_back: 6, max_pages: 4}
-  - {name: leg-seattle,   type: legistar, enabled: true, client: seattle,      state: WA, jurisdiction: Seattle, years_back: 6, max_pages: 4}
-  - {name: leg-philly,    type: legistar, enabled: true, client: phila,        state: PA, jurisdiction: Philadelphia, years_back: 6, max_pages: 4}
-  - {name: leg-oakland,   type: legistar, enabled: true, client: oakland,      state: CA, jurisdiction: Oakland, years_back: 6, max_pages: 4}
-  - {name: leg-sanjose,   type: legistar, enabled: true, client: sanjose,      state: CA, jurisdiction: San Jose, years_back: 6, max_pages: 4}
-  - {name: leg-denver,    type: legistar, enabled: true, client: denver,       state: CO, jurisdiction: Denver, years_back: 6, max_pages: 4}
-  - {name: leg-atlanta,   type: legistar, enabled: true, client: atlanta,      state: GA, jurisdiction: Atlanta, years_back: 6, max_pages: 4}
-  - {name: leg-milwaukee, type: legistar, enabled: true, client: milwaukee,    state: WI, jurisdiction: Milwaukee, years_back: 6, max_pages: 4}
-  - {name: leg-baltimore, type: legistar, enabled: true, client: baltimore,    state: MD, jurisdiction: Baltimore, years_back: 6, max_pages: 4}
-  - {name: leg-portland,  type: legistar, enabled: true, client: portland,     state: OR, jurisdiction: Portland, years_back: 6, max_pages: 4}
-  - {name: leg-longbeach, type: legistar, enabled: true, client: longbeach,    state: CA, jurisdiction: Long Beach, years_back: 6, max_pages: 4}
+  - {name: leg-chicago,   type: legistar, enabled: true, client: chicago,      state: IL, jurisdiction: Chicago, years_back: 8, max_pages: 2}
+  - {name: leg-nyc,       type: legistar, enabled: true, client: nyc,          state: NY, jurisdiction: New York City, years_back: 8, max_pages: 2}
+  - {name: leg-seattle,   type: legistar, enabled: true, client: seattle,      state: WA, jurisdiction: Seattle, years_back: 8, max_pages: 2}
+  - {name: leg-philly,    type: legistar, enabled: true, client: phila,        state: PA, jurisdiction: Philadelphia, years_back: 8, max_pages: 2}
+  - {name: leg-oakland,   type: legistar, enabled: true, client: oakland,      state: CA, jurisdiction: Oakland, years_back: 8, max_pages: 2}
+  - {name: leg-sanjose,   type: legistar, enabled: true, client: sanjose,      state: CA, jurisdiction: San Jose, years_back: 8, max_pages: 2}
+  - {name: leg-denver,    type: legistar, enabled: true, client: denver,       state: CO, jurisdiction: Denver, years_back: 8, max_pages: 2}
+  - {name: leg-atlanta,   type: legistar, enabled: true, client: atlanta,      state: GA, jurisdiction: Atlanta, years_back: 8, max_pages: 2}
+  - {name: leg-milwaukee, type: legistar, enabled: true, client: milwaukee,    state: WI, jurisdiction: Milwaukee, years_back: 8, max_pages: 2}
+  - {name: leg-baltimore, type: legistar, enabled: true, client: baltimore,    state: MD, jurisdiction: Baltimore, years_back: 8, max_pages: 2}
+  - {name: leg-portland,  type: legistar, enabled: true, client: portland,     state: OR, jurisdiction: Portland, years_back: 8, max_pages: 2}
+  - {name: leg-longbeach, type: legistar, enabled: true, client: longbeach,    state: CA, jurisdiction: Long Beach, years_back: 8, max_pages: 2}
 
   # --- Statewide portals. These cover every agency in the state that buys
   # --- through the state contract system -- much higher yield per source.
