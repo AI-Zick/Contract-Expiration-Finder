@@ -1,0 +1,123 @@
+name: Collect live contract data
+
+# Runs the collectors against real public APIs on a GitHub runner, then commits
+# the results back. The runner has open internet access, so this is what turns
+# the tool from "works on your laptop" into a live, self-updating pipeline.
+on:
+  push:
+    branches: ["**"]
+    paths-ignore:
+      - "docs/**"
+      - "README.md"
+  workflow_dispatch:
+    inputs:
+      years_back:
+        description: "How many years of council agendas to scan"
+        default: "6"
+      skip_bootstrap:
+        description: "Skip Socrata dataset discovery (faster)"
+        default: "false"
+  schedule:
+    # Weekly. Council agendas and contract registers change slowly; expiration
+    # dates do not move often enough to justify daily runs.
+    - cron: "17 6 * * 1"
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install
+        run: pip install -e ".[dev]"
+
+      - name: Unit tests
+        run: pytest -q
+
+      # Proves the runner can reach a real government API before we spend
+      # twenty minutes discovering it cannot.
+      - name: Live API reachability
+        run: pdcontracts try --limit 10 || echo "::warning::USAspending unreachable"
+
+      - name: Source health
+        run: pdcontracts doctor --timeout 15 || true
+
+      - name: Initialise database
+        run: pdcontracts init
+
+      - name: Discover and pin real Socrata datasets
+        if: github.event.inputs.skip_bootstrap != 'true'
+        run: pdcontracts bootstrap --write --limit 5 || true
+
+      - name: Collect from live sources
+        run: pdcontracts collect || true
+
+      - name: Coverage
+        run: pdcontracts stats --log
+
+      - name: Build published pipeline
+        run: |
+          mkdir -p docs
+          pdcontracts report --format html -o docs/index.html --top 500
+          pdcontracts report --format csv  -o docs/pipeline.csv --top 500
+          python - <<'PY'
+          import datetime as dt, json, pathlib
+          from pdcontracts.store import Store
+          from pdcontracts.config import load_settings
+          from pdcontracts.pitch import build_targets
+          from pdcontracts.report import group_opportunities
+          from pdcontracts.web import build_payload
+
+          settings = load_settings()
+          store = Store(settings["database"])
+          contracts = [c for c in store.contracts(categories=settings["focus_categories"])
+                       if c.source != "cooperative"]
+          opps = group_opportunities(
+              build_targets(contracts, store.get_agencies(), dt.date.today()))
+          payload = build_payload(opps, settings["focus_categories"], dt.date.today())
+          pathlib.Path("docs/pipeline.json").write_text(json.dumps(payload, default=str))
+
+          # Compact digest: small enough to read back through the API.
+          digest = {
+              "generated": dt.date.today().isoformat(),
+              "totals": store.stats(),
+              "sources": store.collection_log(40),
+              "top": [
+                  {k: o[k] for k in ("agency","state","incumbent","categoryLabels",
+                                     "annual","expires","budgetDeadline","stage",
+                                     "priority","sources")}
+                  for o in payload["opportunities"][:60]
+              ],
+          }
+          pathlib.Path("docs/digest.json").write_text(json.dumps(digest, indent=1, default=str))
+          print("=== DIGEST ===")
+          print(json.dumps(digest["totals"], indent=1))
+          store.close()
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pipeline
+          path: |
+            docs/
+            pdcontracts.sqlite
+
+      - name: Commit results
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f docs config/sources.yml
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "Live collection $(date -u +%Y-%m-%d) [skip ci]"
+            git push
+          fi
