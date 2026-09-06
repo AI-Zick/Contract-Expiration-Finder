@@ -19,7 +19,7 @@ from dataclasses import dataclass
 from typing import List, Optional, Tuple
 
 from .normalize import normalize_vendor_name
-from .taxonomy import RESELLERS, VENDOR_INDEX, Vendor
+from .taxonomy import AMBIGUOUS_IN_TEXT, RESELLERS, VENDOR_INDEX, Vendor
 
 # Description keywords per category, used when the vendor is unknown or sells
 # into several segments. Ordered most-specific-first within each list.
@@ -169,7 +169,7 @@ def match_vendor_in_text(text: str) -> Tuple[Optional[Vendor], str]:
     for span in range(max_span, 0, -1):
         for start in range(0, len(tokens) - span + 1):
             candidate = " ".join(tokens[start:start + span])
-            if span == 1 and len(candidate) < 5:
+            if span == 1 and (len(candidate) < 5 or candidate in AMBIGUOUS_IN_TEXT):
                 continue
             vendor = VENDOR_INDEX.get(candidate)
             if vendor and span > best_len:

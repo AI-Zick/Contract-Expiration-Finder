@@ -130,3 +130,58 @@ def test_a_known_vendor_survives_a_generic_description():
     """Veto applies to text alone; a real public safety vendor overrides it."""
     result = classify("Tyler Technologies", "records management system")
     assert result.category == "rms"
+
+
+# --- vendor attribution in prose ------------------------------------------
+# Real council text from Denver and Long Beach. "Public safety corporation"
+# was a CentralSquare alias that normalized to the bare phrase "public safety",
+# which appears in nearly every police contract written.
+
+from pdcontracts.classify import match_vendor_in_text
+from pdcontracts.taxonomy import GENERIC_ALIASES, VENDOR_INDEX
+
+
+def test_generic_phrases_are_not_indexed_as_vendors():
+    for phrase in ("public safety", "law enforcement", "police"):
+        assert phrase not in VENDOR_INDEX
+        assert phrase in GENERIC_ALIASES
+
+
+def test_versaterm_public_safety_resolves_to_versaterm():
+    """This exact string was attributed to CentralSquare."""
+    _, name = match_vendor_in_text(
+        "A resolution approving a proposed Seventh Amendatory Agreement between "
+        "the City and County of Denver and Versaterm Public Safety Inc. for the "
+        "continual use and support of the Versaterm system"
+    )
+    assert name == "Versaterm"
+
+
+def test_public_safety_alone_names_no_vendor():
+    assert match_vendor_in_text("CONTRACT: FOR PUBLIC SAFETY MOBILE DATA TERMINALS")[1] == ""
+
+
+def test_unknown_integrator_is_not_forced_onto_a_known_vendor():
+    _, name = match_vendor_in_text(
+        "award a contract to CDCE, Inc., of Yorba Linda, CA, for the purchase "
+        "of public safety mobile data terminals"
+    )
+    assert name == ""
+
+
+def test_a_real_vendor_named_in_prose_still_resolves():
+    _, name = match_vendor_in_text(
+        "award a contract to CentralSquare Technologies, LLC, formerly TriTech "
+        "Software Systems, of Lake Mary, FL"
+    )
+    assert name == "CentralSquare Technologies"
+
+
+def test_common_word_vendors_are_not_matched_inside_prose():
+    """'Prepared' and 'Citizen' are real vendors and ordinary words."""
+    assert match_vendor_in_text("the report was prepared by the citizen board")[1] == ""
+
+
+def test_common_word_vendors_still_match_an_exact_vendor_field():
+    assert match_vendor("Prepared")[0].canonical == "Prepared"
+    assert match_vendor("Citizen")[0].canonical == "Citizen"

@@ -245,6 +245,24 @@ VENDORS: List[Vendor] = [
 
 # --- lookup index ---------------------------------------------------------
 
+# Aliases that survive normalization as generic industry vocabulary. Indexing
+# these attributes any contract containing the phrase to one vendor:
+# "public safety corporation" normalizes to "public safety", which appears in
+# nearly every police contract ever written, and it mis-attributed Denver's
+# Versaterm agreements to CentralSquare.
+GENERIC_ALIASES = {
+    "public safety", "law enforcement", "safety", "police", "sheriff",
+    "technology", "information", "digital", "data", "mobile", "cloud",
+    "security", "secure", "global", "national", "american", "advanced",
+    "enterprise", "public", "justice", "emergency", "response",
+}
+
+# Real vendors whose names are ordinary words. Safe to match when a vendor
+# field holds exactly that name; unsafe to hunt for inside prose, where
+# "prepared" or "citizen" is almost always just a word.
+AMBIGUOUS_IN_TEXT = {"prepared", "citizen", "column", "clear", "reveal", "niche"}
+
+
 def _build_index() -> Dict[str, Vendor]:
     from .normalize import normalize_vendor_name
 
@@ -253,7 +271,7 @@ def _build_index() -> Dict[str, Vendor]:
         keys = [vendor.canonical] + vendor.aliases
         for key in keys:
             norm = normalize_vendor_name(key)
-            if norm and norm not in index:
+            if norm and norm not in GENERIC_ALIASES and norm not in index:
                 index[norm] = vendor
     return index
 
