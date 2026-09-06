@@ -75,7 +75,11 @@ class HttpFetcher:
                 return response.text
             except Exception as exc:  # noqa: BLE001 - retried and reported
                 last = exc
-                time.sleep(min(2 ** attempt, 8))
+                # No backoff after the final attempt -- there is nothing left
+                # to wait for, and across a sweep of hundreds of probes that
+                # dead time dominates the run.
+                if attempt < self.retries - 1:
+                    time.sleep(min(2 ** attempt, 8))
         raise FetchError(f"GET {url} failed after {self.retries} attempts: {last}")
 
     def post_json(self, url: str, payload: dict, headers: Optional[dict] = None):
@@ -98,7 +102,8 @@ class HttpFetcher:
                 return response.json()
             except Exception as exc:  # noqa: BLE001
                 last = exc
-                time.sleep(min(2 ** attempt, 8))
+                if attempt < self.retries - 1:
+                    time.sleep(min(2 ** attempt, 8))
         raise FetchError(f"POST {url} failed after {self.retries} attempts: {last}")
 
 

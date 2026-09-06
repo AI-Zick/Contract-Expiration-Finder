@@ -1,5 +1,7 @@
 import datetime as dt
 
+import pytest
+
 from conftest import FakeFetcher
 
 from pdcontracts.sources.csvfile import CSVSource
@@ -269,3 +271,40 @@ def test_city_grant_naming_police_is_kept():
 def test_sheriff_grant_is_kept():
     assert len(_collect_grant("COUNTY OF X",
                               "SHERIFF COMPUTER AIDED DISPATCH REPLACEMENT")) == 1
+
+
+# --- retry timing ---------------------------------------------------------
+
+def test_no_backoff_sleep_after_the_final_attempt(monkeypatch):
+    """A sweep of hundreds of probes is dominated by dead time otherwise."""
+    import pdcontracts.sources.base as base
+
+    slept = []
+    monkeypatch.setattr(base.time, "sleep", lambda s: slept.append(s))
+
+    class Boom:
+        def get(self, *a, **k):
+            raise OSError("refused")
+
+    fetcher = base.HttpFetcher(retries=1, delay=0)
+    fetcher._session = Boom()
+    with pytest.raises(base.FetchError):
+        fetcher.get_text("https://example.invalid/")
+    assert slept == []
+
+
+def test_backoff_still_happens_between_real_retries(monkeypatch):
+    import pdcontracts.sources.base as base
+
+    slept = []
+    monkeypatch.setattr(base.time, "sleep", lambda s: slept.append(s))
+
+    class Boom:
+        def get(self, *a, **k):
+            raise OSError("refused")
+
+    fetcher = base.HttpFetcher(retries=3, delay=0)
+    fetcher._session = Boom()
+    with pytest.raises(base.FetchError):
+        fetcher.get_text("https://example.invalid/")
+    assert len(slept) == 2          # between attempts, not after the last
