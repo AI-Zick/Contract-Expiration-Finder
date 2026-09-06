@@ -197,7 +197,12 @@ class USASpendingSource(Source):
             # not yet chosen -- that is exactly why it is an early signal.
             if is_grant:
                 vendor_raw = "UNAWARDED (grant-funded)"
-                result = classify("", description or row.get("_keyword", ""))
+                # The funding programme is part of the context: "records
+                # management system" from the Bureau of Justice Assistance
+                # means something the same words from the USDA do not.
+                result = classify(
+                    "", f"{description or row.get('_keyword', '')} {awarder}"
+                )
                 confidence = 0.5
             else:
                 vendor_raw = recipient

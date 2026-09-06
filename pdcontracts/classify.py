@@ -52,6 +52,45 @@ CATEGORY_KEYWORDS = {
     "radio": ["radio system", "p25", "land mobile radio", "lmr", "astro 25", "subscriber radio"],
 }
 
+# Phrases that mean something different outside policing. "Records management
+# system" is generic enterprise IT: a live federal run surfaced a $69M Army
+# personnel records system, a USDA document archive and an Army fire-service
+# system as police RMS leads.
+CATEGORY_VETOES = {
+    "rms": [
+        r"electronic\s+(document\s+)?records?\s+management",
+        r"document\s+records?\s+management",
+        r"\bedrms\b", r"\berms\b", r"\barms\b",
+        r"personnel\s+records?", r"medical\s+records?", r"student\s+records?",
+        r"health\s+records?", r"employee\s+records?", r"payroll",
+        r"document\s+management", r"content\s+management", r"archiv",
+        r"fire\s+(and\s+emergency|department|service)",
+        r"human\s+resources",
+    ],
+    "cad": [
+        r"paratransit", r"bus\s+(operations|fleet|dispatch)",
+        r"transit\s+(authority|district|agency)",
+    ],
+    "case": [r"medical", r"social\s+services", r"child\s+welfare"],
+}
+CATEGORY_VETOES = {k: [re.compile(p, re.I) for p in v] for k, v in CATEGORY_VETOES.items()}
+
+# Terms that name a police product only in a policing context. On their own
+# they are ordinary IT vocabulary, so they need corroboration.
+GENERIC_TERMS = {
+    "records management", "case management", "mobile data", "field reporting",
+    "dispatch system", "incident reporting system",
+}
+POLICE_CONTEXT = re.compile(
+    r"\b(police|sheriff|law enforcement|public safety|patrol|officer|deputy|"
+    r"criminal|crime|arrest|citation|booking|jail|corrections|dispatch|"
+    r"9-?1-?1|first responder|constable|marshal|"
+    # Grant programmes that only fund law enforcement are context in themselves:
+    r"jag|byrne|justice assistance|community oriented policing|"
+    r"criminal justice|national institute of justice)\b",
+    re.I,
+)
+
 # Generic evidence that a line item is software/SaaS rather than vehicles,
 # uniforms, ammunition, or construction.
 SOFTWARE_HINTS = re.compile(
@@ -140,18 +179,42 @@ def match_vendor_in_text(text: str) -> Tuple[Optional[Vendor], str]:
     return best, (best.canonical if best else "")
 
 
-def category_from_text(text: str) -> Tuple[Optional[str], float]:
-    """Infer a category from free text. Longer phrase matches win."""
-    if not text:
-        return None, 0.0
-    low = text.lower()
+def _best_keyword(text: str) -> Tuple[Optional[str], int]:
+    low = (text or "").lower()
     best: Optional[str] = None
     best_len = 0
     for category, keywords in CATEGORY_KEYWORDS.items():
         for keyword in keywords:
             if keyword.lower() in low and len(keyword) > best_len:
                 best, best_len = category, len(keyword)
+    return best, best_len
+
+
+def category_veto(text: str) -> bool:
+    """True when the text uses a policing word for a non-policing product.
+
+    This is stronger than "category unknown": an electronic document records
+    system is not public safety software at all, and should leave the pipeline
+    rather than fall through to a generic bucket.
+    """
+    best, best_len = _best_keyword(text)
     if not best:
+        return False
+    if any(v.search(text) for v in CATEGORY_VETOES.get(best, [])):
+        return True
+    low = (text or "").lower()
+    matched_generic = any(
+        term in low and len(term) == best_len for term in GENERIC_TERMS
+    )
+    return bool(matched_generic and not POLICE_CONTEXT.search(text))
+
+
+def category_from_text(text: str) -> Tuple[Optional[str], float]:
+    """Infer a category from free text. Longer phrase matches win."""
+    if not text:
+        return None, 0.0
+    best, best_len = _best_keyword(text)
+    if not best or category_veto(text):
         return None, 0.0
     # A long, distinctive phrase is much better evidence than a 3-letter acronym.
     confidence = 0.75 if best_len >= 12 else 0.5
@@ -219,6 +282,14 @@ def classify(vendor_raw: str, description: str = "", hint_category: str = "") ->
     software, software_reason = is_software_purchase(description, vendor)
     reasons.append(software_reason)
 
+    # A vetoed description means the policing word was used for something else.
+    # Without a recognised public safety vendor on the paper, it is not a lead.
+    if not vendor and category_veto(description):
+        software = False
+        category = ""
+        confidence = 0.0
+        reasons.append("policing term used in a non-policing sense")
+
     if category == "radio" and not re.search(
         r"\b(software|saas|licens\w*|subscription|application)\b", description or "", re.I
     ):
@@ -226,6 +297,13 @@ def classify(vendor_raw: str, description: str = "", hint_category: str = "") ->
         # incumbent-footprint context, but do not call it a software contract.
         software = False
         reasons.append("radio infrastructure, not a software purchase")
+
+    if software is None and category and category != "radio":
+        # Every category here except radio names a software product. "Computer
+        # aided dispatch (CAD)" carries no separate software keyword, but a
+        # confidently identified CAD line item is software by definition.
+        software = True
+        reasons.append(f"{category} is inherently a software category")
 
     if software is False:
         # Keep the vendor attribution but do not claim a software category.

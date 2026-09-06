@@ -110,7 +110,10 @@ class LegistarSource(Source):
         self.jurisdiction: str = self.config.get("jurisdiction", "")
         self.years_back: int = int(self.config.get("years_back", 8))
         self.max_pages: int = int(self.config.get("max_pages", 12))
-        self.fallback_pages: int = int(self.config.get("fallback_pages", 1))
+        # With $select trimming the payload, the unfiltered path can afford
+        # real depth; one page of a big city's docket matches nothing useful.
+        self.fallback_pages: int = int(self.config.get("fallback_pages", 8))
+        self.query_mode: str = ""
         self.keywords: List[str] = self.config.get("keywords") or list(MATTER_KEYWORDS)
 
     def _url(self, path: str) -> str:
@@ -127,15 +130,21 @@ class LegistarSource(Source):
             dataset=self.client,
         )
 
-    def _keyword_filter(self) -> str:
-        """OData clause matching any keyword, case-insensitively.
+    # A live run showed Legistar rejecting tolower() inside substringof, so
+    # every city silently fell back to an unfiltered page. Case variants are
+    # matched explicitly instead; council titles are Title Case or ALL CAPS.
+    FILTER_KEYWORDS = [
+        "records management", "computer aided dispatch", "mobile data",
+        "public safety software", "field reporting",
+    ]
 
-        Council titles are inconsistently cased, so both sides are lowered.
-        """
-        clauses = [
-            f"substringof('{k.replace(chr(39), chr(39) * 2)}',tolower(MatterTitle))"
-            for k in self.keywords
-        ]
+    def _keyword_filter(self) -> str:
+        """OData clause matching any keyword in any common capitalisation."""
+        clauses = []
+        for keyword in self.FILTER_KEYWORDS:
+            for variant in {keyword, keyword.title(), keyword.upper()}:
+                escaped = variant.replace("'", "''")
+                clauses.append(f"substringof('{escaped}',MatterTitle)")
         return "(" + " or ".join(clauses) + ")"
 
     def _page(self, page: int, where: str) -> List[dict]:
@@ -167,7 +176,7 @@ class LegistarSource(Source):
             # fits in that page rather than stalling the entire run.
             (date_clause, self.fallback_pages),
         ]
-        for where, pages in attempts:
+        for mode, (where, pages) in zip(("filtered", "unfiltered"), attempts):
             rows: List[dict] = []
             try:
                 for page in range(pages):
@@ -177,6 +186,10 @@ class LegistarSource(Source):
                     rows.extend(batch)
                     if len(batch) < PAGE:
                         break
+                # Recorded so the collection log says which query path ran --
+                # a silent fallback is how the first live run scanned a
+                # thousand arbitrary items and matched nothing.
+                self.query_mode = mode
                 return rows
             except FetchError:
                 continue  # server rejected the filter; try the broader one
@@ -197,7 +210,8 @@ class LegistarSource(Source):
             contracts=contracts,
             fetched=len(rows),
             status="ok",
-            message=f"scanned {len(rows)} council items; kept {len(contracts)}",
+            message=(f"{self.query_mode} query: scanned {len(rows)} council "
+                     f"items; kept {len(contracts)}"),
             dataset=self.client,
         )
 

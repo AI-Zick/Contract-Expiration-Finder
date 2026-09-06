@@ -78,3 +78,55 @@ def test_confidence_is_bounded():
     ]:
         result = classify(vendor, desc)
         assert 0.0 <= result.confidence <= 1.0
+
+
+# --- precision: real strings from a live federal collection ---------------
+# "Records management system" is generic enterprise IT. A live USAspending run
+# surfaced all of these as police RMS leads before these vetoes existed.
+
+import pytest
+
+from pdcontracts.classify import category_veto
+
+
+@pytest.mark.parametrize("description", [
+    "INTERACTIVE PERSONNEL ELECTRONIC RECORDS MANAGEMENT SYSTEM SUPPORT SERVICES",
+    "USDA, OFFICE OF INFORMATION AFFAIRS: ELECTRONIC RECORDS MANAGEMENT SYSTEM (ERMS)",
+    "COLLABORATION & ELECTRONIC DOCUMENT RECORDS MANAGEMENT SYSTEM (EDRMS) SUPPORT",
+    "ARMY FIRE AND EMERGENCY SERVICES RECORDS MANAGEMENT SYSTEM",
+    "MULTIPLE PERSONNEL FUNCTIONS TO INCLUDE AUTOMATED RECORDS MANAGEMENT SYSTEM (ARMS)",
+])
+def test_non_police_records_systems_are_rejected(description):
+    result = classify("", description)
+    assert result.category == ""
+    assert result.is_software is False
+    assert category_veto(description)
+
+
+@pytest.mark.parametrize("description", [
+    "LAW ENFORCEMENT RECORDS MANAGEMENT SYSTEM PROCUREMENT - 1ST ORDER",
+    "Police records management system and mobile field reporting",
+    "Sheriff office records management system replacement",
+    "JAG GRANT FOR RECORDS MANAGEMENT SYSTEM UPGRADE",
+])
+def test_police_records_systems_are_kept(description):
+    result = classify("", description)
+    assert result.category == "rms"
+    assert result.is_software is True
+
+
+def test_transit_cad_is_rejected():
+    assert category_veto("HART WILL IMPLEMENT COMPUTER AIDED DISPATCH FOR PARATRANSIT")
+
+
+def test_bare_cad_is_still_software():
+    """CAD names a software product even with no other keyword in the text."""
+    result = classify("", "COMPUTER AIDED DISPATCH (CAD)")
+    assert result.category == "cad"
+    assert result.is_software is True
+
+
+def test_a_known_vendor_survives_a_generic_description():
+    """Veto applies to text alone; a real public safety vendor overrides it."""
+    result = classify("Tyler Technologies", "records management system")
+    assert result.category == "rms"

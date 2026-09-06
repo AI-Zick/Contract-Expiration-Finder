@@ -143,8 +143,20 @@ def test_keyword_filter_is_pushed_to_the_server():
     assert any("substringof" in (p.get("$filter") or "") for p in params)
 
 
-def test_query_lowercases_both_sides():
-    assert "tolower(MatterTitle)" in source()._keyword_filter()
+def test_query_covers_common_capitalisations():
+    """Legistar rejected tolower() inside substringof, so case variants are
+    matched explicitly. Council titles are Title Case or ALL CAPS."""
+    f = source()._keyword_filter()
+    assert "tolower" not in f
+    assert "'records management'" in f
+    assert "'Records Management'" in f
+    assert "'RECORDS MANAGEMENT'" in f
+
+
+def test_collection_log_records_which_query_path_ran():
+    """A silent fallback is how the first live run scanned a thousand items
+    and matched nothing."""
+    assert source().collect().message.startswith("filtered query:")
 
 
 def test_query_selects_only_needed_columns():
