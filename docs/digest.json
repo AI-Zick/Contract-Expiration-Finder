@@ -1,59 +1,55 @@
 {
  "generated": "2026-09-06",
  "totals": {
-  "total": 200,
-  "with_expiration": 198,
-  "agencies": 212,
+  "total": 143,
+  "with_expiration": 142,
+  "agencies": 158,
   "by_state": {
-   "CA": 17,
-   "DC": 17,
-   "PA": 15,
-   "VA": 15,
-   "MD": 10,
-   "NC": 10,
-   "IL": 7,
-   "KY": 6,
-   "MO": 6,
-   "OH": 6,
-   "WA": 6,
+   "CA": 14,
+   "PA": 12,
+   "DC": 9,
+   "VA": 9,
+   "NC": 8,
+   "CO": 7,
+   "WI": 6,
    "AZ": 5,
-   "TX": 5,
-   "CO": 4,
-   "FL": 4,
-   "NM": 4,
-   "NV": 4,
-   "RI": 4,
-   "SC": 4,
-   "TN": 4,
+   "IL": 5,
+   "MD": 5,
+   "KY": 4,
+   "MO": 4,
+   "OH": 4,
+   "WA": 4,
    "WV": 4,
-   "?": 3,
    "AS": 3,
-   "GA": 3,
-   "ID": 3,
+   "FL": 3,
    "MT": 3,
    "NJ": 3,
+   "RI": 3,
    "CT": 2,
-   "HI": 2,
-   "MA": 2,
-   "ME": 2,
-   "MI": 2,
    "NH": 2,
-   "UT": 2,
+   "NM": 2,
+   "NV": 2,
+   "SC": 2,
+   "TN": 2,
+   "TX": 2,
    "WY": 2,
+   "?": 1,
    "AK": 1,
-   "DE": 1,
-   "IA": 1,
-   "KS": 1,
+   "GA": 1,
+   "HI": 1,
+   "ID": 1,
+   "MA": 1,
+   "ME": 1,
+   "MI": 1,
    "MP": 1,
-   "NE": 1,
    "NY": 1,
    "OK": 1,
    "OR": 1
   },
   "by_category": {
-   "rms": 64,
-   "cad": 62,
-   "other_software": 37,
+   "cad": 52,
+   "rms": 28,
+   "other_software": 26,
    "dispatch_mobile": 24,
    "alpr": 3,
    "bwc": 3,
@@ -64,59 +60,90 @@
    "rtcc": 1
   },
   "by_source": {
-   "usaspending": 200
+   "usaspending": 130,
+   "legistar": 13
   }
  },
  "runs": [
   {
+   "id": 8,
+   "source": "legistar",
+   "dataset": "longbeach",
+   "ran_at": "2026-09-06T10:14:37",
+   "fetched": 5,
+   "kept": 3,
+   "status": "ok",
+   "message": "filtered query: scanned 5 council items; kept 3"
+  },
+  {
+   "id": 7,
+   "source": "legistar",
+   "dataset": "baltimore",
+   "ran_at": "2026-09-06T10:14:32",
+   "fetched": 1,
+   "kept": 0,
+   "status": "ok",
+   "message": "filtered query: scanned 1 council items; kept 0"
+  },
+  {
+   "id": 6,
+   "source": "legistar",
+   "dataset": "milwaukee",
+   "ran_at": "2026-09-06T10:14:31",
+   "fetched": 8,
+   "kept": 6,
+   "status": "ok",
+   "message": "filtered query: scanned 8 council items; kept 6"
+  },
+  {
    "id": 5,
    "source": "legistar",
    "dataset": "denver",
-   "ran_at": "2026-09-06T10:07:08",
-   "fetched": 1000,
-   "kept": 0,
+   "ran_at": "2026-09-06T10:14:27",
+   "fetched": 12,
+   "kept": 3,
    "status": "ok",
-   "message": "scanned 1000 council items; kept 0"
+   "message": "filtered query: scanned 12 council items; kept 3"
   },
   {
    "id": 4,
    "source": "legistar",
-   "dataset": "oakland",
-   "ran_at": "2026-09-06T10:07:01",
-   "fetched": 1000,
+   "dataset": "sanjose",
+   "ran_at": "2026-09-06T10:14:20",
+   "fetched": 1,
    "kept": 0,
    "status": "ok",
-   "message": "scanned 1000 council items; kept 0"
+   "message": "filtered query: scanned 1 council items; kept 0"
   },
   {
    "id": 3,
    "source": "legistar",
-   "dataset": "seattle",
-   "ran_at": "2026-09-06T10:06:53",
-   "fetched": 1000,
-   "kept": 0,
+   "dataset": "oakland",
+   "ran_at": "2026-09-06T10:14:18",
+   "fetched": 2,
+   "kept": 1,
    "status": "ok",
-   "message": "scanned 1000 council items; kept 0"
+   "message": "filtered query: scanned 2 council items; kept 1"
   },
   {
    "id": 2,
    "source": "legistar",
-   "dataset": "chicago",
-   "ran_at": "2026-09-06T10:06:45",
-   "fetched": 0,
+   "dataset": "seattle",
+   "ran_at": "2026-09-06T10:14:14",
+   "fetched": 2,
    "kept": 0,
-   "status": "error",
-   "message": "legistar 'chicago' rejected both queries"
+   "status": "ok",
+   "message": "filtered query: scanned 2 council items; kept 0"
   },
   {
    "id": 1,
    "source": "usaspending",
    "dataset": "spending_by_award",
-   "ran_at": "2026-09-06T10:06:31",
+   "ran_at": "2026-09-06T10:14:12",
    "fetched": 243,
-   "kept": 200,
+   "kept": 130,
    "status": "ok",
-   "message": "kept 231 of 243"
+   "message": "kept 191 of 243"
   }
  ],
  "top": [
@@ -144,20 +171,6 @@
    "budgetDeadline": "2026-02-01",
    "stage": "late",
    "priority": 81.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Office of the Chief Financial Officer",
-   "state": "PA",
-   "incumbent": "FEITH SYSTEMS & SOFTWARE, INC",
-   "categoryLabels": "Records Management System",
-   "annual": 5635500.085999999,
-   "expires": "2027-09-25",
-   "budgetDeadline": "2027-02-01",
-   "stage": "pitch_now",
-   "priority": 77.0,
    "sources": [
     "usaspending"
    ]
@@ -261,6 +274,20 @@
    ]
   },
   {
+   "agency": "Denver Police Department",
+   "state": "CO",
+   "incumbent": "CentralSquare Technologies",
+   "categoryLabels": "Records Management System",
+   "annual": 8964838.0,
+   "expires": "2025-11-06",
+   "budgetDeadline": "2024-08-01",
+   "stage": "expired",
+   "priority": 67.5,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
    "agency": "PROVIDENCE POLICE DEPARTMENT",
    "state": "RI",
    "incumbent": "UNAWARDED (grant-funded)",
@@ -284,20 +311,6 @@
    "budgetDeadline": "2027-02-01",
    "stage": "pitch_now",
    "priority": 64.6,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "RIO METRO REGIONAL TRANSIT DISTRICT",
-   "state": "NM",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 48893.66798418973,
-   "expires": "2026-06-18",
-   "budgetDeadline": "2025-02-01",
-   "stage": "expired",
-   "priority": 63.6,
    "sources": [
     "usaspending"
    ]
@@ -331,6 +344,20 @@
    ]
   },
   {
+   "agency": "Long Beach Police Department",
+   "state": "CA",
+   "incumbent": "CentralSquare Technologies",
+   "categoryLabels": "Mobile / Field Reporting, Records Management System",
+   "annual": 3039816.0,
+   "expires": "2021-06-16",
+   "budgetDeadline": "2020-02-01",
+   "stage": "expired",
+   "priority": 61.1,
+   "sources": [
+    "legistar"
+   ]
+  },
+  {
    "agency": "Departmental Offices",
    "state": "CA",
    "incumbent": "BIGHORN INFORMATION SYSTEMS",
@@ -345,73 +372,31 @@
    ]
   },
   {
-   "agency": "Departmental Offices",
-   "state": "MD",
-   "incumbent": "PROGRESSIVE TECHNOLOGY FEDERAL SYSTEMS INC",
-   "categoryLabels": "Records Management System",
-   "annual": 1640636.45,
-   "expires": "2027-02-16",
-   "budgetDeadline": "2026-02-01",
-   "stage": "procurement_live",
-   "priority": 61.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "National Oceanic and Atmospheric Administration",
-   "state": "MD",
-   "incumbent": "FEITH SYSTEMS & SOFTWARE, INC",
-   "categoryLabels": "Records Management System",
-   "annual": 962375.0533333335,
-   "expires": "2027-06-11",
-   "budgetDeadline": "2026-02-01",
-   "stage": "procurement_live",
-   "priority": 60.9,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "U.S. Marshals Service",
-   "state": "DC",
-   "incumbent": "SOFTWARE INFORMATION RESOURCE CORP.",
-   "categoryLabels": "Records Management System",
+   "agency": "Milwaukee Police Department",
+   "state": "WI",
+   "incumbent": "UNNAMED (see council item)",
+   "categoryLabels": "Computer-Aided Dispatch, Records Management System",
    "annual": null,
-   "expires": "2027-07-05",
-   "budgetDeadline": "2027-02-01",
-   "stage": "pitch_now",
-   "priority": 60.8,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "GOLDEN EMPIRE TRANSIT DISTRICT",
-   "state": "CA",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 9780000.0,
-   "expires": "2026-12-31",
-   "budgetDeadline": "2026-02-01",
+   "expires": "2027-12-15",
+   "budgetDeadline": "2026-08-01",
    "stage": "procurement_live",
-   "priority": 60.1,
+   "priority": 58.2,
    "sources": [
-    "usaspending"
+    "legistar"
    ]
   },
   {
-   "agency": "Bureau of the Fiscal Service",
-   "state": "DC",
-   "incumbent": "BRAVO CONSULTING GROUP, LLC",
+   "agency": "Denver Police Department",
+   "state": "CO",
+   "incumbent": "Versaterm",
    "categoryLabels": "Records Management System",
-   "annual": 453878.0,
-   "expires": "2027-02-20",
-   "budgetDeadline": "2026-02-01",
-   "stage": "procurement_live",
-   "priority": 58.1,
+   "annual": 2726203.3333333335,
+   "expires": "2024-01-04",
+   "budgetDeadline": "2023-08-01",
+   "stage": "expired",
+   "priority": 57.0,
    "sources": [
-    "usaspending"
+    "legistar"
    ]
   },
   {
@@ -485,20 +470,6 @@
    ]
   },
   {
-   "agency": "CHARTER TOWNSHIP OF LONG LAKE",
-   "state": "MI",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 800000.0,
-   "expires": "2029-03-29",
-   "budgetDeadline": "2028-05-01",
-   "stage": "too_early",
-   "priority": 52.9,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
    "agency": "AMERICAN SAMOA CRIMINAL JUSTICE PLANNING AGENCY",
    "state": "AS",
    "incumbent": "UNAWARDED (grant-funded)",
@@ -527,20 +498,6 @@
    ]
   },
   {
-   "agency": "SUNLINE TRANSIT AGENCY",
-   "state": "CA",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 1119200.0,
-   "expires": "2026-08-31",
-   "budgetDeadline": "2026-02-01",
-   "stage": "expired",
-   "priority": 51.1,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
    "agency": "Department of the Army",
    "state": "ID",
    "incumbent": "REDFORT TECHNOLOGIES LLC",
@@ -555,185 +512,17 @@
    ]
   },
   {
-   "agency": "Department of the Army",
-   "state": "KY",
-   "incumbent": "DIGITAL MANAGEMENT LLC",
+   "agency": "Milwaukee Police Department",
+   "state": "WI",
+   "incumbent": "CentralSquare Technologies",
    "categoryLabels": "Records Management System",
-   "annual": 10681107.032307692,
-   "expires": "2024-02-09",
-   "budgetDeadline": "2023-02-01",
-   "stage": "expired",
-   "priority": 51.0,
+   "annual": null,
+   "expires": "2027-03-03",
+   "budgetDeadline": "2026-08-01",
+   "stage": "procurement_live",
+   "priority": 50.8,
    "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Department of the Air Force",
-   "state": "VA",
-   "incumbent": "RED RIVER SCIENCE & TECHNOLOGY, LLC",
-   "categoryLabels": "Records Management System",
-   "annual": 3894781.357377049,
-   "expires": "2023-11-30",
-   "budgetDeadline": "2023-02-01",
-   "stage": "expired",
-   "priority": 51.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Departmental Offices",
-   "state": "VA",
-   "incumbent": "NANAVATI CONSULTING INC",
-   "categoryLabels": "Records Management System",
-   "annual": 1160835.1654545455,
-   "expires": "2023-03-13",
-   "budgetDeadline": "2022-02-01",
-   "stage": "expired",
-   "priority": 51.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Department of the Navy",
-   "state": "SC",
-   "incumbent": "ISHPI INFORMATION TECHNOLOGIES INC.",
-   "categoryLabels": "Records Management System",
-   "annual": 1198196.3898305085,
-   "expires": "2023-03-07",
-   "budgetDeadline": "2022-02-01",
-   "stage": "expired",
-   "priority": 51.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "U.S. Census Bureau",
-   "state": "MD",
-   "incumbent": "AASA, INC.",
-   "categoryLabels": "Records Management System",
-   "annual": 1156254.405,
-   "expires": "2021-09-24",
-   "budgetDeadline": "2021-02-01",
-   "stage": "expired",
-   "priority": 51.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "USTRANSCOM",
-   "state": "IL",
-   "incumbent": "ESSNOVA SOLUTIONS, INC.",
-   "categoryLabels": "Records Management System",
-   "annual": 1223554.7955555555,
-   "expires": "2021-12-17",
-   "budgetDeadline": "2021-02-01",
-   "stage": "expired",
-   "priority": 51.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Bureau of the Fiscal Service",
-   "state": "DC",
-   "incumbent": "ECS FEDERAL, LLC",
-   "categoryLabels": "Records Management System",
-   "annual": 1022147.6080000001,
-   "expires": "2021-12-12",
-   "budgetDeadline": "2021-02-01",
-   "stage": "expired",
-   "priority": 51.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Federal Acquisition Service",
-   "state": "MO",
-   "incumbent": "BRILLIENT CORPORATION",
-   "categoryLabels": "Records Management System",
-   "annual": 1211692.8,
-   "expires": "2023-08-01",
-   "budgetDeadline": "2023-02-01",
-   "stage": "expired",
-   "priority": 51.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Department of the Air Force",
-   "state": "TX",
-   "incumbent": "GOODWILL INDUSTRIES OF SAN ANTONIO CONTRACT SERVICES",
-   "categoryLabels": "Records Management System",
-   "annual": 3497707.0400000005,
-   "expires": "2025-10-31",
-   "budgetDeadline": "2025-04-01",
-   "stage": "expired",
-   "priority": 51.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Federal Emergency Management Agency",
-   "state": "DC",
-   "incumbent": "PARADIGM INVESTMENT CAPITAL, L.L.C.",
-   "categoryLabels": "Records Management System",
-   "annual": 1349280.0,
-   "expires": "2016-08-10",
-   "budgetDeadline": "2016-02-01",
-   "stage": "expired",
-   "priority": 51.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Court Services and Offender Supervision Agency",
-   "state": "DC",
-   "incumbent": "SOFTWARE INFORMATION RESOURCE CORP.",
-   "categoryLabels": "Records Management System",
-   "annual": 1134792.4925000002,
-   "expires": "2019-09-28",
-   "budgetDeadline": "2019-02-01",
-   "stage": "expired",
-   "priority": 51.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Department of Energy",
-   "state": "VA",
-   "incumbent": "Carahsoft",
-   "categoryLabels": "Records Management System",
-   "annual": 963792.6,
-   "expires": "2019-09-30",
-   "budgetDeadline": "2019-02-01",
-   "stage": "expired",
-   "priority": 50.9,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "CITY OF GRAND PRAIRIE",
-   "state": "TX",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Mobile / Field Reporting",
-   "annual": 1283304.0,
-   "expires": "2029-01-31",
-   "budgetDeadline": "2028-04-01",
-   "stage": "too_early",
-   "priority": 50.7,
-   "sources": [
-    "usaspending"
+    "legistar"
    ]
   },
   {
@@ -760,76 +549,6 @@
    "budgetDeadline": "2024-02-01",
    "stage": "expired",
    "priority": 50.1,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "FISH & WILDLIFE, WASHINGTON STATE DEPARTMENT OF",
-   "state": "WA",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Records Management System",
-   "annual": 1756662.9163636365,
-   "expires": "2023-06-30",
-   "budgetDeadline": "2022-02-01",
-   "stage": "expired",
-   "priority": 50.1,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "CITY OF RALEIGH",
-   "state": "NC",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 971634.0,
-   "expires": "2023-01-20",
-   "budgetDeadline": "2022-02-01",
-   "stage": "expired",
-   "priority": 50.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Transportation Security Administration",
-   "state": "VA",
-   "incumbent": "GREENZONE SOLUTIONS LLC",
-   "categoryLabels": "Records Management System",
-   "annual": 651181.3885714286,
-   "expires": "2023-02-16",
-   "budgetDeadline": "2022-02-01",
-   "stage": "expired",
-   "priority": 49.4,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Federal Emergency Management Agency",
-   "state": "DC",
-   "incumbent": "SANDS CONSULTING GROUP, INC.",
-   "categoryLabels": "Records Management System",
-   "annual": 591942.158,
-   "expires": "2025-09-29",
-   "budgetDeadline": "2025-02-01",
-   "stage": "expired",
-   "priority": 49.1,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Bureau of the Fiscal Service",
-   "state": "GA",
-   "incumbent": "CFOL INTERNATIONAL INC",
-   "categoryLabels": "Records Management System",
-   "annual": 499488.20160000003,
-   "expires": "2025-11-30",
-   "budgetDeadline": "2025-02-01",
-   "stage": "expired",
-   "priority": 48.5,
    "sources": [
     "usaspending"
    ]
@@ -863,62 +582,6 @@
    ]
   },
   {
-   "agency": "U.S. Census Bureau",
-   "state": "MD",
-   "incumbent": "EPIK SOLUTIONS.",
-   "categoryLabels": "Records Management System",
-   "annual": 395563.38,
-   "expires": "2025-09-29",
-   "budgetDeadline": "2025-02-01",
-   "stage": "expired",
-   "priority": 47.6,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Department of the Army",
-   "state": "DC",
-   "incumbent": "E-9 CORPORATION",
-   "categoryLabels": "Records Management System",
-   "annual": 9968480.4,
-   "expires": "2026-09-28",
-   "budgetDeadline": "2026-02-01",
-   "stage": "late",
-   "priority": 47.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Defense Information Systems Agency",
-   "state": "TX",
-   "incumbent": "AETOS LLC",
-   "categoryLabels": "Records Management System",
-   "annual": 2301885.8966666665,
-   "expires": "2026-11-14",
-   "budgetDeadline": "2026-04-01",
-   "stage": "late",
-   "priority": 47.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Offices, Boards and Divisions",
-   "state": "CA",
-   "incumbent": "MATRIX LOGIC CORPORATION",
-   "categoryLabels": "Records Management System",
-   "annual": 348954.3709090909,
-   "expires": "2023-09-30",
-   "budgetDeadline": "2023-02-01",
-   "stage": "expired",
-   "priority": 46.9,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
    "agency": "Department of the Air Force",
    "state": "FL",
    "incumbent": "Motorola Solutions",
@@ -928,20 +591,6 @@
    "budgetDeadline": "2024-02-01",
    "stage": "expired",
    "priority": 46.5,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "COUNTY OF KOOTENAI",
-   "state": "ID",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Mobile / Field Reporting",
-   "annual": 36923.07692307692,
-   "expires": "2025-11-10",
-   "budgetDeadline": "2025-02-01",
-   "stage": "expired",
-   "priority": 46.2,
    "sources": [
     "usaspending"
    ]
@@ -975,34 +624,6 @@
    ]
   },
   {
-   "agency": "National Institutes of Health",
-   "state": "NC",
-   "incumbent": "MAXIMUS FEDERAL TECHNOLOGY SOLUTIONS, LLC",
-   "categoryLabels": "Records Management System",
-   "annual": 190758.78,
-   "expires": "2016-03-27",
-   "budgetDeadline": "2015-02-01",
-   "stage": "expired",
-   "priority": 45.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Department of the Army",
-   "state": "NV",
-   "incumbent": "SPECTRUM GIS, INC.",
-   "categoryLabels": "Records Management System",
-   "annual": 171187.2,
-   "expires": "2024-09-30",
-   "budgetDeadline": "2024-02-01",
-   "stage": "expired",
-   "priority": 44.6,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
    "agency": "RESEARCH TRIANGLE INSTITUTE",
    "state": "NC",
    "incumbent": "UNAWARDED (grant-funded)",
@@ -1012,20 +633,6 @@
    "budgetDeadline": "2024-02-01",
    "stage": "expired",
    "priority": 44.4,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "ALAMEDA-CONTRA COSTA TRANSIT DISTRICT",
-   "state": "CA",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": null,
-   "expires": "2027-06-30",
-   "budgetDeadline": "2026-02-01",
-   "stage": "procurement_live",
-   "priority": 43.9,
    "sources": [
     "usaspending"
    ]
@@ -1073,20 +680,6 @@
    ]
   },
   {
-   "agency": "Office of Procurement Operations",
-   "state": "VA",
-   "incumbent": "PERATON ENTERPRISE SOLUTIONS LLC",
-   "categoryLabels": "Records Management System",
-   "annual": 127458.0,
-   "expires": "2020-12-26",
-   "budgetDeadline": "2020-02-01",
-   "stage": "expired",
-   "priority": 43.5,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
    "agency": "VILLAGE OF PHOENIX",
    "state": "IL",
    "incumbent": "UNAWARDED (grant-funded)",
@@ -1110,34 +703,6 @@
    "budgetDeadline": "2025-02-01",
    "stage": "expired",
    "priority": 43.3,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "ATLANTA-REGION TRANSIT LINK AUTHORITY",
-   "state": "GA",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Computer-Aided Dispatch",
-   "annual": 151764.70588235295,
-   "expires": "2026-04-14",
-   "budgetDeadline": "2025-02-01",
-   "stage": "expired",
-   "priority": 43.3,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Centers for Medicare and Medicaid Services",
-   "state": "UT",
-   "incumbent": "CENTEVA LLC",
-   "categoryLabels": "Records Management System",
-   "annual": 114331.96800000001,
-   "expires": "2025-09-21",
-   "budgetDeadline": "2025-02-01",
-   "stage": "expired",
-   "priority": 43.2,
    "sources": [
     "usaspending"
    ]
@@ -1171,20 +736,6 @@
    ]
   },
   {
-   "agency": "NATIONAL CENTER FOR STATE COURTS",
-   "state": "",
-   "incumbent": "UNAWARDED (grant-funded)",
-   "categoryLabels": "Records Management System",
-   "annual": 142857.14285714287,
-   "expires": "2025-02-27",
-   "budgetDeadline": "2024-02-01",
-   "stage": "expired",
-   "priority": 43.1,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
    "agency": "Bureau of Land Management",
    "state": "AZ",
    "incumbent": "TRIBALCO LLC",
@@ -1194,20 +745,6 @@
    "budgetDeadline": "2022-02-01",
    "stage": "expired",
    "priority": 43.0,
-   "sources": [
-    "usaspending"
-   ]
-  },
-  {
-   "agency": "Department of the Army",
-   "state": "KY",
-   "incumbent": "DELL FEDERAL SYSTEMS L.P",
-   "categoryLabels": "Records Management System",
-   "annual": 104660.62,
-   "expires": "2025-02-01",
-   "budgetDeadline": "2024-02-01",
-   "stage": "expired",
-   "priority": 42.8,
    "sources": [
     "usaspending"
    ]
@@ -1227,54 +764,511 @@
    ]
   },
   {
-   "agency": "Agency for International Development",
-   "state": "PA",
-   "incumbent": "FEITH SYSTEMS & SOFTWARE, INC",
+   "agency": "CITY OF SPOKANE POLICE",
+   "state": "WA",
+   "incumbent": "UNAWARDED (grant-funded)",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 342857.14285714284,
+   "expires": "2026-09-30",
+   "budgetDeadline": "2026-02-01",
+   "stage": "late",
+   "priority": 42.3,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "CITY OF BUFFALO",
+   "state": "NY",
+   "incumbent": "UNAWARDED (grant-funded)",
    "categoryLabels": "Records Management System",
-   "annual": 499078.75,
-   "expires": "2029-09-30",
-   "budgetDeadline": "2029-02-01",
-   "stage": "too_early",
-   "priority": 42.6,
+   "annual": 110663.8217142857,
+   "expires": "2020-09-30",
+   "budgetDeadline": "2019-11-01",
+   "stage": "expired",
+   "priority": 42.2,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "Department of the Navy",
+   "state": "CA",
+   "incumbent": "IDENTIV, INC.",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 86430.0,
+   "expires": "2025-08-15",
+   "budgetDeadline": "2025-02-01",
+   "stage": "expired",
+   "priority": 42.1,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "PENNSYLVANIA DEPARTMENT OF TRANSPORTATION",
+   "state": "PA",
+   "incumbent": "UNAWARDED (grant-funded)",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 759600.0,
+   "expires": null,
+   "budgetDeadline": "2027-02-01",
+   "stage": "unknown",
+   "priority": 42.0,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "National Park Service",
+   "state": "AZ",
+   "incumbent": "TRIBALCO LLC",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 79403.52967741936,
+   "expires": "2023-11-30",
+   "budgetDeadline": "2023-02-01",
+   "stage": "expired",
+   "priority": 41.8,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "National Park Service",
+   "state": "WY",
+   "incumbent": "TRIBALCO LLC",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 77931.72923076923,
+   "expires": "2026-04-15",
+   "budgetDeadline": "2025-02-01",
+   "stage": "expired",
+   "priority": 41.8,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "Department of the Army",
+   "state": "AK",
+   "incumbent": "CITY OF FAIRBANKS",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 77839.75,
+   "expires": "2021-09-17",
+   "budgetDeadline": "2021-02-01",
+   "stage": "expired",
+   "priority": 41.8,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "National Park Service",
+   "state": "CA",
+   "incumbent": "COMPUTER INFORMATION SYSTEMS INC",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 72170.745,
+   "expires": "2021-10-31",
+   "budgetDeadline": "2021-02-01",
+   "stage": "expired",
+   "priority": 41.8,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "Department of the Army",
+   "state": "PA",
+   "incumbent": "VERTOSOFT, LLC",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 203514.96,
+   "expires": "2026-10-05",
+   "budgetDeadline": "2026-02-01",
+   "stage": "late",
+   "priority": 41.2,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "National Park Service",
+   "state": "WY",
+   "incumbent": "COMPUTER INFORMATION SYSTEMS INC",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 64442.80000000001,
+   "expires": "2026-01-31",
+   "budgetDeadline": "2025-02-01",
+   "stage": "expired",
+   "priority": 41.1,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "National Park Service",
+   "state": "MT",
+   "incumbent": "TRIBALCO LLC",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 61559.371999999996,
+   "expires": "2022-09-10",
+   "budgetDeadline": "2022-02-01",
+   "stage": "expired",
+   "priority": 40.9,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "National Park Service",
+   "state": "PA",
+   "incumbent": "COMPUTER INFORMATION SYSTEMS INC",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 53887.44,
+   "expires": "2024-12-31",
+   "budgetDeadline": "2024-02-01",
+   "stage": "expired",
+   "priority": 40.4,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "CITY OF HINESVILLE",
+   "state": "GA",
+   "incumbent": "UNAWARDED (grant-funded)",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 7264.695652173913,
+   "expires": "2024-09-30",
+   "budgetDeadline": "2024-02-01",
+   "stage": "expired",
+   "priority": 40.3,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "LEON COUNTY SHERIFFS OFFICE",
+   "state": "FL",
+   "incumbent": "UNAWARDED (grant-funded)",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 182418.26086956522,
+   "expires": "2026-09-30",
+   "budgetDeadline": "2026-02-01",
+   "stage": "late",
+   "priority": 40.0,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "CITY OF PORTLAND",
+   "state": "ME",
+   "incumbent": "UNAWARDED (grant-funded)",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 20331.063829787236,
+   "expires": "2026-09-30",
+   "budgetDeadline": "2026-02-01",
+   "stage": "late",
+   "priority": 40.0,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "COUNTY OF DINWIDDIE, VIRGINIA",
+   "state": "VA",
+   "incumbent": "UNAWARDED (grant-funded)",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 5460.0,
+   "expires": "2022-09-30",
+   "budgetDeadline": "2022-02-01",
+   "stage": "expired",
+   "priority": 39.3,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "COUNTY OF CHESHIRE ADMINISTRATION",
+   "state": "NH",
+   "incumbent": "UNAWARDED (grant-funded)",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 5376.521739130435,
+   "expires": "2025-09-30",
+   "budgetDeadline": "2025-02-01",
+   "stage": "expired",
+   "priority": 39.2,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "CITY OF KALISPELL",
+   "state": "MT",
+   "incumbent": "UNAWARDED (grant-funded)",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 5211.208695652173,
+   "expires": "2020-09-30",
+   "budgetDeadline": "2020-02-01",
+   "stage": "expired",
+   "priority": 39.1,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "Department of Veterans Affairs",
+   "state": "PA",
+   "incumbent": "ALL TRAFFIC SOLUTIONS, INC.",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 3697.2972972972975,
+   "expires": "2025-12-31",
+   "budgetDeadline": "2025-02-01",
+   "stage": "expired",
+   "priority": 38.7,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "CITY OF BLOOMINGTON",
+   "state": "IL",
+   "incumbent": "UNAWARDED (grant-funded)",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 9842.297872340425,
+   "expires": "2026-09-30",
+   "budgetDeadline": "2026-02-01",
+   "stage": "late",
+   "priority": 37.4,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "Department of Veterans Affairs",
+   "state": "PA",
+   "incumbent": "COUNTY OF LEBANON",
+   "categoryLabels": "Mobile / Field Reporting",
+   "annual": 2463.157894736842,
+   "expires": "2025-12-31",
+   "budgetDeadline": "2025-02-01",
+   "stage": "expired",
+   "priority": 37.3,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "Department of the Air Force",
+   "state": "MD",
+   "incumbent": "MEDICAL PRIORITY CONSULTANTS, INC.",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 56023.584,
+   "expires": "2026-09-17",
+   "budgetDeadline": "2026-02-01",
+   "stage": "late",
+   "priority": 36.6,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "National Park Service",
+   "state": "VA",
+   "incumbent": "COMPUTER INFORMATION SYSTEMS INC",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 18417.366666666665,
+   "expires": "2026-08-16",
+   "budgetDeadline": "2026-02-01",
+   "stage": "expired",
+   "priority": 36.5,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "National Park Service",
+   "state": "MD",
+   "incumbent": "TRIBALCO LLC",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 18412.75,
+   "expires": "2024-08-13",
+   "budgetDeadline": "2024-02-01",
+   "stage": "expired",
+   "priority": 36.5,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "National Park Service",
+   "state": "WA",
+   "incumbent": "TRIBALCO LLC",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 17283.07,
+   "expires": "2022-06-30",
+   "budgetDeadline": "2021-02-01",
+   "stage": "expired",
+   "priority": 36.3,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "U.S. Customs and Border Protection",
+   "state": "OH",
+   "incumbent": "GOVERNMENT ACQUISITIONS INC",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 17139.25,
+   "expires": "2026-09-01",
+   "budgetDeadline": "2026-02-01",
+   "stage": "expired",
+   "priority": 36.3,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "LOGAN COUNTY COMMISSION",
+   "state": "WV",
+   "incumbent": "UNAWARDED (grant-funded)",
+   "categoryLabels": "Records Management System",
+   "annual": 20966.086956521736,
+   "expires": "2024-09-30",
+   "budgetDeadline": "2024-02-01",
+   "stage": "expired",
+   "priority": 36.2,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "National Park Service",
+   "state": "IL",
+   "incumbent": "COMPUTER INFORMATION SYSTEMS INC",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 16250.379999999997,
+   "expires": "2026-08-15",
+   "budgetDeadline": "2026-02-01",
+   "stage": "expired",
+   "priority": 36.1,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "Department of the Army",
+   "state": "CA",
+   "incumbent": "CentralSquare Technologies",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 11250.0,
+   "expires": "2022-01-21",
+   "budgetDeadline": "2021-02-01",
+   "stage": "expired",
+   "priority": 35.3,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "Department of the Army",
+   "state": "CA",
+   "incumbent": "E-9 CORPORATION",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 10916.713333333333,
+   "expires": "2018-09-19",
+   "budgetDeadline": "2018-02-01",
+   "stage": "expired",
+   "priority": 34.7,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "ATTORNEY GENERAL HAWAII DEPARTMENT OF TH",
+   "state": "HI",
+   "incumbent": "UNAWARDED (grant-funded)",
+   "categoryLabels": "Records Management System",
+   "annual": 37080.0,
+   "expires": "2026-09-30",
+   "budgetDeadline": "2026-02-01",
+   "stage": "late",
+   "priority": 34.2,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "THE CITY-COUNTY OF BUTTE SILVER BOW",
+   "state": "MT",
+   "incumbent": "UNAWARDED (grant-funded)",
+   "categoryLabels": "Records Management System",
+   "annual": 9276.521739130434,
+   "expires": "2024-09-30",
+   "budgetDeadline": "2024-02-01",
+   "stage": "expired",
+   "priority": 33.2,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "National Aeronautics and Space Administration",
+   "state": "VA",
+   "incumbent": "Tyler Technologies",
+   "categoryLabels": "Records Management System",
+   "annual": 7809.096,
+   "expires": "2026-06-30",
+   "budgetDeadline": "2025-02-01",
+   "stage": "expired",
+   "priority": 32.8,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "CITY OF NEWARK",
+   "state": "OH",
+   "incumbent": "UNAWARDED (grant-funded)",
+   "categoryLabels": "Computer-Aided Dispatch",
+   "annual": 6076.173913043478,
+   "expires": "2025-09-30",
+   "budgetDeadline": "2025-02-01",
+   "stage": "expired",
+   "priority": 31.7,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "CITY OF BETHLEHEM",
+   "state": "PA",
+   "incumbent": "UNAWARDED (grant-funded)",
+   "categoryLabels": "Records Management System",
+   "annual": 10114.978723404256,
+   "expires": "2026-09-30",
+   "budgetDeadline": "2026-02-01",
+   "stage": "late",
+   "priority": 29.5,
+   "sources": [
+    "usaspending"
+   ]
+  },
+  {
+   "agency": "CITY OF NORWICH",
+   "state": "CT",
+   "incumbent": "UNAWARDED (grant-funded)",
+   "categoryLabels": "Records Management System",
+   "annual": 6828.255319148936,
+   "expires": "2026-09-30",
+   "budgetDeadline": "2026-02-01",
+   "stage": "late",
+   "priority": 28.1,
    "sources": [
     "usaspending"
    ]
   }
  ],
  "raw_sample": [
-  {
-   "agency": "Department of the Army",
-   "vendor": "DIGITAL MANAGEMENT LLC",
-   "cat": "rms",
-   "start": "2017-08-10",
-   "end": "2024-02-09",
-   "value": 69427195.71,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_W52P1J17F4020_9700_GS00Q09BGD0061_4735",
-   "desc": "INTERACTIVE PERSONNEL ELECTRONIC RECORDS MANAGEMENT SYSTEM SUPPORT SERVICES IGF::OT::IGF"
-  },
-  {
-   "agency": "Office of the Chief Financial Officer",
-   "vendor": "FEITH SYSTEMS & SOFTWARE, INC",
-   "cat": "rms",
-   "start": "2022-09-26",
-   "end": "2027-09-25",
-   "value": 28177500.43,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_12314422F0768_1205_47QSMA19D08NH_4732",
-   "desc": "USDA, OFFICE OF INFORMATION AFFAIRS (OIA): ELECTRONIC RECORDS MANAGEMENT SYSTEM (ERMS)"
-  },
-  {
-   "agency": "Department of the Air Force",
-   "vendor": "RED RIVER SCIENCE & TECHNOLOGY, LLC",
-   "cat": "rms",
-   "start": "2018-10-29",
-   "end": "2023-11-30",
-   "value": 19798471.9,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_FA489019CA004_9700_-NONE-_-NONE-",
-   "desc": "MULTIPLE PERSONNEL FUNCTIONS TO INCLUDE CUSTOMER SERVICE, AUTOMATED RECORDS MANAGEMENT SYSTEM (ARMS) , MILITARY AWARDS AND DECORATIONS, MILITARY PERSONNEL SYSTEMS MANAGEMENT, CIVILIAN PERSONNEL SYSTEMS MANAGEMENT. THE MA"
-  },
   {
    "agency": "Departmental Offices",
    "vendor": "BIGHORN INFORMATION SYSTEMS",
@@ -1285,6 +1279,17 @@
    "src": "usaspending",
    "url": "https://www.usaspending.gov/award/CONT_AWD_140D8021C0002_1406_-NONE-_-NONE-",
    "desc": "COMPUTER AIDED DISPATCH (CAD)"
+  },
+  {
+   "agency": "Denver Police Department",
+   "vendor": "CentralSquare Technologies",
+   "cat": "rms",
+   "start": "2025-12-22",
+   "end": "2028-12-22",
+   "value": 12332142.0,
+   "src": "legistar",
+   "url": "https://denver.legistar.com/LegislationDetail.aspx?ID=28527",
+   "desc": "A resolution approving a proposed Seventh Amendatory Agreement between the City and County of Denver and Versaterm Public Safety Inc. for the continual use and support of the Versadex Records Management software supporti"
   },
   {
    "agency": "Departmental Offices",
@@ -1298,26 +1303,26 @@
    "desc": "LAW ENFORCEMENT RECORDS MANAGEMENT SYSTEM PROCUREMENT - 1ST ORDER"
   },
   {
-   "agency": "HILLSBOROUGH TRANSIT AUTHORITY",
-   "vendor": "",
-   "cat": "cad",
-   "start": "2025-01-17",
-   "end": "2032-03-30",
-   "value": 10100000.0,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/ASST_NON_FL-2025-007_069",
-   "desc": "APPLICATION PURPOSE: HILLSBOROUGH TRANSIT AUTHORITY (HART) WILL IMPLEMENT COMPUTER AIDED DISPATCH (CAD) AND AUTOMATIC VEHICLE LOCATION (AVL) TECHNOLOGIES ON ALL HART FIXED-ROUTE TRANSIT (BUS AND STREETCAR) VEHICLES.; ACT"
+   "agency": "Denver Police Department",
+   "vendor": "CentralSquare Technologies",
+   "cat": "rms",
+   "start": "2023-11-06",
+   "end": "2025-11-06",
+   "value": 9708248.0,
+   "src": "legistar",
+   "url": "https://denver.legistar.com/LegislationDetail.aspx?ID=24267",
+   "desc": "A resolution approving a proposed Sixth Amendatory Agreement between the City and County of Denver and Versaterm Public Safety, Inc. for continued use and support of the electronic records management system used by the D"
   },
   {
-   "agency": "Department of the Army",
-   "vendor": "E-9 CORPORATION",
+   "agency": "Denver Police Department",
+   "vendor": "Versaterm",
    "cat": "rms",
-   "start": "2025-09-29",
-   "end": "2026-09-28",
-   "value": 9968480.4,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_W9124J25FA111_9700_GS10F0311W_4730",
-   "desc": "ARMY FIRE AND EMERGENCY SERVICES RECORDS MANAGEMENT SYSTEM"
+   "start": "2021-01-04",
+   "end": "2024-01-04",
+   "value": 8178610.0,
+   "src": "legistar",
+   "url": "https://denver.legistar.com/LegislationDetail.aspx?ID=17470",
+   "desc": "A resolution approving a proposed Fifth Amendatory Agreement between the City and County of Denver and Versaterm, Inc. to revise Annex A, extend the term and increase compensation for the continual use and support of the"
   },
   {
    "agency": "Departmental Offices",
@@ -1331,39 +1336,6 @@
    "desc": "LAW ENFORCEMENT RECORDS MANAGEMENT SYSTEM PROCUREMENT"
   },
   {
-   "agency": "Defense Information Systems Agency",
-   "vendor": "AETOS LLC",
-   "cat": "rms",
-   "start": "2023-11-14",
-   "end": "2026-11-14",
-   "value": 6905657.69,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_HC104724F0007_9700_47QTCA23D0081_4732",
-   "desc": "COLLABORATION & ELECTRONIC DOCUMENT RECORDS MANAGEMENT SYSTEM (EDRMS) SUPPORT AND SUSTAINMENT"
-  },
-  {
-   "agency": "GOLDEN EMPIRE TRANSIT DISTRICT",
-   "vendor": "",
-   "cat": "cad",
-   "start": "2026-04-20",
-   "end": "2026-12-31",
-   "value": 6520000.0,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/ASST_NON_CA-2026-047_069",
-   "desc": "APPLICATION PURPOSE: THE PURPOSE IS TO REPLACE AGING TECHNOLOGY INFRASTRUCTURE RELATING TO NETWORK SECURITY COMMUNICATIONS AND ENDPOINTS.THE PURPOSE OF ACQUIRING DRIVER BARRIERS FOR AGENCY BUSES IS TO ENHANCE OPERATOR SA"
-  },
-  {
-   "agency": "Departmental Offices",
-   "vendor": "NANAVATI CONSULTING INC",
-   "cat": "rms",
-   "start": "2017-09-14",
-   "end": "2023-03-13",
-   "value": 6384593.41,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_IND17PD01017_1406_GS35F0572M_4730",
-   "desc": "IGF::CL::IGF WEB-BASED ELECTRONIC RECORDS MANAGEMENT SYSTEM (ERMS) SUPPORT"
-  },
-  {
    "agency": "Departmental Offices",
    "vendor": "Niche Technology",
    "cat": "rms",
@@ -1373,28 +1345,6 @@
    "src": "usaspending",
    "url": "https://www.usaspending.gov/award/CONT_AWD_IND16PD00334_1406_GS35F321CA_4732",
    "desc": "IGF::OT::IGF INCIDENT MANAGEMENT, ANALYSIS, AND REPORTING SYSTEM (IMARS) RECORDS MANAGEMENT SYSTEM (RMS) LICENSES AND MAINTENANCE"
-  },
-  {
-   "agency": "Department of the Navy",
-   "vendor": "ISHPI INFORMATION TECHNOLOGIES INC.",
-   "cat": "rms",
-   "start": "2018-04-06",
-   "end": "2023-03-07",
-   "value": 5891132.25,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_N6523618F3056_9700_N0017815D8273_9700",
-   "desc": "THE CONTRACTOR SHALL PROVIDE BUSINESS SOLUTIONS INCLUDING: LEGACY FINANCIAL SYSTEMS, RECORDS MANAGEMENT SYSTEM, TELECOM SYSTEMS, HUMAN RESOURCE MANAGEMENT SYSTEMS, SECURITY SYSTEMS, FACILITY SYSTEMS, WAREHOUSE SYSTEMS, C"
-  },
-  {
-   "agency": "U.S. Census Bureau",
-   "vendor": "AASA, INC.",
-   "cat": "rms",
-   "start": "2017-09-25",
-   "end": "2021-09-24",
-   "value": 4625017.62,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_DOCYA132317NC0244_1323_GS35F171GA_4732",
-   "desc": "IGF::OT::IGF THE PURPOSE OF THIS REQUIREMENT IS TO PROVIDE AN ELECTRONIC RECORDS MANAGEMENT SYSTEM FOR CENSUS HEADQUARTERS."
   },
   {
    "agency": "Department of the Army",
@@ -1408,17 +1358,6 @@
    "desc": "ARMY ENTERPRISE COMPUTER AIDED DISPATCH (CAD) UNDER CONTRACT W15QKN-21-D-0009"
   },
   {
-   "agency": "National Oceanic and Atmospheric Administration",
-   "vendor": "FEITH SYSTEMS & SOFTWARE, INC",
-   "cat": "rms",
-   "start": "2023-09-30",
-   "end": "2027-06-11",
-   "value": 3608906.45,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_1305M423FNAAJ0118_1330_47QSMA19D08NH_4732",
-   "desc": "NOAA ELECTRONICE RECORDS MANAGEMENT SYSTEM"
-  },
-  {
    "agency": "Department of the Army",
    "vendor": "CLOUD LAKE TECHNOLOGY LLC",
    "cat": "cad",
@@ -1428,28 +1367,6 @@
    "src": "usaspending",
    "url": "https://www.usaspending.gov/award/CONT_AWD_W15QKN23F0636_9700_W15QKN21D0009_9700",
    "desc": "COMPUTER AIDED DISPATCH"
-  },
-  {
-   "agency": "CITY OF GRAND PRAIRIE",
-   "vendor": "",
-   "cat": "dispatch_mobile",
-   "start": "2026-05-21",
-   "end": "2029-01-31",
-   "value": 3422144.0,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/ASST_NON_TX-2026-032_069",
-   "desc": "APPLICATION PURPOSE: OBLIGATE THE REMAINING BALANCE OF FY 2023 AND FY 2024 SECTION 5307 FUNDS SUBALLOCATED TO GRAND PRAIRIE FOR MICRO TRANSIT CONTRACTED SERVICE (TRANSIT-AS-A-SERVICE) FOR OUR ENTIRE SERVICE AREA AND ALLO"
-  },
-  {
-   "agency": "Federal Emergency Management Agency",
-   "vendor": "SANDS CONSULTING GROUP, INC.",
-   "cat": "rms",
-   "start": "2020-09-30",
-   "end": "2025-09-29",
-   "value": 2959710.79,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_70FA6020C00000008_7022_-NONE-_-NONE-",
-   "desc": "ELECTRONIC DOCUMENT AND RECORDS MANAGEMENT SYSTEM EDRMS AT FEMA HEADQUARTERS AND THE 10 REGIONS."
   },
   {
    "agency": "Washington Headquarters Services",
@@ -1474,81 +1391,26 @@
    "desc": "UNDER THIS AWARD, THE NEW JERSEY DEPARTMENT OF PUBLIC SAFETY REQUESTS FUNDS TO IMPLEMENT THE NEW JERSEY STATE POLICES (NJSP) RECORDS MANAGEMENT SYSTEM (RMS) MODERNIZATION PROJECT. THE PURPOSE IS TO UTILIZE A SYSTEMATIC A"
   },
   {
-   "agency": "USTRANSCOM",
-   "vendor": "ESSNOVA SOLUTIONS, INC.",
+   "agency": "Long Beach Police Department",
+   "vendor": "CentralSquare Technologies",
    "cat": "rms",
-   "start": "2019-09-30",
-   "end": "2021-12-17",
-   "value": 2752998.29,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_HTC71119PD009_9700_-NONE-_-NONE-",
-   "desc": "MIGRATION FROM HQ AMC ELECTRONIC RECORDS MANAGEMENT SYSTEM INTO THE USTRANSCOM COLLABORATION SUITE."
+   "start": "2020-06-16",
+   "end": "2021-06-16",
+   "value": 2452691.0,
+   "src": "legistar",
+   "url": "https://longbeach.legistar.com/LegislationDetail.aspx?ID=229879",
+   "desc": "Recommendation to adopt Specifications No. RFP PD19-065 and award a contract to CentralSquare Technologies, LLC, formerly TriTech Software Systems, of Lake Mary, FL, to provide, implement, and maintain a Police Records M"
   },
   {
-   "agency": "Agency for International Development",
-   "vendor": "FEITH SYSTEMS & SOFTWARE, INC",
-   "cat": "rms",
-   "start": "2024-09-27",
-   "end": "2029-09-30",
-   "value": 2495393.75,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_7200AA24F50037_7200_7200AA24A00013_7200",
-   "desc": "FIRST CALL ORDER OFF THE GSA SCHEDULE BPA FOR ELECTRONIC RECORDS MANAGEMENT SYSTEM (ERMS)."
-  },
-  {
-   "agency": "CHARTER TOWNSHIP OF LONG LAKE",
-   "vendor": "",
-   "cat": "cad",
-   "start": "2026-03-31",
-   "end": "2029-03-29",
-   "value": 2400000.0,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/ASST_NON_693JJ92640008_069",
-   "desc": "CHARLESTON COUNTY ALONG WITH BERKELEY AND DORCHESTER COUNTY, PLANS TO IMPLEMENT A FULL CAD-TO-CAD (COMPUTER AIDED DISPATCH) TO ADDRESS POST-CRASH CARE IN OVERLAPPING JURISDICTIONAL AREAS BETWEEN THE CITY OF CHARLESTON AN"
-  },
-  {
-   "agency": "Transportation Security Administration",
-   "vendor": "GREENZONE SOLUTIONS LLC",
-   "cat": "rms",
-   "start": "2019-08-17",
-   "end": "2023-02-16",
-   "value": 2279134.86,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_70T01019F1NHRM100_7013_HSTS0416ACT8003_7013",
-   "desc": "ISSUE BPA CALL NUMBER FIVE TO GREENZONE SOLUTIONS, INC. FOR THE UPDATE AND SUPPORT OF HUMAN CAPITALS ISHARE RECORDS MANAGEMENT SYSTEM."
-  },
-  {
-   "agency": "Court Services and Offender Supervision Agency",
-   "vendor": "SOFTWARE INFORMATION RESOURCE CORP.",
-   "cat": "rms",
-   "start": "2019-09-29",
-   "end": "2023-09-28",
-   "value": 2265389.41,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_9594CS19F0072_9594_GS06F0789Z_4732",
-   "desc": "ELECTRONIC DATA RECORDS MANAGEMENT SYSTEM"
-  },
-  {
-   "agency": "Departmental Offices",
-   "vendor": "PROGRESSIVE TECHNOLOGY FEDERAL SYSTEMS INC",
-   "cat": "rms",
-   "start": "2026-02-17",
-   "end": "2027-02-16",
-   "value": 1640636.45,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_140D0426F0066_1406_140D0424A0020_1406",
-   "desc": "THIS CALL ORDER IS REQUIRED IN SUPPORT OF DOI IBC ELECTRONIC RECORDS MANAGEMENT SYSTEMS PROGRAM TO DIGITIZE TEMPORARY RECORDS RELATED TO PERSONNEL, FINANCIAL AND ADMINISTRATIVE FUNCTIONAL AREAS."
-  },
-  {
-   "agency": "FISH & WILDLIFE, WASHINGTON STATE DEPARTMENT OF",
-   "vendor": "",
-   "cat": "rms",
-   "start": "2022-07-01",
-   "end": "2023-06-30",
-   "value": 1610274.34,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/ASST_NON_F22AF03564_014",
-   "desc": "THE MAIN THRUST OF THIS GRANT IS TO IMPLEMENT THE WASHINGTON DEPARTMENT OF FISH AND WILDLIFE WDFW HUNTEREDUCATION PROGRAM SUCCESSFUL COMPLETION OF A HUNTER EDUCATION COURSE IS REQUIRED IN WASHINGTON FOR ALL FIRSTTIME HUN"
+   "agency": "Long Beach Police Department",
+   "vendor": "CentralSquare Technologies",
+   "cat": "dispatch_mobile",
+   "start": "2022-08-09",
+   "end": "2026-08-09",
+   "value": 2348500.0,
+   "src": "legistar",
+   "url": "https://longbeach.legistar.com/LegislationDetail.aspx?ID=240408",
+   "desc": "Recommendation to adopt Specifications No. ITB TI 22-020 and award a contract to CDCE, Inc., of Yorba Linda, CA, for the purchase of public safety mobile data terminals including accessories and peripherals for docking, "
   },
   {
    "agency": "COMBINED REGIONAL COMMUNICATIONS AUTHORITY",
@@ -1573,17 +1435,6 @@
    "desc": "SERVICE, UPGRADE TO EXISTING COMPUTER AIDED DISPATCH (CAD) SYSTEM AT LAKE MEAD NATIONAL RECREATION AREA."
   },
   {
-   "agency": "SUNLINE TRANSIT AGENCY",
-   "vendor": "",
-   "cat": "cad",
-   "start": "2024-08-16",
-   "end": "2026-08-31",
-   "value": 1490640.0,
-   "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/ASST_NON_CA-2024-106_069",
-   "desc": "APPLICATION PURPOSE: THE PURPOSE OF THIS AWARD IS TO FUND SUNLINE TRANSIT AGENCY CAPITAL PROJECTS SUCH AS REPLACE OUTDATED RADIO SYSTEM AND UPGRADE THE EXISTING COMPUTER AIDED DISPATCHING/AUTOMATIC VEHICLE LOCATION (CAD/"
-  },
-  {
    "agency": "LASSEN COUNTY",
    "vendor": "",
    "cat": "cad",
@@ -1606,81 +1457,257 @@
    "desc": "IGF::OT::IGF COMPUTER AIDED DISPATCH SYSTEM (CADS) FOR FEDERAL LAW ENFORCEMENT"
   },
   {
-   "agency": "CHARLESTON COUNTY",
+   "agency": "CITY OF SPOKANE POLICE",
    "vendor": "",
    "cat": "cad",
-   "start": "2026-05-08",
-   "end": "2031-05-07",
-   "value": 1292615.0,
+   "start": "2023-10-01",
+   "end": "2026-09-30",
+   "value": 1000000.0,
    "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/ASST_NON_693JJ92640001_069",
-   "desc": "CHARLESTON COUNTY ALONG WITH BERKELEY AND DORCHESTER COUNTY, PLANS TO IMPLEMENT A FULL CAD-TO-CAD (COMPUTER AIDED DISPATCH) TO ADDRESS POST-CRASH CARE IN OVERLAPPING JURISDICTIONAL AREAS BETWEEN THE CITY OF CHARLESTON AN"
+   "url": "https://www.usaspending.gov/award/ASST_NON_15PBJA23GG02645BWCX_015",
+   "desc": "THE SPOKANE POLICE DEPARTMENT (SPD) IMPLEMENTED A BWC PROGRAM IN 2015 AND INTEGRATED THE PROGRAM WITH DIGITAL EVIDENCE MANAGEMENT IN 2021 USING A CENTRALIZED, CLOUD-BASED SYSTEM. THE CURRENT SYSTEM WORKS WELL BUT REQUIRE"
   },
   {
-   "agency": "Bureau of the Fiscal Service",
-   "vendor": "ECS FEDERAL, LLC",
+   "agency": "PUEBLO OF ZIA",
+   "vendor": "",
+   "cat": "cad",
+   "start": "2022-10-01",
+   "end": "2027-09-30",
+   "value": 899737.0,
+   "src": "usaspending",
+   "url": "https://www.usaspending.gov/award/ASST_NON_15PBJA22GG02026TRIB_015",
+   "desc": "PURPOSE AREA 3 TRIBAL JUSTICE SYSTEMS (TJS) - PROJECT ABSTRACT PURPOSE AREA 1: THE PA 3 TRIBAL JUSTICE SYSTEMS (TJS) FUNDING WILL ENABLE THE PUEBLO OF ZIA POLICE DEPARTMENT (ZPD) TO BUILD THE LAW ENFORCEMENT INFRASTRUCTU"
+  },
+  {
+   "agency": "LOUISVILLE-JEFFERSON COUNTY METRO GOVERNMENT",
+   "vendor": "",
+   "cat": "dispatch_mobile",
+   "start": "2022-10-01",
+   "end": "2026-09-30",
+   "value": 847059.0,
+   "src": "usaspending",
+   "url": "https://www.usaspending.gov/award/ASST_NON_15PBJA23GG03419JAGX_015",
+   "desc": "TO ADDRESS PRECIPITOUS INCREASES IN VIOLENT CRIME, AND TO LEVERAGE TECHNOLOGICAL ADVANCEMENTS, LOUISVILLE METRO GOVERNMENT RESPONDS TO THE JAG FY2023 SOLICITATION, AND PROPOSES A PROJECT TO REPLACE 122 MOBILE DATA TERMIN"
+  },
+  {
+   "agency": "Washington Headquarters Services",
+   "vendor": "LBO TECHNOLOGY LLC",
+   "cat": "cad",
+   "start": "2025-09-27",
+   "end": "2028-09-26",
+   "value": 819434.89,
+   "src": "usaspending",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_HQ003425CE084_9700_-NONE-_-NONE-",
+   "desc": "COMPUTER AIDED DISPATCH, RECORDS MANAGEMENT SYSTEM OPERATION, AND MAINTENANCE SERVICES"
+  },
+  {
+   "agency": "National Park Service",
+   "vendor": "COUNTERTRADE PRODUCTS, INC.",
+   "cat": "dispatch_mobile",
+   "start": "2026-08-20",
+   "end": "2026-11-30",
+   "value": 781543.77,
+   "src": "usaspending",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_140P2126F0136_1443_NNG15SC05B_8000",
+   "desc": "EO 14398 MOBILE DATA TERMINAL"
+  },
+  {
+   "agency": "PENNSYLVANIA DEPARTMENT OF TRANSPORTATION",
+   "vendor": "",
+   "cat": "cad",
+   "start": "None",
+   "end": "None",
+   "value": 759600.0,
+   "src": "usaspending",
+   "url": "https://www.usaspending.gov/award/ASST_NON_693JJ22540000Y37GPAU099002_069",
+   "desc": "PROJECT TITLE: INTEGRATING COMPUTER AIDED DISPATCH (CAD) DATA INTO TRAFFIC MANAGEMENT CENTER SYSTEMS :::: PROJECT DESCRIPTION: 2023 AID DEMONSTRATION AWARD: PENNDOT WILL RECEIVE $760,000 TO INTEGRATE \u201cCLEANED\u201d COMPUTER A"
+  },
+  {
+   "agency": "LOUISVILLE-JEFFERSON COUNTY METRO GOVERNMENT",
+   "vendor": "",
+   "cat": "dispatch_mobile",
+   "start": "2023-10-01",
+   "end": "2027-09-30",
+   "value": 715513.0,
+   "src": "usaspending",
+   "url": "https://www.usaspending.gov/award/ASST_NON_15PBJA24GG05357JAGX_015",
+   "desc": "TO ADDRESS PRECIPITOUS INCREASES IN VIOLENT CRIME IN LOUISVILLE, KENTUCKY (A POPULATION OF OVER 620,000), AND TO LEVERAGE TECHNOLOGICAL ADVANCEMENTS, THE LOUISVILLE METRO POLICE DEPARTMENT RESPONDS TO THE JAG FY2024 SOLI"
+  },
+  {
+   "agency": "Department of Veterans Affairs",
+   "vendor": "OMNIGO SOFTWARE, LLC",
    "cat": "rms",
    "start": "2020-09-30",
-   "end": "2021-12-12",
-   "value": 1277684.51,
+   "end": "2024-03-30",
+   "value": 700750.05,
    "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_20340920F00012_2036_20340919D00002_2036",
-   "desc": "ELECTRONIC RECORDS MANAGEMENT SYSTEM (ERMS)"
+   "url": "https://www.usaspending.gov/award/CONT_AWD_36C10X20P0150_3600_-NONE-_-NONE-",
+   "desc": "VA LAW ENFORCEMENT TRAINING CENTER POLICE RECORDS MANAGEMENT SYSTEM"
   },
   {
-   "agency": "Federal Acquisition Service",
-   "vendor": "BRILLIENT CORPORATION",
-   "cat": "rms",
-   "start": "2022-08-02",
-   "end": "2023-08-01",
-   "value": 1211692.8,
+   "agency": "RESEARCH TRIANGLE INSTITUTE",
+   "vendor": "",
+   "cat": "cad",
+   "start": "2022-12-01",
+   "end": "2025-05-31",
+   "value": 499924.0,
    "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_47QSMA22F0065_4732_47QSMA20A0013_4732",
-   "desc": "CALL 7 USDA FPAC CONTINUED DIGITAL RECORDS MANAGEMENT SYSTEM AND PROGRAM SUPPORT SMALL SCRUM TEAM"
+   "url": "https://www.usaspending.gov/award/ASST_NON_15PBJS22GK04504BJSB_015",
+   "desc": "RTI INTERNATIONAL, THE NATIONAL POLICING INSTITUTE, AND AH DATALYTICS, ALONG WITH AGENCY AND STAKEHOLDER PARTNERS, WILL CONDUCT RESEARCH AND DEVELOPMENT ACTIVITIES TO PROVIDE ACTIONABLE INFORMATION TO THE BUREAU OF JUSTI"
   },
   {
-   "agency": "U.S. Census Bureau",
-   "vendor": "EPIK SOLUTIONS.",
-   "cat": "rms",
-   "start": "2022-09-30",
-   "end": "2025-09-29",
-   "value": 1186690.14,
+   "agency": "Bureau of Land Management",
+   "vendor": "TRIBALCO LLC",
+   "cat": "cad",
+   "start": "2018-10-01",
+   "end": "2023-03-30",
+   "value": 485702.6,
    "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_1333LB22F00000212_1323_47QTCA19D00K3_4732",
-   "desc": "THIS TASK ORDER IS A LIMITED SOURCES LOGICAL FOLLOW-ON TASK ORDER FOR THE GOVERNMENT TO OBTAIN OPERATIONS AND MAINTENANCE SUPPORT SERVICES, WITH OPTIONAL ENHANCEMENTS, FOR THE ELECTRONIC RECORDS MANAGEMENT SYSTEM, RECORD"
+   "url": "https://www.usaspending.gov/award/CONT_AWD_140L6420F0046_1422_140D7018D0017_1406",
+   "desc": "MISSION SUPPORT - COMPUTER AIDED DISPATCH (CAD) REPLACEMENT"
   },
   {
-   "agency": "Court Services and Offender Supervision Agency",
-   "vendor": "SOFTWARE INFORMATION RESOURCE CORP.",
-   "cat": "rms",
-   "start": "2017-09-29",
-   "end": "2019-09-28",
-   "value": 1136890.28,
+   "agency": "National Park Service",
+   "vendor": "TRIBALCO LLC",
+   "cat": "cad",
+   "start": "2022-09-22",
+   "end": "2026-07-31",
+   "value": 427581.07,
    "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_CSOSA17F0120_9594_GS06F0789Z_4732",
-   "desc": "DEVELOPMENT AND IMPLEMENTATION OF ELECTRONIC DATA RECORDS MANAGEMENT SYSTEM (EDRMS)"
+   "url": "https://www.usaspending.gov/award/CONT_AWD_140P1222F0090_1443_NNG15SC51B_8000",
+   "desc": "COMPUTER AIDED DISPATCH (CAD) SYSTEM ROCKY MOUNTAIN NATIONAL PARK"
   },
   {
-   "agency": "Bureau of the Fiscal Service",
-   "vendor": "BRAVO CONSULTING GROUP, LLC",
-   "cat": "rms",
-   "start": "2024-08-21",
-   "end": "2027-02-20",
-   "value": 1134695.0,
+   "agency": "National Park Service",
+   "vendor": "TRIBALCO LLC",
+   "cat": "cad",
+   "start": "2018-09-17",
+   "end": "2023-11-30",
+   "value": 410251.57,
    "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_20340924C00008_2036_-NONE-_-NONE-",
-   "desc": "SHAREPOINT GOVERNANCE, DATA MIGRATION, AND ELECTRONIC RECORDS MANAGEMENT SYSTEM SUPPORT"
+   "url": "https://www.usaspending.gov/award/CONT_AWD_140P1518F0156_1443_NNG15SC93B_8000",
+   "desc": "COMPUTER AIDED DISPATCH (CAD) SYSTEM - GRCA"
   },
   {
-   "agency": "Bureau of the Fiscal Service",
-   "vendor": "CFOL INTERNATIONAL INC",
+   "agency": "National Park Service",
+   "vendor": "TRIBALCO LLC",
+   "cat": "cad",
+   "start": "2018-08-30",
+   "end": "2022-03-02",
+   "value": 398897.11,
+   "src": "usaspending",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_140P5318F0067_1443_NNG15SC93B_8000",
+   "desc": "COMPUTER AIDED DISPATCH (CAD)"
+  },
+  {
+   "agency": "AMERICAN SAMOA CRIMINAL JUSTICE PLANNING AGENCY",
+   "vendor": "",
    "cat": "rms",
    "start": "2023-10-01",
-   "end": "2025-11-30",
-   "value": 1040600.42,
+   "end": "2026-09-30",
+   "value": 390000.0,
    "src": "usaspending",
-   "url": "https://www.usaspending.gov/award/CONT_AWD_2033H624C00005_2036_-NONE-_-NONE-",
-   "desc": "IDMS - FISCAL SERVICE OPERATIONAL RECORDS MANAGEMENT SYSTEM (FORMS) OPERATIONAL SUPPORT. CFOL CONTRACTOR SUPPORT (INCLUDES LEGACY IDMS/ESKER + FORMS)"
+   "url": "https://www.usaspending.gov/award/ASST_NON_15PBJS23GK01422NCHI_015",
+   "desc": "THE AMERICAN SAMOA DEPARTMENT OF PUBLIC SAFETY (DPS) CURRENTLY HAS NO AUTOMATED SYSTEM IN PLACE FOR THE COLLECTION, MAINTAINING, SHARING, AND REPORTING OF CRIMINAL RECORDS. THE ORIGINAL CONNECTION BETWEEN THE TERRITORY O"
+  },
+  {
+   "agency": "CITY OF TACOMA WASHINGTON",
+   "vendor": "",
+   "cat": "rms",
+   "start": "2022-10-01",
+   "end": "2026-09-30",
+   "value": 358803.0,
+   "src": "usaspending",
+   "url": "https://www.usaspending.gov/award/ASST_NON_15PBJA23GG03917JAGX_015",
+   "desc": "THE DISPARATE JURISDICTIONS OF CITY OF TACOMA AND PIERCE COUNTY WILL USE JAG FUNDS FOR COMMUNITY BASED VIOLENCE INTERVENTIONS AND ADVANCING RACIAL EQUITY TO UNDERSERVED COMMUNITIES. SPECIFICALLY, THE CITY OF TACOMA WILL "
+  },
+  {
+   "agency": "Department of the Air Force",
+   "vendor": "ADVANCED COMPUTER CONCEPTS, INC.",
+   "cat": "cad",
+   "start": "2023-07-21",
+   "end": "2026-06-23",
+   "value": 349774.21,
+   "src": "usaspending",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_FA286023F0061_9700_NNG15SD60B_8000",
+   "desc": "COMPUTER-AIDED DISPATCHING SYSTEM"
+  },
+  {
+   "agency": "LEON COUNTY SHERIFFS OFFICE",
+   "vendor": "",
+   "cat": "cad",
+   "start": "2024-10-01",
+   "end": "2026-09-30",
+   "value": 349635.0,
+   "src": "usaspending",
+   "url": "https://www.usaspending.gov/award/ASST_NON_15JCOPS24GG05398DETU_015",
+   "desc": "THE LEON COUNTY SHERIFF'S OFFICE WILL USE FY24 SAFER OUTCOMES FUNDING TO DELIVER CURRICULUM DEVELOPED FROM DATA GATHERED FROM ENCOUNTERS AND INTERACTIONS BETWEEN CITIZENS AND LCSO DEPUTIES. DATA COLLECTION SOURCES INCLUD"
+  },
+  {
+   "agency": "CITY OF TACOMA WASHINGTON",
+   "vendor": "",
+   "cat": "rms",
+   "start": "2023-10-01",
+   "end": "2027-09-30",
+   "value": 339235.0,
+   "src": "usaspending",
+   "url": "https://www.usaspending.gov/award/ASST_NON_15PBJA24GG05322JAGX_015",
+   "desc": "THE DISPARATE JURISDICTIONS OF CITY OF TACOMA AND PIERCE COUNTY WILL USE JAG FUNDS FOR ADVANCING RACIAL EQUITY TO UNDERSERVED COMMUNITIES, PREVENTION AND PROSECUTION OF CRIMES AS WELL AS VIOLENT CRIME REDUCTION. SPECIFIC"
+  },
+  {
+   "agency": "National Park Service",
+   "vendor": "TRIBALCO LLC",
+   "cat": "cad",
+   "start": "2021-12-17",
+   "end": "2026-04-15",
+   "value": 337704.16,
+   "src": "usaspending",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_140P1422F0012_1443_140D7018D0017_1406",
+   "desc": "PROCURE A COMPUTER AIDED DISPATCH SYSTEM FOR TETON INTERAGENCY DISPATCH CENTER LOCATED IN GRAND TETON NATIONAL PARK."
+  },
+  {
+   "agency": "CITY OF BUFFALO",
+   "vendor": "",
+   "cat": "rms",
+   "start": "2017-10-01",
+   "end": "2020-09-30",
+   "value": 322769.48,
+   "src": "usaspending",
+   "url": "https://www.usaspending.gov/award/ASST_NON_2017MUCXK038_015",
+   "desc": "CITY OF BUFFALO POLICE TRANSITION TO NIBRS BY UPDATING CRIMINAL HISTORY RECORDS MANAGEMENT SYSTEM"
+  },
+  {
+   "agency": "Department of the Army",
+   "vendor": "CITY OF FAIRBANKS",
+   "cat": "cad",
+   "start": "2017-09-15",
+   "end": "2021-09-17",
+   "value": 311359.0,
+   "src": "usaspending",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_W912D017C0006_9700_-NONE-_-NONE-",
+   "desc": "IGF::OT::IGF COMPUTER AIDED DISPATCH LICENSE"
+  },
+  {
+   "agency": "National Park Service",
+   "vendor": "TRIBALCO LLC",
+   "cat": "cad",
+   "start": "2017-09-11",
+   "end": "2022-09-10",
+   "value": 307796.86,
+   "src": "usaspending",
+   "url": "https://www.usaspending.gov/award/CONT_AWD_INP17PD02807_1443_NNG15SC93B_8000",
+   "desc": "IGF::OT::IGF X:NOGRN - GLAC COMPUTER AIDED DISPATCH SYSTEM"
+  },
+  {
+   "agency": "TUTTLE POLICE DEPARTMENT",
+   "vendor": "",
+   "cat": "cad",
+   "start": "2024-10-01",
+   "end": "2027-09-30",
+   "value": 299153.0,
+   "src": "usaspending",
+   "url": "https://www.usaspending.gov/award/ASST_NON_15PBJA24GG03861RURA_015",
+   "desc": "THE CITY OF TUTTLE, OKLAHOMA, FACES CHALLENGES IN POLICE OPERATIONS DUE TO LIMITED RESOURCES. WITH A POPULATION OF ABOUT 8,300, THE TUTTLE POLICE DEPARTMENT (TPD) HAS 14 OFFICERS, 6 DISPATCHERS, AND 1 ANIMAL CONTROL OFFI"
   }
  ]
 }
