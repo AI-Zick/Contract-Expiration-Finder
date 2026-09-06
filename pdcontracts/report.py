@@ -91,17 +91,40 @@ def group_opportunities(targets: List[Target]) -> List[Opportunity]:
 
     out: List[Opportunity] = []
     for members in buckets.values():
-        # The earliest expiration is what forces the buying decision, so the
-        # whole group inherits that member's timing.
+        # Two different shapes hide in one group, and they need opposite rules.
+        #
+        # Several systems from one vendor (RMS + CAD + MDT) expire on their own
+        # dates, and the earliest forces the decision.
+        #
+        # One system amended repeatedly -- Denver's fifth, sixth and seventh
+        # amendatory agreements with Versaterm all appear as separate council
+        # items -- is a single contract whose later amendment supersedes the
+        # earlier. Taking the earliest there would time the pitch off a
+        # contract that no longer exists.
+        #
+        # So: collapse each category to its latest expiration first, then take
+        # the earliest across categories.
         dated = [m for m in members if m.end_date]
-        driver = min(dated, key=lambda m: m.end_date) if dated else members[0]
+        if dated:
+            current_per_category = {}
+            for member in dated:
+                key = member.category or ""
+                seen = current_per_category.get(key)
+                if seen is None or member.end_date > seen.end_date:
+                    current_per_category[key] = member
+            driver = min(current_per_category.values(), key=lambda m: m.end_date)
+        else:
+            driver = members[0]
 
-        values = [m.annual_value for m in members if m.annual_value]
+        # Value follows the same rule: sum the current contract per category,
+        # not every superseded amendment of the same one.
+        current = list(current_per_category.values()) if dated else members
+        values = [m.annual_value for m in current if m.annual_value]
         opp = Opportunity(
             agency_name=driver.agency_name,
             state=driver.state,
             incumbent=driver.vendor_canonical,
-            categories=sorted({m.category for m in members if m.category}),
+            categories=sorted({m.category for m in current if m.category}),
             annual_value=sum(values) if values else None,
             earliest_end=driver.end_date,
             pitch_open=driver.pitch_open,

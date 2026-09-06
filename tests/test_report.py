@@ -93,3 +93,58 @@ def test_csv_has_a_header_and_one_row_per_opportunity():
 
 def test_console_table_handles_an_empty_result():
     assert "No targets matched" in console_table([])
+
+
+# --- amendment chains vs multiple systems ---------------------------------
+# Denver's fifth, sixth and seventh amendatory agreements with Versaterm each
+# appear as their own council item. They are one contract, not three.
+
+def amendment(end, value, category="rms"):
+    return target(agency="Denver Police Department", vendor="Versaterm",
+                  category=category, end=end, value=value)
+
+
+def test_amendment_chain_uses_the_current_agreement():
+    """Timing off a superseded amendment points the rep at a contract that no
+    longer exists."""
+    opp = group_opportunities([
+        amendment(dt.date(2024, 1, 4), 2_726_203),
+        amendment(dt.date(2025, 11, 6), 4_854_124),
+        amendment(dt.date(2028, 12, 22), 4_110_714),
+    ])[0]
+    assert opp.earliest_end == dt.date(2028, 12, 22)
+
+
+def test_amendment_chain_does_not_sum_superseded_values():
+    opp = group_opportunities([
+        amendment(dt.date(2024, 1, 4), 2_726_203),
+        amendment(dt.date(2028, 12, 22), 4_110_714),
+    ])[0]
+    assert opp.annual_value == 4_110_714
+
+
+def test_amendment_chain_keeps_the_history_for_reference():
+    opp = group_opportunities([
+        amendment(dt.date(2024, 1, 4), 1),
+        amendment(dt.date(2028, 12, 22), 2),
+    ])[0]
+    assert len(opp.targets) == 2
+
+
+def test_different_systems_still_use_the_earliest_expiration():
+    """The rule must not flip for genuinely separate systems."""
+    opp = group_opportunities([
+        amendment(dt.date(2030, 6, 30), 100_000, "rms"),
+        amendment(dt.date(2027, 6, 30), 100_000, "cad"),
+    ])[0]
+    assert opp.earliest_end == dt.date(2027, 6, 30)
+
+
+def test_mixed_case_takes_current_per_system_then_earliest():
+    opp = group_opportunities([
+        amendment(dt.date(2024, 1, 1), 10, "rms"),     # superseded
+        amendment(dt.date(2030, 1, 1), 20, "rms"),     # current RMS
+        amendment(dt.date(2027, 1, 1), 30, "cad"),     # current CAD
+    ])[0]
+    assert opp.earliest_end == dt.date(2027, 1, 1)
+    assert opp.annual_value == 50                      # current RMS + current CAD
