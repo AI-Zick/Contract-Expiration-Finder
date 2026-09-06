@@ -110,6 +110,7 @@ class LegistarSource(Source):
         self.jurisdiction: str = self.config.get("jurisdiction", "")
         self.years_back: int = int(self.config.get("years_back", 8))
         self.max_pages: int = int(self.config.get("max_pages", 12))
+        self.fallback_pages: int = int(self.config.get("fallback_pages", 1))
         self.keywords: List[str] = self.config.get("keywords") or list(MATTER_KEYWORDS)
 
     def _url(self, path: str) -> str:
@@ -159,10 +160,17 @@ class LegistarSource(Source):
         since = _dt.date.today().replace(year=_dt.date.today().year - self.years_back)
         date_clause = f"MatterIntroDate gt datetime'{since.isoformat()}'"
 
-        for where in (f"{date_clause} and {self._keyword_filter()}", date_clause):
+        attempts = [
+            (f"{date_clause} and {self._keyword_filter()}", self.max_pages),
+            # The unfiltered fallback downloads a city's whole recent docket, so
+            # it gets one page. A city that rejects substringof contributes what
+            # fits in that page rather than stalling the entire run.
+            (date_clause, self.fallback_pages),
+        ]
+        for where, pages in attempts:
             rows: List[dict] = []
             try:
-                for page in range(self.max_pages):
+                for page in range(pages):
                     batch = self._page(page, where)
                     if not batch:
                         break

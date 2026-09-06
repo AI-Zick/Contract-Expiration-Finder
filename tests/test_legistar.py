@@ -185,3 +185,25 @@ def test_reports_error_when_both_queries_fail():
             raise FetchError("500")
 
     assert LegistarSource({"client": "x"}, Dead()).collect().status == "error"
+
+
+def test_unfiltered_fallback_is_bounded():
+    """A city that rejects substringof must not stall the whole run by
+    downloading its entire docket."""
+    from pdcontracts.sources.base import FetchError
+
+    class Picky(FakeFetcher):
+        def __init__(self):
+            super().__init__()
+            self.broad_pages = 0
+
+        def get_json(self, url, params=None, headers=None):
+            where = (params or {}).get("$filter", "")
+            if "substringof" in where:
+                raise FetchError("400")
+            self.broad_pages += 1
+            return MATTERS * 400          # a full page, so paging would continue
+
+    src = LegistarSource({"client": "picky", "fallback_pages": 1}, Picky())
+    src.collect()
+    assert src.fetcher.broad_pages == 1
