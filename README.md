@@ -52,28 +52,41 @@ why the letter generator is a first-class feature rather than an afterthought.
 
 ### Live results
 
-`docs/` in this repository holds a real collection run, produced by GitHub
-Actions against the live public APIs — not a fixture. Latest run: **143
-contracts across 158 agencies**, 142 with expiration dates.
+`docs/` holds a real collection run produced by GitHub Actions against the live
+public APIs — not a fixture. Latest run: **265 contracts across 190 agencies in
+44 states**, 261 with expiration dates, from **96 city council agenda systems**
+plus federal awards.
 
-Real examples it found:
+Real RMS / CAD / MDT contracts it found:
 
-| Agency | Incumbent | System | Expires | Value |
+| Agency | Incumbent | System | Expires | Annual |
 |---|---|---|---|---|
-| Denver Police Department | Versaterm | RMS | 2028-12-22 | $12,332,142 |
-| Long Beach Police Department | CentralSquare | RMS | 2021-06-16 | $2,452,691 |
-| Long Beach Police Department | (integrator) | Mobile data terminals | 2026-08-09 | $2,348,500 |
-| Milwaukee Police Department | CentralSquare | CAD | 2027-03-03 | — |
+| Denver PD | Versaterm | RMS | 2028-12-22 | $4,110,714 |
+| Fresno PD | Axon | CAD | 2029-07-25 | $3,673,653 |
+| Long Beach PD | CentralSquare | RMS | 2021-06-16 | $2,452,691 |
+| Newark PD | Mark43 | CAD | 2032-12-17 | $1,142,857 |
+| San Antonio PD | Mark43 | RMS | 2026-11-14 | $708,311 |
+| Corpus Christi PD | Hexagon | CAD | 2026-10-26 | $577,017 |
+| Naperville PD | Tyler Technologies | CAD | 2033-09-19 | $527,924 |
+| Mesa PD | Hexagon / Versaterm | CAD + RMS | 2031-02-25 | $390,056 |
+| Rialto PD | CentralSquare / SOMA | CAD + RMS | 2029-09-24 | $595,571 |
 
 Every row links back to the council item or federal award it came from.
 
 ```bash
-# Re-run it yourself; the runner has the network access
-gh workflow run collect.yml -f sources="legistar usaspending"
+# Rebuild it; the runner has the network access
+gh workflow run collect.yml -f sources="legistar usaspending" -f councils=true
 ```
 
-Publishing `docs/` to GitHub Pages makes it a live, self-updating site. The
-schedule is weekly — expiration dates do not move often enough to justify more.
+**How the council layer got to 96 cities.** There is no directory of which
+cities run Legistar and no list of their slugs, so `discover-councils` derives
+candidates from 413 cities and counties across 44 states, generates the
+predictable slug shapes, and probes all 910 concurrently. Whatever answers
+becomes a source. The sweep takes about 75 seconds.
+
+Bare county stems are deliberately not probed: `king`, `orange` and `wayne`
+would match whichever unrelated jurisdiction owns that slug, filing one
+county's agendas under another's name.
 
 ### Prove it reaches real data first
 
@@ -387,7 +400,7 @@ Motorola radio contract is infrastructure rather than a software deal.
 
 ```bash
 pip install -e ".[dev]"
-pytest              # 226 tests, no network required
+pytest              # 245 tests, no network required
 ```
 
 Connectors take an injected HTTP fetcher, so the whole suite runs offline
@@ -419,7 +432,10 @@ Running against real records found five defects that no fixture would have:
 4. **Amendment chains are one contract, not several.** Denver's fifth, sixth
    and seventh Versaterm agreements each appear as their own council item;
    timing off the earliest pointed at an agreement superseded twice over.
-5. **"Public safety" was indexed as a vendor alias.** It normalized out of
+5. **One slow jurisdiction could stall a national run.** Collection had no
+   per-source time bound and used a 45-second, three-retry fetcher. Every
+   source now runs against a clock and truncates itself rather than the run.
+6. **"Public safety" was indexed as a vendor alias.** It normalized out of
    "public safety corporation" and, being the longest match, attributed
    Denver's Versaterm contracts to CentralSquare.
 
