@@ -1,9 +1,9 @@
 {
- "generated": "2026-09-06",
+ "generated": "2026-09-07",
  "totals": {
-  "total": 265,
+  "total": 274,
   "with_expiration": 261,
-  "agencies": 190,
+  "agencies": 196,
   "by_state": {
    "CA": 37,
    "TX": 23,
@@ -11,6 +11,7 @@
    "OH": 19,
    "FL": 13,
    "PA": 11,
+   "?": 10,
    "GA": 10,
    "CO": 9,
    "KY": 9,
@@ -37,7 +38,6 @@
    "RI": 2,
    "UT": 2,
    "WY": 2,
-   "?": 1,
    "IA": 1,
    "IN": 1,
    "ME": 1,
@@ -51,65 +51,77 @@
    "WV": 1
   },
   "by_category": {
-   "cad": 109,
+   "cad": 112,
+   "rms": 72,
    "dispatch_mobile": 67,
-   "rms": 67,
    "other_software": 17,
    "alpr": 3,
    "bwc": 1,
+   "evidence": 1,
    "rtcc": 1
   },
   "by_source": {
    "usaspending": 141,
-   "legistar": 124
+   "legistar": 124,
+   "cooperative": 9
   }
  },
  "runs": [
   {
-   "id": 97,
+   "id": 98,
    "source": "legistar",
    "dataset": "milwaukeecounty",
-   "ran_at": "2026-09-06T10:39:35",
+   "ran_at": "2026-09-07T12:43:42",
    "fetched": 3,
    "kept": 0,
    "status": "ok",
    "message": "filtered query: scanned 3 council items; kept 0"
   },
   {
-   "id": 96,
+   "id": 97,
    "source": "legistar",
    "dataset": "madison",
-   "ran_at": "2026-09-06T10:39:33",
+   "ran_at": "2026-09-07T12:43:40",
    "fetched": 1,
    "kept": 0,
    "status": "ok",
    "message": "filtered query: scanned 1 council items; kept 0"
   },
   {
-   "id": 95,
+   "id": 96,
    "source": "legistar",
    "dataset": "olympia",
-   "ran_at": "2026-09-06T10:39:27",
+   "ran_at": "2026-09-07T12:43:35",
    "fetched": 2,
    "kept": 1,
    "status": "ok",
    "message": "filtered query: scanned 2 council items; kept 1"
   },
   {
-   "id": 94,
+   "id": 95,
    "source": "legistar",
    "dataset": "kingcounty",
-   "ran_at": "2026-09-06T10:39:26",
+   "ran_at": "2026-09-07T12:43:34",
    "fetched": 1,
    "kept": 0,
    "status": "ok",
    "message": "filtered query: scanned 1 council items; kept 0"
   },
   {
-   "id": 93,
+   "id": 94,
    "source": "legistar",
    "dataset": "bellevue",
-   "ran_at": "2026-09-06T10:39:25",
+   "ran_at": "2026-09-07T12:43:33",
+   "fetched": 1,
+   "kept": 1,
+   "status": "ok",
+   "message": "filtered query: scanned 1 council items; kept 1"
+  },
+  {
+   "id": 93,
+   "source": "legistar",
+   "dataset": "richmondva",
+   "ran_at": "2026-09-07T12:43:32",
    "fetched": 1,
    "kept": 1,
    "status": "ok",
@@ -118,18 +130,18 @@
   {
    "id": 92,
    "source": "legistar",
-   "dataset": "richmondva",
-   "ran_at": "2026-09-06T10:39:23",
+   "dataset": "hampton",
+   "ran_at": "2026-09-07T12:43:28",
    "fetched": 1,
-   "kept": 1,
+   "kept": 0,
    "status": "ok",
-   "message": "filtered query: scanned 1 council items; kept 1"
+   "message": "filtered query: scanned 1 council items; kept 0"
   },
   {
    "id": 91,
    "source": "legistar",
-   "dataset": "hampton",
-   "ran_at": "2026-09-06T10:39:20",
+   "dataset": "alexandria",
+   "ran_at": "2026-09-07T12:43:28",
    "fetched": 1,
    "kept": 0,
    "status": "ok",
@@ -138,268 +150,268 @@
   {
    "id": 90,
    "source": "legistar",
-   "dataset": "alexandria",
-   "ran_at": "2026-09-06T10:39:19",
-   "fetched": 1,
-   "kept": 0,
-   "status": "ok",
-   "message": "filtered query: scanned 1 council items; kept 0"
-  },
-  {
-   "id": 89,
-   "source": "legistar",
    "dataset": "sanantonio",
-   "ran_at": "2026-09-06T10:39:16",
+   "ran_at": "2026-09-07T12:43:25",
    "fetched": 7,
    "kept": 6,
    "status": "ok",
    "message": "filtered query: scanned 7 council items; kept 6"
   },
   {
-   "id": 88,
+   "id": 89,
    "source": "legistar",
    "dataset": "roundrock",
-   "ran_at": "2026-09-06T10:39:12",
+   "ran_at": "2026-09-07T12:43:20",
    "fetched": 2,
    "kept": 1,
    "status": "ok",
    "message": "filtered query: scanned 2 council items; kept 1"
   },
   {
-   "id": 87,
+   "id": 88,
    "source": "legistar",
    "dataset": "plano",
-   "ran_at": "2026-09-06T10:39:10",
+   "ran_at": "2026-09-07T12:43:18",
    "fetched": 0,
    "kept": 0,
    "status": "empty",
    "message": "no matters returned"
   },
   {
-   "id": 86,
+   "id": 87,
    "source": "legistar",
    "dataset": "mesquite",
-   "ran_at": "2026-09-06T10:39:09",
+   "ran_at": "2026-09-07T12:43:18",
    "fetched": 10,
    "kept": 3,
    "status": "ok",
    "message": "filtered query: scanned 10 council items; kept 3"
   },
   {
-   "id": 85,
+   "id": 86,
    "source": "legistar",
    "dataset": "mckinney",
-   "ran_at": "2026-09-06T10:39:08",
+   "ran_at": "2026-09-07T12:43:16",
    "fetched": 1,
    "kept": 0,
    "status": "ok",
    "message": "filtered query: scanned 1 council items; kept 0"
   },
   {
-   "id": 84,
+   "id": 85,
    "source": "legistar",
    "dataset": "leaguecity",
-   "ran_at": "2026-09-06T10:39:05",
+   "ran_at": "2026-09-07T12:43:14",
    "fetched": 2,
    "kept": 2,
    "status": "ok",
    "message": "filtered query: scanned 2 council items; kept 2"
   },
   {
-   "id": 83,
+   "id": 84,
    "source": "legistar",
    "dataset": "killeen",
-   "ran_at": "2026-09-06T10:39:04",
+   "ran_at": "2026-09-07T12:43:13",
    "fetched": 6,
    "kept": 3,
    "status": "ok",
    "message": "filtered query: scanned 6 council items; kept 3"
   },
   {
-   "id": 82,
+   "id": 83,
    "source": "legistar",
    "dataset": "harriscountytx",
-   "ran_at": "2026-09-06T10:39:03",
+   "ran_at": "2026-09-07T12:43:12",
    "fetched": 21,
    "kept": 1,
    "status": "ok",
    "message": "filtered query: scanned 21 council items; kept 1"
   },
   {
-   "id": 81,
+   "id": 82,
    "source": "legistar",
    "dataset": "grandprairie",
-   "ran_at": "2026-09-06T10:38:53",
+   "ran_at": "2026-09-07T12:43:00",
    "fetched": 2,
    "kept": 1,
    "status": "ok",
    "message": "filtered query: scanned 2 council items; kept 1"
   },
   {
-   "id": 80,
+   "id": 81,
    "source": "legistar",
    "dataset": "corpuschristi",
-   "ran_at": "2026-09-06T10:38:52",
+   "ran_at": "2026-09-07T12:42:59",
    "fetched": 10,
    "kept": 6,
    "status": "ok",
    "message": "filtered query: scanned 10 council items; kept 6"
   },
   {
-   "id": 79,
+   "id": 80,
    "source": "legistar",
    "dataset": "carrolltontx",
-   "ran_at": "2026-09-06T10:38:48",
+   "ran_at": "2026-09-07T12:42:56",
    "fetched": 4,
    "kept": 0,
    "status": "ok",
    "message": "filtered query: scanned 4 council items; kept 0"
   },
   {
-   "id": 78,
+   "id": 79,
    "source": "legistar",
    "dataset": "nashville",
-   "ran_at": "2026-09-06T10:38:47",
+   "ran_at": "2026-09-07T12:42:55",
    "fetched": 4,
    "kept": 2,
    "status": "ok",
    "message": "filtered query: scanned 4 council items; kept 2"
   },
   {
-   "id": 77,
+   "id": 78,
    "source": "legistar",
    "dataset": "providenceri",
-   "ran_at": "2026-09-06T10:38:44",
+   "ran_at": "2026-09-07T12:42:52",
    "fetched": 0,
    "kept": 0,
    "status": "empty",
    "message": "no matters returned"
   },
   {
-   "id": 76,
+   "id": 77,
    "source": "legistar",
    "dataset": "pittsburgh",
-   "ran_at": "2026-09-06T10:38:44",
+   "ran_at": "2026-09-07T12:42:52",
    "fetched": 8,
    "kept": 3,
    "status": "ok",
    "message": "filtered query: scanned 8 council items; kept 3"
   },
   {
-   "id": 75,
+   "id": 76,
    "source": "legistar",
    "dataset": "erie",
-   "ran_at": "2026-09-06T10:38:40",
+   "ran_at": "2026-09-07T12:42:48",
    "fetched": 0,
    "kept": 0,
    "status": "empty",
    "message": "no matters returned"
   },
   {
-   "id": 74,
+   "id": 75,
    "source": "legistar",
    "dataset": "allentownpa",
-   "ran_at": "2026-09-06T10:38:39",
+   "ran_at": "2026-09-07T12:42:48",
    "fetched": 2,
    "kept": 1,
    "status": "ok",
    "message": "filtered query: scanned 2 council items; kept 1"
   },
   {
-   "id": 73,
+   "id": 74,
    "source": "legistar",
    "dataset": "salem",
-   "ran_at": "2026-09-06T10:38:38",
+   "ran_at": "2026-09-07T12:42:46",
    "fetched": 0,
    "kept": 0,
    "status": "empty",
    "message": "no matters returned"
   },
   {
-   "id": 72,
+   "id": 73,
    "source": "legistar",
    "dataset": "toledo",
-   "ran_at": "2026-09-06T10:38:36",
+   "ran_at": "2026-09-07T12:42:44",
    "fetched": 5,
    "kept": 5,
    "status": "ok",
    "message": "filtered query: scanned 5 council items; kept 5"
   },
   {
-   "id": 71,
+   "id": 72,
    "source": "legistar",
    "dataset": "columbus",
-   "ran_at": "2026-09-06T10:38:34",
+   "ran_at": "2026-09-07T12:42:42",
    "fetched": 9,
    "kept": 7,
    "status": "ok",
    "message": "filtered query: scanned 9 council items; kept 7"
   },
   {
-   "id": 70,
+   "id": 71,
    "source": "legistar",
    "dataset": "cincinnatioh",
-   "ran_at": "2026-09-06T10:38:25",
+   "ran_at": "2026-09-07T12:42:33",
    "fetched": 7,
    "kept": 2,
    "status": "ok",
    "message": "filtered query: scanned 7 council items; kept 2"
   },
   {
-   "id": 69,
+   "id": 70,
    "source": "legistar",
    "dataset": "yonkersny",
-   "ran_at": "2026-09-06T10:38:21",
+   "ran_at": "2026-09-07T12:42:28",
    "fetched": 0,
    "kept": 0,
    "status": "empty",
    "message": "no matters returned"
   },
   {
-   "id": 68,
+   "id": 69,
    "source": "legistar",
    "dataset": "westchestercountyny",
-   "ran_at": "2026-09-06T10:38:20",
+   "ran_at": "2026-09-07T12:42:28",
    "fetched": 1,
    "kept": 1,
    "status": "ok",
    "message": "filtered query: scanned 1 council items; kept 1"
   },
   {
-   "id": 67,
+   "id": 68,
    "source": "legistar",
    "dataset": "newark",
-   "ran_at": "2026-09-06T10:38:19",
+   "ran_at": "2026-09-07T12:42:27",
    "fetched": 26,
    "kept": 2,
    "status": "ok",
    "message": "filtered query: scanned 26 council items; kept 2"
   },
   {
-   "id": 66,
+   "id": 67,
    "source": "legistar",
    "dataset": "hobokennj",
-   "ran_at": "2026-09-06T10:38:10",
+   "ran_at": "2026-09-07T12:42:18",
    "fetched": 0,
    "kept": 0,
    "status": "empty",
    "message": "no matters returned"
   },
   {
-   "id": 65,
+   "id": 66,
    "source": "legistar",
    "dataset": "douglascounty",
-   "ran_at": "2026-09-06T10:38:09",
+   "ran_at": "2026-09-07T12:42:17",
    "fetched": 1,
    "kept": 0,
    "status": "ok",
    "message": "filtered query: scanned 1 council items; kept 0"
   },
   {
-   "id": 64,
+   "id": 65,
    "source": "legistar",
    "dataset": "fargond",
-   "ran_at": "2026-09-06T10:38:08",
+   "ran_at": "2026-09-07T12:42:16",
+   "fetched": 0,
+   "kept": 0,
+   "status": "empty",
+   "message": "no matters returned"
+  },
+  {
+   "id": 64,
+   "source": "legistar",
+   "dataset": "wilmington",
+   "ran_at": "2026-09-07T12:42:15",
    "fetched": 0,
    "kept": 0,
    "status": "empty",
@@ -408,8 +420,8 @@
   {
    "id": 63,
    "source": "legistar",
-   "dataset": "wilmington",
-   "ran_at": "2026-09-06T10:38:07",
+   "dataset": "greensboro",
+   "ran_at": "2026-09-07T12:42:14",
    "fetched": 0,
    "kept": 0,
    "status": "empty",
@@ -418,48 +430,38 @@
   {
    "id": 62,
    "source": "legistar",
-   "dataset": "greensboro",
-   "ran_at": "2026-09-06T10:38:06",
-   "fetched": 0,
-   "kept": 0,
-   "status": "empty",
-   "message": "no matters returned"
-  },
-  {
-   "id": 61,
-   "source": "legistar",
    "dataset": "durhamcounty",
-   "ran_at": "2026-09-06T10:38:05",
+   "ran_at": "2026-09-07T12:42:13",
    "fetched": 1,
    "kept": 0,
    "status": "ok",
    "message": "filtered query: scanned 1 council items; kept 0"
   },
   {
-   "id": 60,
+   "id": 61,
    "source": "legistar",
    "dataset": "charlottenc",
-   "ran_at": "2026-09-06T10:38:04",
+   "ran_at": "2026-09-07T12:42:12",
    "fetched": 3,
    "kept": 0,
    "status": "ok",
    "message": "filtered query: scanned 3 council items; kept 0"
   },
   {
-   "id": 59,
+   "id": 60,
    "source": "legistar",
    "dataset": "kansascity",
-   "ran_at": "2026-09-06T10:38:02",
+   "ran_at": "2026-09-07T12:42:11",
    "fetched": 0,
    "kept": 0,
    "status": "empty",
    "message": "no matters returned"
   },
   {
-   "id": 58,
+   "id": 59,
    "source": "legistar",
    "dataset": "ramseycountymn",
-   "ran_at": "2026-09-06T10:37:59",
+   "ran_at": "2026-09-07T12:42:08",
    "fetched": 0,
    "kept": 0,
    "status": "empty",
@@ -630,7 +632,7 @@
    "expires": "2028-12-22",
    "budgetDeadline": "2027-08-01",
    "stage": "too_early",
-   "priority": 69.5,
+   "priority": 69.6,
    "sources": [
     "legistar"
    ]
@@ -714,7 +716,7 @@
    "expires": "2028-12-08",
    "budgetDeadline": "2028-02-01",
    "stage": "too_early",
-   "priority": 64.5,
+   "priority": 64.6,
    "sources": [
     "legistar"
    ]
@@ -854,7 +856,7 @@
    "expires": "2029-01-27",
    "budgetDeadline": "2028-02-01",
    "stage": "too_early",
-   "priority": 59.7,
+   "priority": 59.8,
    "sources": [
     "legistar"
    ]
@@ -896,7 +898,7 @@
    "expires": "2028-09-20",
    "budgetDeadline": "2028-02-01",
    "stage": "too_early",
-   "priority": 57.6,
+   "priority": 57.7,
    "sources": [
     "usaspending"
    ]
@@ -1302,7 +1304,7 @@
    "expires": "2029-05-20",
    "budgetDeadline": "2028-02-01",
    "stage": "too_early",
-   "priority": 47.3,
+   "priority": 47.4,
    "sources": [
     "legistar"
    ]
